@@ -1,38 +1,43 @@
 # tailfn
 
 #### 介绍
+
 类似于tail -300f 这样的命令查看文件更新内容，
 日志文件阅读器
 
 #### 软件架构
-软件架构说明
 
+采用文件监听方式读取日志文件变更内容后显示最后变更的行数
 
-#### 安装教程
+相当于在linux 控制台输入 tail -150f xxx.log
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+软件首次运行会自动创建 view.yml 文件
+
+配置文件格式：
+
+| 名称          | 描述                     |
+|-------------|------------------------|
+| filePath    | 监听文件的路径，最好是全路径         |
+| lastN       | 启动的同时显示最后多少行，默认为 150   |
+| showMaxLine | 在滚动区域内显示的最大行数，默认1500   |
+| autoWarp    | 在展示区域时是否自动换行，默认为 false |
+| fontSize    | 字体大小，默认13号字体           |
+| bgColor     | 主题模板，默认 body_light 浅色  |
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+右键打开查找功能，可以正常输入想要查找的内容
 
-#### 参与贡献
+日志在查看的时候屏幕默认不滚动方便查看内容；如果日志太多滚动太快，可以点击右键暂停输出内容
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+右键打开过滤功能，可以在日志滚动的时候只查看带有关键字的行内容
 
+### 预览
 
-#### 特技
+##### 浅色
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+![image](l1.png)
+
+##### 深色
+
+![image](l2.png)
