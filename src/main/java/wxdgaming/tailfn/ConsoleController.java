@@ -3,13 +3,18 @@ package wxdgaming.tailfn;
 import com.sun.javafx.application.PlatformImpl;
 import javafx.event.ActionEvent;
 import javafx.scene.web.WebView;
+import javafx.stage.FileChooser;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * 控制台
@@ -62,25 +67,62 @@ public class ConsoleController {
                     } else {
                         webView.getEngine().executeScript("setSpanNonWarp();");
                     }
-
-
-                    tailFN = new TailFN(ViewConfig.ins.getFilePath(), ViewConfig.ins.getLastN(), line -> {
-                        PlatformImpl.runAndWait(() -> {
-                            try {
-                                String escapedLine = StringEscapeUtils.escapeEcmaScript(line);
-                                webView.getEngine().executeScript("append(\"" + escapedLine + "\");");
-                            } catch (Exception e) {
-                                System.err.println(line);
-                                e.printStackTrace(System.err);
-                            }
-                        });
-                    });
-
+                    initTailFN();
                 } catch (Exception e) {
                     e.printStackTrace(System.out);
                 }
             }
         });
+    }
+
+    public void exit(ActionEvent event) {
+        Runtime.getRuntime().halt(0);
+    }
+
+    public void initTailFN() {
+        if (tailFN != null) tailFN.stop();
+        if (StringUtils.isBlank(ViewConfig.ins.getFilePath())) {
+            appendLine("尚未选择文件");
+            return;
+        }
+        Path filePath = Paths.get(ViewConfig.ins.getFilePath());
+        if (!Files.exists(filePath.toAbsolutePath().getParent())) {
+            appendLine("需要监听的文件夹: " + filePath.toAbsolutePath() + " 异常");
+            return;
+        }
+        appendLine("监听文件: " + filePath.toAbsolutePath());
+        tailFN = new TailFN(filePath, ViewConfig.ins.getLastN(), this::appendLine);
+    }
+
+    public void appendLine(String line) {
+        PlatformImpl.runAndWait(() -> {
+            try {
+                String escapedLine = StringEscapeUtils.escapeEcmaScript(line);
+                webView.getEngine().executeScript("append(\"" + escapedLine + "\");");
+            } catch (Exception e) {
+                System.err.println(line);
+                e.printStackTrace(System.err);
+            }
+        });
+    }
+
+    public void selectFile(ActionEvent event) {
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("选择 日志 文件");
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("txt Files", "*.log", "*.text"),
+                new FileChooser.ExtensionFilter("All Files", "*.*")
+        );
+        File selectedFile = fileChooser.showOpenDialog(webView.getScene().getWindow());
+        if (selectedFile != null) {
+            appendLine("选择的文件路径: " + selectedFile.getAbsolutePath());
+            ViewConfig.ins.setFilePath(selectedFile.getAbsolutePath());
+            ViewConfig.ins.save();
+            initTailFN();
+        }
+
     }
 
     /** 设置深色模式 */

@@ -13,7 +13,9 @@
             <menus>
                 <Menu mnemonicParsing="false" text="开始">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="退出"/>
+                        <MenuItem text="打开" onAction="#selectFile"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem mnemonicParsing="false" text="退出" onAction="#exit"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="视图">

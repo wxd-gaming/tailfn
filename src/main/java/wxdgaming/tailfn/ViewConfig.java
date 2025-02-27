@@ -49,11 +49,11 @@ public class ViewConfig {
     }
 
     private String filePath;
-    private int lastN = 10;
+    private int lastN = 150;
     private int showMaxLine = 1500;
     private int fontSize = 13;
-    private String bgColor;
-    private boolean autoWarp = true;
+    private String bgColor = "body_light";
+    private boolean autoWarp = false;
 
 
     public void save() {

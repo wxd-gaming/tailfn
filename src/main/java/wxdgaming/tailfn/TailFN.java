@@ -26,6 +26,8 @@ public class TailFN {
     private final Consumer<String> consumer;
     private final AtomicLong filePointer = new AtomicLong();
 
+    FileAlterationMonitor monitor = null;
+
     public TailFN(String filePath, int n, Consumer<String> consumer) {
         this(Paths.get(filePath), n, consumer);
     }
@@ -39,7 +41,7 @@ public class TailFN {
             readLastLine();
             long pollingInterval = 1000; // Poll every second
             FileAlterationObserver fileAlterationObserver = FileAlterationObserver.builder().setFile(this.filePath.toFile().getParentFile()).get();
-            FileAlterationMonitor monitor = new FileAlterationMonitor(pollingInterval);
+            monitor = new FileAlterationMonitor(pollingInterval);
             FileAlterationListenerAdaptor listener = new FileAlterationListenerAdaptor() {
                 @Override
                 public void onFileChange(File file) {
@@ -59,6 +61,14 @@ public class TailFN {
             monitor.start();
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void stop() {
+        try {
+            monitor.stop();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
         }
     }
 
@@ -84,7 +94,9 @@ public class TailFN {
     void readLastLine() throws IOException {
         try (RandomAccessFile file = new RandomAccessFile(filePath.toFile(), "r")) {
             /*把指针移动到上次读取的位置*/
-            file.seek(filePointer.get());
+            if (file.length() > filePointer.get()) {
+                file.seek(filePointer.get());
+            }
             try (FileChannel channel = file.getChannel();
                  InputStream inputStream = Channels.newInputStream(channel);
                  InputStreamReader streamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);) {
