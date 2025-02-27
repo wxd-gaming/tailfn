@@ -46,8 +46,6 @@ public class ReflectAction {
 
     public void action(Class<?> cls, boolean checkPackage) {
         if (cls == Object.class) return;
-        if (checkPackage && (!cls.getName().startsWith("wxdgaming.mariadb")))
-            return;
         if (cls.getSuperclass() != null) action(cls.getSuperclass(), checkPackage);
 
         actionField(cls);

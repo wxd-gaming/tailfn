@@ -2039,8 +2039,6 @@
   }, {
     "pattern":"\\Qcom/sun/glass/ui/EventLoop.class\\E"
   }, {
-    "pattern":"\\Qcom/sun/glass/ui/GestureSupport$1.class\\E"
-  }, {
     "pattern":"\\Qcom/sun/glass/ui/GestureSupport$GestureState$StateId.class\\E"
   }, {
     "pattern":"\\Qcom/sun/glass/ui/GestureSupport$GestureState.class\\E"
@@ -2229,6 +2227,14 @@
   }, {
     "pattern":"\\Qcom/sun/javafx/\\E"
   }, {
+    "pattern":"\\Qcom/sun/javafx/animation/AnimationTimerHelper$Accessor.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/animation/AnimationTimerHelper.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/animation/InterpolatorHelper$Accessor.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/animation/InterpolatorHelper.class\\E"
+  }, {
     "pattern":"\\Qcom/sun/javafx/animation/KeyValueHelper$KeyValueAccessor.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/animation/KeyValueHelper.class\\E"
@@ -2257,11 +2263,23 @@
   }, {
     "pattern":"\\Qcom/sun/javafx/application/PlatformImpl$FinishListener.class\\E"
   }, {
-    "pattern":"\\Qcom/sun/javafx/application/PlatformImpl$HighContrastScheme.class\\E"
-  }, {
     "pattern":"\\Qcom/sun/javafx/application/PlatformImpl.class\\E"
   }, {
+    "pattern":"\\Qcom/sun/javafx/application/WindowsHighContrastScheme.class\\E"
+  }, {
     "pattern":"\\Qcom/sun/javafx/application/\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/application/preferences/ChangedValue.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/application/preferences/PlatformPreferences.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/application/preferences/PreferenceProperties$ColorProperty.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/application/preferences/PreferenceProperties$ColorSchemeProperty.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/application/preferences/PreferenceProperties.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/application/preferences/\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/beans/IDProperty.class\\E"
   }, {
@@ -2593,11 +2611,41 @@
   }, {
     "pattern":"\\Qcom/sun/javafx/css/Combinator.class\\E"
   }, {
+    "pattern":"\\Qcom/sun/javafx/css/CssUtil.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/FixedCapacitySet$Duo$1.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/FixedCapacitySet$Duo.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/FixedCapacitySet$Hashless$1.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/FixedCapacitySet$Hashless.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/FixedCapacitySet$OpenAddressed$1.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/FixedCapacitySet$OpenAddressed.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/FixedCapacitySet$Single$1.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/FixedCapacitySet$Single.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/FixedCapacitySet.class\\E"
+  }, {
     "pattern":"\\Qcom/sun/javafx/css/FontFaceImpl$FontFaceSrc.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/css/FontFaceImpl$FontFaceSrcType.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/css/FontFaceImpl.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/ImmutablePseudoClassSetsCache.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/InterpolatorConverter$1.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/InterpolatorConverter$Holder.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/InterpolatorConverter$SequenceConverter.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/InterpolatorConverter.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/css/ParsedValueImpl.class\\E"
   }, {
@@ -2621,8 +2669,6 @@
   }, {
     "pattern":"\\Qcom/sun/javafx/css/StyleCacheEntry.class\\E"
   }, {
-    "pattern":"\\Qcom/sun/javafx/css/StyleClassSet.class\\E"
-  }, {
     "pattern":"\\Qcom/sun/javafx/css/StyleManager$Cache$Key.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/css/StyleManager$Cache.class\\E"
@@ -2644,6 +2690,30 @@
     "pattern":"\\Qcom/sun/javafx/css/StyleMap.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/css/SubCssMetaData.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionDefinition.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionDefinitionConverter$Holder.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionDefinitionConverter$SequenceConverter.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionDefinitionConverter.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionDefinitionCssMetaData$1.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionDefinitionCssMetaData$2.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionDefinitionCssMetaData$3.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionDefinitionCssMetaData$4.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionDefinitionCssMetaData$Holder.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionDefinitionCssMetaData.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionMediator.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/css/TransitionTimer.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/css/\\E"
   }, {
@@ -3129,6 +3199,8 @@
   }, {
     "pattern":"\\Qcom/sun/javafx/geom/CurveLink.class\\E"
   }, {
+    "pattern":"\\Qcom/sun/javafx/geom/Dimension.class\\E"
+  }, {
     "pattern":"\\Qcom/sun/javafx/geom/Dimension2D.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/geom/DirtyRegionContainer.class\\E"
@@ -3272,8 +3344,6 @@
     "pattern":"\\Qcom/sun/javafx/iio/ImageLoaderFactory.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/iio/ImageMetadata.class\\E"
-  }, {
-    "pattern":"\\Qcom/sun/javafx/iio/ImageStorage$1.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/iio/ImageStorage$ImageType.class\\E"
   }, {
@@ -3518,8 +3588,6 @@
     "pattern":"\\Qcom/sun/javafx/image/impl/\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/logging/Logger.class\\E"
-  }, {
-    "pattern":"\\Qcom/sun/javafx/logging/PlatformLogger$1.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/logging/PlatformLogger$Level.class\\E"
   }, {
@@ -3880,6 +3948,10 @@
     "pattern":"\\Qcom/sun/javafx/scene/control/InputField.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/scene/control/IntegerField.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/scene/control/LabeledHelper$Accessor.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/scene/control/LabeledHelper.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/scene/control/LabeledImpl$Shuttler.class\\E"
   }, {
@@ -4991,8 +5063,6 @@
   }, {
     "pattern":"\\Qcom/sun/javafx/scene/traversal/ContainerTabOrder.class\\E"
   }, {
-    "pattern":"\\Qcom/sun/javafx/scene/traversal/Direction$1.class\\E"
-  }, {
     "pattern":"\\Qcom/sun/javafx/scene/traversal/Direction.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/scene/traversal/Hueristic2D$1.class\\E"
@@ -5166,8 +5236,6 @@
     "pattern":"\\Qcom/sun/javafx/sg/prism/NGText.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/sg/prism/NGTriangleMesh.class\\E"
-  }, {
-    "pattern":"\\Qcom/sun/javafx/sg/prism/NodeEffectInput$1.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/sg/prism/NodeEffectInput$RenderType.class\\E"
   }, {
@@ -5487,8 +5555,6 @@
   }, {
     "pattern":"\\Qcom/sun/javafx/tk/quantum/ScrollGestureRecognizer.class\\E"
   }, {
-    "pattern":"\\Qcom/sun/javafx/tk/quantum/SwipeGestureRecognizer$1.class\\E"
-  }, {
     "pattern":"\\Qcom/sun/javafx/tk/quantum/SwipeGestureRecognizer$CenterComputer.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/tk/quantum/SwipeGestureRecognizer$MultiTouchTracker.class\\E"
@@ -5516,6 +5582,8 @@
     "pattern":"\\Qcom/sun/javafx/tk/quantum/ZoomGestureRecognizer.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/tk/quantum/\\E"
+  }, {
+    "pattern":"\\Qcom/sun/javafx/util/DataURI$1ExpectedCharacter.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/util/DataURI.class\\E"
   }, {
@@ -5729,8 +5797,6 @@
   }, {
     "pattern":"\\Qcom/sun/javafx/webkit/theme/PopupMenuImpl.class\\E"
   }, {
-    "pattern":"\\Qcom/sun/javafx/webkit/theme/RenderThemeImpl$1.class\\E"
-  }, {
     "pattern":"\\Qcom/sun/javafx/webkit/theme/RenderThemeImpl$FormButton.class\\E"
   }, {
     "pattern":"\\Qcom/sun/javafx/webkit/theme/RenderThemeImpl$FormCheckBox.class\\E"
@@ -5816,8 +5882,6 @@
     "pattern":"\\Qcom/sun/marlin/ArrayCacheIntClean$Reference.class\\E"
   }, {
     "pattern":"\\Qcom/sun/marlin/ArrayCacheIntClean.class\\E"
-  }, {
-    "pattern":"\\Qcom/sun/marlin/CollinearSimplifier$1.class\\E"
   }, {
     "pattern":"\\Qcom/sun/marlin/CollinearSimplifier$SimplifierState.class\\E"
   }, {
@@ -6023,11 +6087,15 @@
   }, {
     "pattern":"\\Qcom/sun/media/jfxmedia/locator/ConnectionHolder.class\\E"
   }, {
+    "pattern":"\\Qcom/sun/media/jfxmedia/locator/HLSConnectionHolder$AudioExtMedia.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/media/jfxmedia/locator/HLSConnectionHolder$ExtStreamInf.class\\E"
+  }, {
     "pattern":"\\Qcom/sun/media/jfxmedia/locator/HLSConnectionHolder$Playlist.class\\E"
   }, {
-    "pattern":"\\Qcom/sun/media/jfxmedia/locator/HLSConnectionHolder$PlaylistParser.class\\E"
+    "pattern":"\\Qcom/sun/media/jfxmedia/locator/HLSConnectionHolder$PlaylistLoader.class\\E"
   }, {
-    "pattern":"\\Qcom/sun/media/jfxmedia/locator/HLSConnectionHolder$PlaylistThread.class\\E"
+    "pattern":"\\Qcom/sun/media/jfxmedia/locator/HLSConnectionHolder$PlaylistParser.class\\E"
   }, {
     "pattern":"\\Qcom/sun/media/jfxmedia/locator/HLSConnectionHolder$VariantPlaylist.class\\E"
   }, {
@@ -6827,8 +6895,6 @@
   }, {
     "pattern":"\\Qcom/sun/prism/impl/PrismTrace$1.class\\E"
   }, {
-    "pattern":"\\Qcom/sun/prism/impl/PrismTrace$2.class\\E"
-  }, {
     "pattern":"\\Qcom/sun/prism/impl/PrismTrace$SummaryType.class\\E"
   }, {
     "pattern":"\\Qcom/sun/prism/impl/PrismTrace.class\\E"
@@ -7545,6 +7611,10 @@
   }, {
     "pattern":"\\Qcom/sun/scenario/animation/SplineInterpolator.class\\E"
   }, {
+    "pattern":"\\Qcom/sun/scenario/animation/StepInterpolator$1.class\\E"
+  }, {
+    "pattern":"\\Qcom/sun/scenario/animation/StepInterpolator.class\\E"
+  }, {
     "pattern":"\\Qcom/sun/scenario/animation/\\E"
   }, {
     "pattern":"\\Qcom/sun/scenario/animation/shared/AnimationAccessor.class\\E"
@@ -7602,8 +7672,6 @@
     "pattern":"\\Qcom/sun/scenario/effect/AbstractShadow$ShadowMode.class\\E"
   }, {
     "pattern":"\\Qcom/sun/scenario/effect/AbstractShadow.class\\E"
-  }, {
-    "pattern":"\\Qcom/sun/scenario/effect/Blend$1.class\\E"
   }, {
     "pattern":"\\Qcom/sun/scenario/effect/Blend$Mode.class\\E"
   }, {
@@ -8775,8 +8843,6 @@
   }, {
     "pattern":"\\Qjavafx/animation/Animation$6.class\\E"
   }, {
-    "pattern":"\\Qjavafx/animation/Animation$7.class\\E"
-  }, {
     "pattern":"\\Qjavafx/animation/Animation$AnimationReadOnlyProperty.class\\E"
   }, {
     "pattern":"\\Qjavafx/animation/Animation$CurrentRateProperty.class\\E"
@@ -8788,6 +8854,8 @@
     "pattern":"\\Qjavafx/animation/Animation.class\\E"
   }, {
     "pattern":"\\Qjavafx/animation/AnimationAccessorImpl.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/animation/AnimationTimer$1.class\\E"
   }, {
     "pattern":"\\Qjavafx/animation/AnimationTimer$AnimationTimerReceiver.class\\E"
   }, {
@@ -8812,6 +8880,10 @@
     "pattern":"\\Qjavafx/animation/Interpolator$4.class\\E"
   }, {
     "pattern":"\\Qjavafx/animation/Interpolator$5.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/animation/Interpolator$6.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/animation/Interpolator$StepPosition.class\\E"
   }, {
     "pattern":"\\Qjavafx/animation/Interpolator.class\\E"
   }, {
@@ -8877,11 +8949,15 @@
   }, {
     "pattern":"\\Qjavafx/application/Application.class\\E"
   }, {
+    "pattern":"\\Qjavafx/application/ColorScheme.class\\E"
+  }, {
     "pattern":"\\Qjavafx/application/ConditionalFeature.class\\E"
   }, {
     "pattern":"\\Qjavafx/application/HostServices.class\\E"
   }, {
     "pattern":"\\Qjavafx/application/Platform$1.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/application/Platform$Preferences.class\\E"
   }, {
     "pattern":"\\Qjavafx/application/Platform.class\\E"
   }, {
@@ -9931,15 +10007,27 @@
   }, {
     "pattern":"\\Qjavafx/css/Styleable.class\\E"
   }, {
+    "pattern":"\\Qjavafx/css/StyleableBooleanProperty$TransitionMediatorImpl.class\\E"
+  }, {
     "pattern":"\\Qjavafx/css/StyleableBooleanProperty.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/css/StyleableDoubleProperty$TransitionMediatorImpl.class\\E"
   }, {
     "pattern":"\\Qjavafx/css/StyleableDoubleProperty.class\\E"
   }, {
+    "pattern":"\\Qjavafx/css/StyleableFloatProperty$TransitionMediatorImpl.class\\E"
+  }, {
     "pattern":"\\Qjavafx/css/StyleableFloatProperty.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/css/StyleableIntegerProperty$TransitionMediatorImpl.class\\E"
   }, {
     "pattern":"\\Qjavafx/css/StyleableIntegerProperty.class\\E"
   }, {
+    "pattern":"\\Qjavafx/css/StyleableLongProperty$TransitionMediatorImpl.class\\E"
+  }, {
     "pattern":"\\Qjavafx/css/StyleableLongProperty.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/css/StyleableObjectProperty$TransitionMediatorImpl.class\\E"
   }, {
     "pattern":"\\Qjavafx/css/StyleableObjectProperty.class\\E"
   }, {
@@ -9954,6 +10042,8 @@
     "pattern":"\\Qjavafx/css/Stylesheet$1.class\\E"
   }, {
     "pattern":"\\Qjavafx/css/Stylesheet.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/css/TransitionEvent.class\\E"
   }, {
     "pattern":"\\Qjavafx/css/\\E"
   }, {
@@ -9980,6 +10070,8 @@
     "pattern":"\\Qjavafx/css/converter/DurationConverter$1.class\\E"
   }, {
     "pattern":"\\Qjavafx/css/converter/DurationConverter$Holder.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/css/converter/DurationConverter$SequenceConverter.class\\E"
   }, {
     "pattern":"\\Qjavafx/css/converter/DurationConverter.class\\E"
   }, {
@@ -10473,6 +10565,8 @@
   }, {
     "pattern":"\\Qjavafx/scene/Node$StyleableProperties.class\\E"
   }, {
+    "pattern":"\\Qjavafx/scene/Node$TransitionDefinitionCollection.class\\E"
+  }, {
     "pattern":"\\Qjavafx/scene/Node$TreeVisibleProperty.class\\E"
   }, {
     "pattern":"\\Qjavafx/scene/Node.class\\E"
@@ -10783,6 +10877,10 @@
   }, {
     "pattern":"\\Qjavafx/scene/chart/CategoryAxis$4.class\\E"
   }, {
+    "pattern":"\\Qjavafx/scene/chart/CategoryAxis$5.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/scene/chart/CategoryAxis$6.class\\E"
+  }, {
     "pattern":"\\Qjavafx/scene/chart/CategoryAxis$StyleableProperties$1.class\\E"
   }, {
     "pattern":"\\Qjavafx/scene/chart/CategoryAxis$StyleableProperties$2.class\\E"
@@ -11004,8 +11102,6 @@
     "pattern":"\\Qjavafx/scene/control/Accordion.class\\E"
   }, {
     "pattern":"\\Qjavafx/scene/control/Alert$1.class\\E"
-  }, {
-    "pattern":"\\Qjavafx/scene/control/Alert$2.class\\E"
   }, {
     "pattern":"\\Qjavafx/scene/control/Alert$AlertType.class\\E"
   }, {
@@ -11248,6 +11344,8 @@
     "pattern":"\\Qjavafx/scene/control/Labeled$13.class\\E"
   }, {
     "pattern":"\\Qjavafx/scene/control/Labeled$14.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/scene/control/Labeled$15.class\\E"
   }, {
     "pattern":"\\Qjavafx/scene/control/Labeled$2.class\\E"
   }, {
@@ -13021,6 +13119,14 @@
   }, {
     "pattern":"\\Qjavafx/scene/image/ImageView$StyleableProperties$1.class\\E"
   }, {
+    "pattern":"\\Qjavafx/scene/image/ImageView$StyleableProperties$2.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/scene/image/ImageView$StyleableProperties$3.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/scene/image/ImageView$StyleableProperties$4.class\\E"
+  }, {
+    "pattern":"\\Qjavafx/scene/image/ImageView$StyleableProperties$5.class\\E"
+  }, {
     "pattern":"\\Qjavafx/scene/image/ImageView$StyleableProperties.class\\E"
   }, {
     "pattern":"\\Qjavafx/scene/image/ImageView.class\\E"
@@ -13102,8 +13208,6 @@
     "pattern":"\\Qjavafx/scene/input/KeyCodeCombination.class\\E"
   }, {
     "pattern":"\\Qjavafx/scene/input/KeyCombination$1.class\\E"
-  }, {
-    "pattern":"\\Qjavafx/scene/input/KeyCombination$2.class\\E"
   }, {
     "pattern":"\\Qjavafx/scene/input/KeyCombination$Modifier.class\\E"
   }, {
@@ -14266,8 +14370,6 @@
     "pattern":"\\Qjavafx/scene/web/HTMLEditorSkin$6$1.class\\E"
   }, {
     "pattern":"\\Qjavafx/scene/web/HTMLEditorSkin$6.class\\E"
-  }, {
-    "pattern":"\\Qjavafx/scene/web/HTMLEditorSkin$7.class\\E"
   }, {
     "pattern":"\\Qjavafx/scene/web/HTMLEditorSkin$Command.class\\E"
   }, {
@@ -18799,12 +18901,15 @@
   }]},
   "bundles":[{
     "name":"com.sun.javafx.tk.quantum.QuantumMessagesBundle",
-    "locales":["", "und", "zh-CN"]
+    "locales":["", "zh-CN"]
   }, {
     "name":"com/sun/glass/ui/win/themes",
-    "locales":["", "und", "zh-CN"]
+    "locales":["", "de", "en", "es", "fr", "it", "ja", "ko", "pt-BR", "sv", "zh-CN", "zh-TW"]
   }, {
     "name":"com/sun/javafx/scene/control/skin/resources/controls",
-    "locales":["", "und", "zh-CN"]
+    "locales":["", "zh-CN"]
+  }, {
+    "name":"sun.awt.resources.awt",
+    "classNames":["sun.awt.resources.awt", "sun.awt.resources.awt_zh_CN"]
   }]
 }

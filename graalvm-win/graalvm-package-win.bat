@@ -1,2 +1,2 @@
 @echo off
-C:\\java\\graalvm-jdk-21.0.6+8.1\\bin\\java -agentlib:native-image-agent=config-merge-dir=graalvm-win/config -Dfile.encoding=UTF-8 -Dbuild.graalvm=true -Dlogback.configurationFile=logback-gbk.xml -jar target/tail-jar-with-dependencies.jar
+C:\java\graalvm-jdk-21.0.6+8.1\\bin\\java -agentlib:native-image-agent=config-merge-dir=graalvm-win/config -Dfile.encoding=UTF-8 -Dbuild.graalvm=true -Dlogback.configurationFile=logback-gbk.xml -jar target/tail-jar-with-dependencies.jar

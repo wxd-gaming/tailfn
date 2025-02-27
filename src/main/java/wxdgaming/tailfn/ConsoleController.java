@@ -2,6 +2,8 @@ package wxdgaming.tailfn;
 
 import com.sun.javafx.application.PlatformImpl;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import org.apache.commons.lang3.StringUtils;
@@ -51,6 +53,15 @@ public class ConsoleController {
     }
 
     public void init() {
+
+        // 设置全局异常处理器
+        Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
+            // 处理未捕获的异常
+            System.err.println("未捕获的异常: " + throwable.getMessage());
+            throwable.printStackTrace(System.err);
+            // 可以在这里记录日志或显示错误信息
+        });
+
         webView.getEngine().loadContent(readHtml());
         webView.getEngine().getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == javafx.concurrent.Worker.State.SUCCEEDED) {
@@ -73,6 +84,32 @@ public class ConsoleController {
                 }
             }
         });
+
+        // webView.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
+        //     @Override public void handle(KeyEvent event) {
+        //
+        //     }
+        // });
+        //
+        // // 添加键盘事件监听器
+        // webView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+        //     @Override
+        //     public void handle(KeyEvent event) {
+        //         // 处理按键事件
+        //         switch (event.getCode()) {
+        //             case UP:
+        //                 // 处理向上箭头键
+        //                 break;
+        //             case DOWN:
+        //                 // 处理向下箭头键
+        //                 break;
+        //             // 其他按键处理...
+        //             default:
+        //                 break;
+        //         }
+        //     }
+        // });
+
     }
 
     public void exit(ActionEvent event) {

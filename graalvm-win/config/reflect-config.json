@@ -89,6 +89,12 @@
   "name":"com.sun.java.scene.web.WebViewHelper$WebViewAccessor"
 },
 {
+  "name":"com.sun.javafx.animation.AnimationTimerHelper$Accessor"
+},
+{
+  "name":"com.sun.javafx.animation.InterpolatorHelper$Accessor"
+},
+{
   "name":"com.sun.javafx.animation.KeyValueHelper$KeyValueAccessor"
 },
 {
@@ -120,6 +126,9 @@
 },
 {
   "name":"com.sun.javafx.collections.VetoableListDecorator$ModCountAccessor"
+},
+{
+  "name":"com.sun.javafx.css.TransitionMediator"
 },
 {
   "name":"com.sun.javafx.css.parser.LexerState"
@@ -338,6 +347,9 @@
 },
 {
   "name":"com.sun.javafx.scene.control.IDisconnectable"
+},
+{
+  "name":"com.sun.javafx.scene.control.LabeledHelper$Accessor"
 },
 {
   "name":"com.sun.javafx.scene.control.LabeledImpl"
@@ -704,10 +716,6 @@
   "methods":[{"name":"loadShader","parameterTypes":["com.sun.prism.ps.ShaderFactory","java.io.InputStream"] }]
 },
 {
-  "name":"com.sun.prism.shader.Mask_TextureRGB_Loader",
-  "methods":[{"name":"loadShader","parameterTypes":["com.sun.prism.ps.ShaderFactory","java.io.InputStream"] }]
-},
-{
   "name":"com.sun.prism.shader.Mask_TextureSuper_Loader",
   "methods":[{"name":"loadShader","parameterTypes":["com.sun.prism.ps.ShaderFactory","java.io.InputStream"] }]
 },
@@ -941,6 +949,9 @@
   "name":"java.lang.ObjectCustomizer"
 },
 {
+  "name":"java.lang.Record"
+},
+{
   "name":"java.lang.Runnable"
 },
 {
@@ -1049,6 +1060,9 @@
   "name":"java.util.Iterator"
 },
 {
+  "name":"java.util.LinkedHashMap"
+},
+{
   "name":"java.util.List",
   "methods":[{"name":"copyOf","parameterTypes":["java.util.Collection"] }]
 },
@@ -1136,6 +1150,9 @@
   "name":"javafx.application.Application$Parameters"
 },
 {
+  "name":"javafx.application.Platform$Preferences"
+},
+{
   "name":"javafx.application.Preloader$PreloaderNotification"
 },
 {
@@ -1182,6 +1199,9 @@
 },
 {
   "name":"javafx.beans.property.ReadOnlyBooleanPropertyBase"
+},
+{
+  "name":"javafx.beans.property.ReadOnlyObjectPropertyBase"
 },
 {
   "name":"javafx.beans.property.ReadOnlyObjectWrapper"
@@ -1394,6 +1414,9 @@
 },
 {
   "name":"javafx.scene.control.Label"
+},
+{
+  "name":"javafx.scene.control.Labeled"
 },
 {
   "name":"javafx.scene.control.Menu",
@@ -1613,6 +1636,10 @@
 },
 {
   "name":"org.xml.sax.helpers.DefaultHandler"
+},
+{
+  "name":"sun.java2d.marlin.DMarlinRenderingEngine",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
   "name":"sun.misc.Unsafe",
