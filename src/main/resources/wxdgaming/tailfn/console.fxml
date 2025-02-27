@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.web.WebView?>
+<StackPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22"
+           fx:controller="wxdgaming.tailfn.ConsoleController"
+           xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <MenuBar prefHeight="28.0" StackPane.alignment="TOP_RIGHT">
+            <menus>
+                <Menu mnemonicParsing="false" text="开始">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="退出"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="视图">
+                    <items>
+                        <MenuItem text="换行" onAction="#setSpanWarp"/>
+                        <MenuItem text="不换行" onAction="#setSpanNonWarp"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="放大" onAction="#setZoomIn"/>
+                        <MenuItem text="正常" onAction="#setZoomReset"/>
+                        <MenuItem text="缩小" onAction="#setZoomOut"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="主题">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="深色" onAction="#setDarkBgColor"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem mnemonicParsing="false" text="浅色" onAction="#setLightBgColor"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <WebView fx:id="webView" StackPane.alignment="TOP_RIGHT">
+            <StackPane.margin>
+                <Insets top="28.0"/>
+            </StackPane.margin>
+        </WebView>
+    </children>
+</StackPane>
