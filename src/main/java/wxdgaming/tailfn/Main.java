@@ -10,21 +10,25 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-        buildGraalvm();
-        ViewConfig ins = ViewConfig.ins;
-        if (args.length > 0) {
-            String filePath = args[0];
-            File file = new File(filePath);
-            if (file.isFile() && file.getParentFile().exists()) {
-                GraalvmUtil.appendFile("启动传递监听文件：" + filePath);
-                ins.setFilePath(filePath);
-            } else {
-                GraalvmUtil.appendFile("启动传递监听文件：" + filePath + ", 路径不存在");
-            }
+    public static void main(String[] args) {
+        try {
+            buildGraalvm();
+            ViewConfig ins = ViewConfig.ins;
+            if (args.length > 0) {
+                String filePath = args[0];
+                File file = new File(filePath);
+                if (file.isFile() && file.getParentFile().exists()) {
+                    GraalvmUtil.appendFile("启动传递监听文件：" + filePath);
+                    ins.setFilePath(filePath);
+                } else {
+                    GraalvmUtil.appendFile("启动传递监听文件：" + filePath + ", 路径不存在");
+                }
 
+            }
+            Application.launch(ConsoleApplication.class, args);
+        } catch (Exception e) {
+            GraalvmUtil.appendFile(e.toString());
         }
-        Application.launch(ConsoleApplication.class, args);
     }
 
     public static void buildGraalvm() throws Exception {

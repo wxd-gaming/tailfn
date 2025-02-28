@@ -81,7 +81,7 @@ public class ConsoleController {
                         webView.getEngine().executeScript("setSpanNonWarp();");
                     }
 
-                    consoleOutput = new ConsoleOutput(webView, 200, 10);
+                    consoleOutput = new ConsoleOutput(webView, 2, 1);
 
                     initTailFN();
 
