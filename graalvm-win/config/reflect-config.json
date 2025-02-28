@@ -1832,7 +1832,7 @@
   "name":"wxdgaming.tailfn.ViewConfig$MenuConfig",
   "allDeclaredFields":true,
   "queryAllPublicMethods":true,
-  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getPath","parameterTypes":[] }, {"name":"setName","parameterTypes":["java.lang.String"] }, {"name":"setPath","parameterTypes":["java.lang.String"] }]
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getPath","parameterTypes":[] }, {"name":"setExit","parameterTypes":["boolean"] }, {"name":"setName","parameterTypes":["java.lang.String"] }, {"name":"setPath","parameterTypes":["java.lang.String"] }]
 },
 {
   "name":"wxdgaming.tailfn.ViewConfig$MenuConfigBeanInfo"

@@ -105,12 +105,22 @@ public class ConsoleController {
                     menuItem.setText(menuConfig.getName());
                     menuItem.setUserData(menuConfig.getPath());
                     menuItem.setOnAction(event -> {
-                        File file = new File(menuConfig.getPath());
-                        if (!file.exists()) {
-                            appendLine("执行命令：" + menuConfig.getName() + ", 文件不存在: " + menuConfig.getPath());
-                            return;
+                        try {
+                            File file = new File(menuConfig.getPath());
+                            if (!file.exists()) {
+                                appendLine("执行命令：" + menuConfig.getName() + ", 文件不存在: " + menuConfig.getPath());
+                                return;
+                            }
+                            GraalvmUtil.asyncExeLocalCommand(menuConfig.getPath());
+                        } finally {
+                            try {
+                                if (menuConfig.isExit()) {
+                                    Runtime.getRuntime().halt(0);
+                                }
+                            } catch (Exception e) {
+                                GraalvmUtil.appendFile(e.toString());
+                            }
                         }
-                        GraalvmUtil.asyncExeLocalCommand(menuConfig.getPath());
                     });
                 }
                 index++;

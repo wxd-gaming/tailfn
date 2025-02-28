@@ -61,6 +61,7 @@ public class ViewConfig {
     public void save() {
         DumperOptions dumperOptions = new DumperOptions();
         dumperOptions.setDefaultScalarStyle(DumperOptions.ScalarStyle.PLAIN);
+        dumperOptions.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
         Representer representer = new Representer(dumperOptions);
         representer.getPropertyUtils().setSkipMissingProperties(true);
         Yaml yaml = new Yaml(representer, dumperOptions);
@@ -76,6 +77,7 @@ public class ViewConfig {
 
         private String name;
         private String path;
+        private boolean exit;
 
     }
 

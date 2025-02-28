@@ -1,13 +1,16 @@
 autoWarp: false
 bgColor: body_light
-filePath: G:\gitee\wxdgaming.tailfn\logs\2025-02-28.log
-fontSize: 16
+filePath: G:\712-work\engine712-server-wuxin\target\logs\game.log
+fontSize: 13
 lastN: 150
 menuConfigs:
-- name: 热更
+- exit: false
+  name: 热更
   path: reload-game.bat
-- name: ——
+- exit: false
+  name: ——
   path: null
-- name: 关闭服务
+- exit: true
+  name: 关闭服务
   path: stop-game.bat
 showMaxLine: 1500
