@@ -5,16 +5,48 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.nio.file.StandardOpenOption;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class GraalvmUtil {
+
+    static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    static SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+
+    public static void writeFile(Path path, String content) {
+        try {
+            Files.writeString(
+                    path,
+                    content,
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.TRUNCATE_EXISTING
+            );
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    public static void appendFile(String content) {
+        try {
+            Path path = Paths.get("target/logs/tail-%s.log".formatted(formatter.format(new Date())));
+            try {
+                path.toAbsolutePath().toFile().getParentFile().mkdirs();
+            } catch (Exception ignored) {}
+            Files.writeString(
+                    path,
+                    "[%s] - %s\n".formatted(formatter2.format(new Date()), content),
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.APPEND
+            );
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
 
     public static String javaClassPath() {
         return System.getProperty("java.class.path");
@@ -46,7 +78,7 @@ public class GraalvmUtil {
                     }
                     continue;
                 }
-                System.out.println(string);
+                GraalvmUtil.appendFile(string);
                 continue;
             }
 

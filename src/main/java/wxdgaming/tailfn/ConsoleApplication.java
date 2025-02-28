@@ -10,7 +10,11 @@ import javafx.scene.SceneAntialiasing;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.net.URL;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * 启动器
@@ -21,6 +25,9 @@ import java.net.URL;
 public class ConsoleApplication extends Application {
 
     public static String __iconName = "logo.png";
+    static AtomicBoolean icon_checked = new AtomicBoolean();
+
+    public static Stage __primaryStage;
 
     @Override public void start(Stage primaryStage) throws Exception {
 
@@ -39,10 +46,51 @@ public class ConsoleApplication extends Application {
         primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest(event -> {
             event.consume();
-            /*最小化*/
-            PlatformImpl.runLater(() -> primaryStage.setIconified(true));
+            closeSelect(primaryStage);
         });
         primaryStage.show();
+        setIcon(primaryStage);
+        __primaryStage = primaryStage;
     }
 
+    /** 关闭事件选择 */
+    public void closeSelect(Stage primaryStage) {
+        if (icon_checked.get()) {
+            Platform.runLater(primaryStage::hide);
+        } else {
+            /*最小化*/
+            Platform.runLater(() -> primaryStage.setIconified(true));
+        }
+    }
+
+    /** 开启系统托盘图标 */
+    public void setIcon(Stage primaryStage) {
+        try {
+            if (SystemTray.isSupported()) {
+                /*TODO 系统托盘图标*/
+                SystemTray tray = SystemTray.getSystemTray();
+                BufferedImage bufferedImage = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(__iconName));
+                TrayIcon trayIcon = new TrayIcon(bufferedImage, "日志阅读器");
+                trayIcon.setImageAutoSize(true);
+                /*TODO 图标双击事件 */
+                trayIcon.addActionListener(e -> PlatformImpl.runLater(primaryStage::show));
+                // PopupMenu popupMenu = new PopupMenu();
+                // {
+                //     MenuItem mi_exit = new MenuItem("退出");
+                //     // 指定支持中文的字体
+                //     mi_exit.setFont(new Font("宋体", Font.PLAIN, 12));
+                //     popupMenu.add(mi_exit);
+                // }
+                // trayIcon.setPopupMenu(popupMenu);
+                tray.add(trayIcon);
+                icon_checked.set(true);
+                GraalvmUtil.appendFile("创建托盘图标");
+            } else {
+                GraalvmUtil.appendFile("当前系统不允许创建托盘图标");
+            }
+        } catch (Throwable e) {
+            GraalvmUtil.appendFile("setIcon failed ");
+            GraalvmUtil.appendFile(e.toString());
+        }
+    }
 }

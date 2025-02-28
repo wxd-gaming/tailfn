@@ -51,7 +51,7 @@ public class TailFN {
                             readLastLine();
                         }
                     } catch (IOException e) {
-                        e.printStackTrace(System.out);
+                        GraalvmUtil.appendFile(e.toString());
                     }
                 }
             };
@@ -68,7 +68,7 @@ public class TailFN {
         try {
             monitor.stop();
         } catch (Exception e) {
-            e.printStackTrace(System.out);
+            GraalvmUtil.appendFile(e.toString());
         }
     }
 

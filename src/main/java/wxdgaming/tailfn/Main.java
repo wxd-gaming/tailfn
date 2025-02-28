@@ -4,6 +4,7 @@ import javafx.application.Application;
 import org.apache.commons.lang3.StringUtils;
 import org.reflections.Reflections;
 
+import java.io.File;
 import java.net.URL;
 import java.util.List;
 
@@ -11,6 +12,18 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         buildGraalvm();
+        ViewConfig ins = ViewConfig.ins;
+        if (args.length > 0) {
+            String filePath = args[0];
+            File file = new File(filePath);
+            if (file.isFile() && file.getParentFile().exists()) {
+                GraalvmUtil.appendFile("启动传递监听文件：" + filePath);
+                ins.setFilePath(filePath);
+            } else {
+                GraalvmUtil.appendFile("启动传递监听文件：" + filePath + ", 路径不存在");
+            }
+
+        }
         Application.launch(ConsoleApplication.class, args);
     }
 
@@ -20,7 +33,7 @@ public class Main {
         List<String> strings = GraalvmUtil.jarResources();
         for (String string : strings) {
             URL resource = contextClassLoader.getResource(string);
-            System.out.println(String.format("%s - %s", string, resource));
+            GraalvmUtil.appendFile(String.format("%s - %s", string, resource));
         }
 
         reflectAction("com.sun.javafx");

@@ -69,7 +69,7 @@ public class ReflectAction {
                 }
                 try {
                     Object findMethod = cls.getDeclaredConstructor(declaredConstructor.getParameterTypes());
-                    System.out.println("reflectActionMethod: " + findMethod);
+                    GraalvmUtil.appendFile("reflectActionMethod: " + findMethod);
                 } catch (Throwable ignore) {}
             }
         }
@@ -81,7 +81,7 @@ public class ReflectAction {
                 }
                 try {
                     Method findMethod = cls.getDeclaredMethod(method.getName(), method.getParameterTypes());
-                    System.out.println("reflectActionMethod: " + findMethod);
+                    GraalvmUtil.appendFile("reflectActionMethod: " + findMethod);
                 } catch (Throwable ignore) {}
             }
         }
@@ -94,7 +94,7 @@ public class ReflectAction {
                 continue;
             }
             try {
-                System.out.println("reflectActionField: " + cls.getDeclaredField(field.getName()));
+                GraalvmUtil.appendFile("reflectActionField: " + cls.getDeclaredField(field.getName()));
             } catch (Throwable ignore) {}
         }
     }

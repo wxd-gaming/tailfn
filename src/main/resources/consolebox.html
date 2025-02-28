@@ -103,7 +103,8 @@
                 // 使用 for...of 循环遍历
                 let filtered = false;/*设置成要显示的*/
                 for (let word of words) {
-                    if (msg.indexOf(word) < 0) {
+                    let regex = new RegExp(word, 'gi');
+                    if (!msg.match(regex)) {
                         filtered = true;/*某一个关键字没有那就不显示*/
                         break;
                     }

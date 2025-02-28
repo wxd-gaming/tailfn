@@ -101,6 +101,8 @@
   }, {
     "pattern":"\\QMETA-INF/services/\\E"
   }, {
+    "pattern":"\\QMETA-INF/services/java.awt.im.spi.InputMethodDescriptor\\E"
+  }, {
     "pattern":"\\QMETA-INF/services/java.lang.System$LoggerFinder\\E"
   }, {
     "pattern":"\\QMETA-INF/services/java.net.spi.InetAddressResolverProvider\\E"
@@ -114,6 +116,16 @@
     "pattern":"\\QMETA-INF/services/java.util.spi.ResourceBundleControlProvider\\E"
   }, {
     "pattern":"\\QMETA-INF/services/javax.annotation.processing.Processor\\E"
+  }, {
+    "pattern":"\\QMETA-INF/services/javax.imageio.spi.ImageInputStreamSpi\\E"
+  }, {
+    "pattern":"\\QMETA-INF/services/javax.imageio.spi.ImageOutputStreamSpi\\E"
+  }, {
+    "pattern":"\\QMETA-INF/services/javax.imageio.spi.ImageReaderSpi\\E"
+  }, {
+    "pattern":"\\QMETA-INF/services/javax.imageio.spi.ImageTranscoderSpi\\E"
+  }, {
+    "pattern":"\\QMETA-INF/services/javax.imageio.spi.ImageWriterSpi\\E"
   }, {
     "pattern":"\\QMETA-INF/services/javax.xml.stream.XMLInputFactory\\E"
   }, {
@@ -18901,15 +18913,18 @@
   }]},
   "bundles":[{
     "name":"com.sun.javafx.tk.quantum.QuantumMessagesBundle",
-    "locales":["", "zh-CN"]
+    "locales":["", "und", "zh-CN"]
   }, {
     "name":"com/sun/glass/ui/win/themes",
-    "locales":["", "de", "en", "es", "fr", "it", "ja", "ko", "pt-BR", "sv", "zh-CN", "zh-TW"]
+    "locales":["", "de", "en", "es", "fr", "it", "ja", "ko", "pt-BR", "sv", "und", "zh-CN", "zh-TW"]
   }, {
     "name":"com/sun/javafx/scene/control/skin/resources/controls",
-    "locales":["", "zh-CN"]
+    "locales":["und", "zh-CN"]
   }, {
     "name":"sun.awt.resources.awt",
     "classNames":["sun.awt.resources.awt", "sun.awt.resources.awt_zh_CN"]
+  }, {
+    "name":"sun.awt.windows.awtLocalization",
+    "classNames":["sun.awt.windows.awtLocalization", "sun.awt.windows.awtLocalization_zh_CN"]
   }]
 }

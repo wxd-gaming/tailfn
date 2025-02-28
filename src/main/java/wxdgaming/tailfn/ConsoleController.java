@@ -2,8 +2,6 @@ package wxdgaming.tailfn;
 
 import com.sun.javafx.application.PlatformImpl;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import org.apache.commons.lang3.StringUtils;
@@ -57,8 +55,8 @@ public class ConsoleController {
         // 设置全局异常处理器
         Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
             // 处理未捕获的异常
-            System.err.println("未捕获的异常: " + throwable.getMessage());
-            throwable.printStackTrace(System.err);
+            GraalvmUtil.appendFile("未捕获的异常: " + throwable.getMessage());
+            GraalvmUtil.appendFile(throwable.toString());
             // 可以在这里记录日志或显示错误信息
         });
 
@@ -80,7 +78,7 @@ public class ConsoleController {
                     }
                     initTailFN();
                 } catch (Exception e) {
-                    e.printStackTrace(System.out);
+                    GraalvmUtil.appendFile(e.toString());
                 }
             }
         });
@@ -127,8 +125,8 @@ public class ConsoleController {
             appendLine("需要监听的文件夹: " + filePath.toAbsolutePath() + " 异常");
             return;
         }
-        appendLine("监听文件: " + filePath.toAbsolutePath());
         tailFN = new TailFN(filePath, ViewConfig.ins.getLastN(), this::appendLine);
+        ConsoleApplication.__primaryStage.setTitle("日志阅读器 " + ViewConfig.ins.getFilePath());
     }
 
     public void appendLine(String line) {
@@ -147,7 +145,14 @@ public class ConsoleController {
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("选择 日志 文件");
-        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+        File directory = new File(System.getProperty("user.dir"));
+        if (StringUtils.isNotBlank(ViewConfig.ins.getFilePath())) {
+            File file = new File(ViewConfig.ins.getFilePath());
+            if (file.getParentFile().exists()) {
+                directory = file.getParentFile();
+            }
+        }
+        fileChooser.setInitialDirectory(directory);
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("txt Files", "*.log", "*.text"),
                 new FileChooser.ExtensionFilter("All Files", "*.*")

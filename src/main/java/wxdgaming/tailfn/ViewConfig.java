@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 /**
  * 试图配置
@@ -64,19 +63,7 @@ public class ViewConfig {
         Yaml yaml = new Yaml(representer, dumperOptions);
         String string = yaml.dumpAsMap(this);
 
-        writeFile(viewPath, string);
+        GraalvmUtil.writeFile(viewPath, string);
     }
 
-    public static void writeFile(Path path, String content) {
-        try {
-            Files.writeString(
-                    path,
-                    content,
-                    StandardOpenOption.CREATE,
-                    StandardOpenOption.TRUNCATE_EXISTING
-            );
-        } catch (Exception e) {
-            e.printStackTrace(System.out);
-        }
-    }
 }
