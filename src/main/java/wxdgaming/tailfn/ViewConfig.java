@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 试图配置
@@ -22,7 +24,7 @@ import java.nio.file.Paths;
 @Setter
 public class ViewConfig {
 
-    static Path viewPath = Paths.get("view.yml");
+    static Path viewPath = Paths.get("tail-view.yml");
 
     public static ViewConfig ins = null;
 
@@ -31,6 +33,10 @@ public class ViewConfig {
             loadYaml();
         } else {
             ins = new ViewConfig();
+            MenuConfig menuConfig = new MenuConfig();
+            menuConfig.setName("热更新");
+            menuConfig.setPath("reload-game.bat");
+            ins.getMenuConfigs().add(menuConfig);
             ins.save();
         }
     }
@@ -53,7 +59,7 @@ public class ViewConfig {
     private int fontSize = 13;
     private String bgColor = "body_light";
     private boolean autoWarp = false;
-
+    private List<MenuConfig> menuConfigs = new ArrayList<>();
 
     public void save() {
         DumperOptions dumperOptions = new DumperOptions();
@@ -64,6 +70,16 @@ public class ViewConfig {
         String string = yaml.dumpAsMap(this);
 
         GraalvmUtil.writeFile(viewPath, string);
+    }
+
+
+    @Setter
+    @Getter
+    public static class MenuConfig {
+
+        private String name;
+        private String path;
+
     }
 
 }

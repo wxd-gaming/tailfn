@@ -11,7 +11,7 @@
     <children>
         <MenuBar prefHeight="28.0" StackPane.alignment="TOP_RIGHT">
             <menus>
-                <Menu mnemonicParsing="false" text="开始">
+                <Menu fx:id="menu_file" mnemonicParsing="false" text="开始">
                     <items>
                         <MenuItem text="选择" onAction="#selectFile"/>
                         <SeparatorMenuItem/>

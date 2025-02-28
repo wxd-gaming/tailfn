@@ -107,4 +107,22 @@ public class GraalvmUtil {
 
     }
 
+    public static void asyncExeLocalCommand(String batFile) {
+        try {
+            // 构建包含 start 命令的命令数组
+            String[] command = {"cmd.exe", "/c", "start", "cmd.exe", "/c", batFile};
+            ProcessBuilder pb = new ProcessBuilder(command);
+            // 设置属性子进程的I/O源或目标将与当前进程的相同,两者相互独立
+            pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+            pb.redirectError(ProcessBuilder.Redirect.INHERIT);
+            pb.redirectInput(ProcessBuilder.Redirect.INHERIT);
+            // 执行命令进程
+            Process start = pb.start();
+            start.waitFor();
+            start.destroy();
+        } catch (Exception e) {
+            appendFile(e.toString());
+        }
+    }
+
 }

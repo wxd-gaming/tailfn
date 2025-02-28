@@ -1,11 +1,12 @@
 package wxdgaming.tailfn;
 
-import com.sun.javafx.application.PlatformImpl;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.text.StringEscapeUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -15,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 /**
  * 控制台
@@ -26,6 +28,8 @@ public class ConsoleController {
 
     public WebView webView;
     public TailFN tailFN;
+    public ConsoleOutput consoleOutput = null;
+    public Menu menu_file;
 
     public static String readHtml() {
         try (InputStream resourceAsStream = ConsoleController.class.getResourceAsStream("/consolebox.html")) {
@@ -76,12 +80,44 @@ public class ConsoleController {
                     } else {
                         webView.getEngine().executeScript("setSpanNonWarp();");
                     }
+
+                    consoleOutput = new ConsoleOutput(webView, 200, 10);
+
                     initTailFN();
+
                 } catch (Exception e) {
                     GraalvmUtil.appendFile(e.toString());
                 }
             }
         });
+
+        List<ViewConfig.MenuConfig> menuConfigs = ViewConfig.ins.getMenuConfigs();
+        if (menuConfigs != null && !menuConfigs.isEmpty()) {
+            int index = 1;
+            SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
+            menu_file.getItems().add(index, separatorMenuItem);
+            for (ViewConfig.MenuConfig menuConfig : menuConfigs) {
+                MenuItem menuItem;
+                if ("——".equals(menuConfig.getName())) {
+                    menuItem = new SeparatorMenuItem();
+                } else {
+                    menuItem = new MenuItem(menuConfig.getName());
+                    menuItem.setText(menuConfig.getName());
+                    menuItem.setUserData(menuConfig.getPath());
+                    menuItem.setOnAction(event -> {
+                        File file = new File(menuConfig.getPath());
+                        if (!file.exists()) {
+                            appendLine("执行命令：" + menuConfig.getName() + ", 文件不存在: " + menuConfig.getPath());
+                            return;
+                        }
+                        GraalvmUtil.asyncExeLocalCommand(menuConfig.getPath());
+                    });
+                }
+                index++;
+                menu_file.getItems().add(index, menuItem);
+            }
+
+        }
 
         // webView.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
         //     @Override public void handle(KeyEvent event) {
@@ -130,15 +166,7 @@ public class ConsoleController {
     }
 
     public void appendLine(String line) {
-        PlatformImpl.runAndWait(() -> {
-            try {
-                String escapedLine = StringEscapeUtils.escapeEcmaScript(line);
-                webView.getEngine().executeScript("append(\"" + escapedLine + "\");");
-            } catch (Exception e) {
-                System.err.println(line);
-                e.printStackTrace(System.err);
-            }
-        });
+        this.consoleOutput.add(line);
     }
 
     public void selectFile(ActionEvent event) {

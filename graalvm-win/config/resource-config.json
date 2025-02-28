@@ -18883,6 +18883,8 @@
   }, {
     "pattern":"\\Qwxdgaming/tailfn/ConsoleController.class\\E"
   }, {
+    "pattern":"\\Qwxdgaming/tailfn/ConsoleOutput.class\\E"
+  }, {
     "pattern":"\\Qwxdgaming/tailfn/GraalvmUtil$Tuple.class\\E"
   }, {
     "pattern":"\\Qwxdgaming/tailfn/GraalvmUtil.class\\E"
@@ -18894,6 +18896,8 @@
     "pattern":"\\Qwxdgaming/tailfn/TailFN$1.class\\E"
   }, {
     "pattern":"\\Qwxdgaming/tailfn/TailFN.class\\E"
+  }, {
+    "pattern":"\\Qwxdgaming/tailfn/ViewConfig$MenuConfig.class\\E"
   }, {
     "pattern":"\\Qwxdgaming/tailfn/ViewConfig.class\\E"
   }, {

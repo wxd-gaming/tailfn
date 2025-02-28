@@ -1440,7 +1440,7 @@
   "name":"javafx.scene.control.MenuItem",
   "queryAllDeclaredMethods":true,
   "queryAllPublicConstructors":true,
-  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"setMnemonicParsing","parameterTypes":["boolean"] }, {"name":"setOnAction","parameterTypes":["javafx.event.EventHandler"] }, {"name":"setText","parameterTypes":["java.lang.String"] }]
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"getId","parameterTypes":[] }, {"name":"setId","parameterTypes":["java.lang.String"] }, {"name":"setMnemonicParsing","parameterTypes":["boolean"] }, {"name":"setOnAction","parameterTypes":["javafx.event.EventHandler"] }, {"name":"setText","parameterTypes":["java.lang.String"] }]
 },
 {
   "name":"javafx.scene.control.ProgressBar"
@@ -1826,7 +1826,19 @@
   "name":"wxdgaming.tailfn.ViewConfig",
   "allDeclaredFields":true,
   "queryAllPublicMethods":true,
-  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"getBgColor","parameterTypes":[] }, {"name":"getFilePath","parameterTypes":[] }, {"name":"getFontSize","parameterTypes":[] }, {"name":"getLastN","parameterTypes":[] }, {"name":"getShowMaxLine","parameterTypes":[] }, {"name":"isAutoWarp","parameterTypes":[] }, {"name":"setAutoWarp","parameterTypes":["boolean"] }, {"name":"setBgColor","parameterTypes":["java.lang.String"] }, {"name":"setFilePath","parameterTypes":["java.lang.String"] }, {"name":"setFontSize","parameterTypes":["int"] }, {"name":"setLastN","parameterTypes":["int"] }, {"name":"setShowMaxLine","parameterTypes":["int"] }]
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"getBgColor","parameterTypes":[] }, {"name":"getFilePath","parameterTypes":[] }, {"name":"getFontSize","parameterTypes":[] }, {"name":"getLastN","parameterTypes":[] }, {"name":"getShowMaxLine","parameterTypes":[] }, {"name":"isAutoWarp","parameterTypes":[] }, {"name":"setAutoWarp","parameterTypes":["boolean"] }, {"name":"setBgColor","parameterTypes":["java.lang.String"] }, {"name":"setFilePath","parameterTypes":["java.lang.String"] }, {"name":"setFontSize","parameterTypes":["int"] }, {"name":"setLastN","parameterTypes":["int"] }, {"name":"setMenuConfigs","parameterTypes":["java.util.List"] }, {"name":"setShowMaxLine","parameterTypes":["int"] }]
+},
+{
+  "name":"wxdgaming.tailfn.ViewConfig$MenuConfig",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"setName","parameterTypes":["java.lang.String"] }, {"name":"setPath","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"wxdgaming.tailfn.ViewConfig$MenuConfigBeanInfo"
+},
+{
+  "name":"wxdgaming.tailfn.ViewConfig$MenuConfigCustomizer"
 },
 {
   "name":"wxdgaming.tailfn.ViewConfigBeanInfo"

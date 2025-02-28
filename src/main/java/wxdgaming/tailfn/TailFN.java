@@ -105,7 +105,6 @@ public class TailFN {
                     // 使用 Channels 和 CharsetDecoder 来读取 UTF-8 编码的内容
                     String line;
                     while ((line = bufferedReader.readLine()) != null) {
-                        if (line.trim().isEmpty()) continue;
                         consumer.accept(line);
                     }
                     // 将文件指针更新为当前文件大小，跳到当前末尾处
