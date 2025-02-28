@@ -1,7 +1,7 @@
 autoWarp: false
 bgColor: body_light
 filePath: G:\gitee\wxdgaming.tailfn\logs\2025-02-28.log
-fontSize: 13
+fontSize: 16
 lastN: 150
 menuConfigs:
 - name: 热更

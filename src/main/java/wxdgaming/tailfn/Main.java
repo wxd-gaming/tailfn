@@ -13,18 +13,25 @@ public class Main {
     public static void main(String[] args) {
         try {
             buildGraalvm();
-            ViewConfig ins = ViewConfig.ins;
-            if (args.length > 0) {
-                String filePath = args[0];
-                File file = new File(filePath);
-                if (file.isFile() && file.getParentFile().exists()) {
-                    GraalvmUtil.appendFile("启动传递监听文件：" + filePath);
-                    ins.setFilePath(filePath);
-                } else {
-                    GraalvmUtil.appendFile("启动传递监听文件：" + filePath + ", 路径不存在");
-                }
 
+            String configPath = "tail-view.yml";
+            if (args.length > 0) {
+                configPath = args[0];
+                GraalvmUtil.appendFile("外包配置文件路径：" + new File(configPath).getAbsolutePath());
             }
+
+            ViewConfig.loadYaml(configPath);
+
+            if (args.length > 1) {
+                File file = new File(args[1]);
+                if (file.isFile() && file.getParentFile().exists()) {
+                    GraalvmUtil.appendFile("启动传递监听文件：" + file.getAbsolutePath());
+                    ViewConfig.ins.setFilePath(file.getAbsolutePath());
+                } else {
+                    GraalvmUtil.appendFile("启动传递监听文件：" + file.getAbsolutePath() + ", 路径不存在");
+                }
+            }
+
             Application.launch(ConsoleApplication.class, args);
         } catch (Exception e) {
             GraalvmUtil.appendFile(e.toString());

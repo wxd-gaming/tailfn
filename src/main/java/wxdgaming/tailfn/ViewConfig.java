@@ -24,30 +24,27 @@ import java.util.List;
 @Setter
 public class ViewConfig {
 
-    static Path viewPath = Paths.get("tail-view.yml");
+    public static Path viewPath = null;
 
     public static ViewConfig ins = null;
 
-    static {
-        if (Files.exists(viewPath)) {
-            loadYaml();
-        } else {
-            ins = new ViewConfig();
-            MenuConfig menuConfig = new MenuConfig();
-            menuConfig.setName("热更新");
-            menuConfig.setPath("reload-game.bat");
-            ins.getMenuConfigs().add(menuConfig);
-            ins.save();
-        }
-    }
-
-    public static void loadYaml() {
+    public static void loadYaml(String path) {
         try {
-            DumperOptions dumperOptions = new DumperOptions();
-            Representer representer = new Representer(dumperOptions);
-            representer.getPropertyUtils().setSkipMissingProperties(true);
-            Yaml yaml = new Yaml(representer, dumperOptions);
-            ins = yaml.loadAs(Files.newInputStream(viewPath), ViewConfig.class);
+            viewPath = Paths.get(path);
+            if (Files.exists(viewPath)) {
+                DumperOptions dumperOptions = new DumperOptions();
+                Representer representer = new Representer(dumperOptions);
+                representer.getPropertyUtils().setSkipMissingProperties(true);
+                Yaml yaml = new Yaml(representer, dumperOptions);
+                ins = yaml.loadAs(Files.newInputStream(viewPath), ViewConfig.class);
+            } else {
+                ins = new ViewConfig();
+                MenuConfig menuConfig = new MenuConfig();
+                menuConfig.setName("测试插件");
+                menuConfig.setPath("reload-game.bat");
+                ins.getMenuConfigs().add(menuConfig);
+                ins.save();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
