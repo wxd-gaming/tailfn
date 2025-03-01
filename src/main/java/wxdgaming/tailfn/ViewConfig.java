@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 试图配置
+ * 插件配置
  *
  * @author: wxd-gaming(無心道, 15388152619)
  * @version: 2025-02-26 15:22
@@ -39,10 +39,10 @@ public class ViewConfig {
                 ins = yaml.loadAs(Files.newInputStream(viewPath), ViewConfig.class);
             } else {
                 ins = new ViewConfig();
-                MenuConfig menuConfig = new MenuConfig();
-                menuConfig.setName("测试插件");
-                menuConfig.setPath("reload-game.bat");
-                ins.getMenuConfigs().add(menuConfig);
+                PluginConfig pluginConfig = new PluginConfig();
+                pluginConfig.setName("测试插件");
+                pluginConfig.setPath("reload-game.bat");
+                ins.getPluginList().add(pluginConfig);
                 ins.save();
             }
         } catch (IOException e) {
@@ -56,7 +56,7 @@ public class ViewConfig {
     private int fontSize = 13;
     private String bgColor = "body_light";
     private boolean autoWarp = false;
-    private List<MenuConfig> menuConfigs = new ArrayList<>();
+    private List<PluginConfig> pluginList = new ArrayList<>();
 
     public void save() {
         DumperOptions dumperOptions = new DumperOptions();
@@ -66,18 +66,19 @@ public class ViewConfig {
         representer.getPropertyUtils().setSkipMissingProperties(true);
         Yaml yaml = new Yaml(representer, dumperOptions);
         String string = yaml.dumpAsMap(this);
-
         GraalvmUtil.writeFile(viewPath, string);
     }
 
 
     @Setter
     @Getter
-    public static class MenuConfig {
+    public static class PluginConfig {
 
         private String name;
         private String path;
-        private boolean exit;
+        private Boolean code = null;
+        private Boolean async = null;
+        private Boolean exit = null;
 
     }
 

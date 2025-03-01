@@ -8,10 +8,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -36,23 +33,13 @@ public class ConsoleController {
             if (resourceAsStream == null) {
                 throw new RuntimeException("加载文件失败");
             }
-            byte[] bytes = readInputStream(resourceAsStream);
+            byte[] bytes = GraalvmUtil.readInputStream(resourceAsStream);
             return new String(bytes, StandardCharsets.UTF_8);
         } catch (Exception e) {
             throw new RuntimeException("加载文件失败");
         }
     }
 
-    public static byte[] readInputStream(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        int nRead;
-        byte[] data = new byte[16384];
-        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
-            buffer.write(data, 0, nRead);
-        }
-        buffer.flush();
-        return buffer.toByteArray();
-    }
 
     public void init() {
 
@@ -91,33 +78,47 @@ public class ConsoleController {
             }
         });
 
-        List<ViewConfig.MenuConfig> menuConfigs = ViewConfig.ins.getMenuConfigs();
-        if (menuConfigs != null && !menuConfigs.isEmpty()) {
+        List<ViewConfig.PluginConfig> pluginConfigs = ViewConfig.ins.getPluginList();
+        if (pluginConfigs != null && !pluginConfigs.isEmpty()) {
             int index = 1;
             SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
             menu_file.getItems().add(index, separatorMenuItem);
-            for (ViewConfig.MenuConfig menuConfig : menuConfigs) {
+            for (ViewConfig.PluginConfig pluginConfig : pluginConfigs) {
                 MenuItem menuItem;
-                if ("——".equals(menuConfig.getName())) {
+                if ("——".equals(pluginConfig.getName())) {
                     menuItem = new SeparatorMenuItem();
                 } else {
-                    menuItem = new MenuItem(menuConfig.getName());
-                    menuItem.setText(menuConfig.getName());
-                    menuItem.setUserData(menuConfig.getPath());
+                    menuItem = new MenuItem(pluginConfig.getName());
+                    menuItem.setText(pluginConfig.getName());
+                    menuItem.setUserData(pluginConfig.getPath());
                     menuItem.setOnAction(event -> {
                         try {
-                            File file = new File(menuConfig.getPath());
-                            if (!file.exists()) {
-                                appendLine("执行命令：" + menuConfig.getName() + ", 文件不存在: " + menuConfig.getPath());
-                                return;
+                            if (Boolean.TRUE.equals(pluginConfig.getCode())) {
+                                FileInputStream fileInputStream = new FileInputStream(pluginConfig.getPath());
+                                byte[] bytes = GraalvmUtil.readInputStream(fileInputStream);
+                                String code = new String(bytes, StandardCharsets.UTF_8);
+                                JavaAssistBox.JavaAssist javaAssist = JavaAssistBox.DefaultJavaAssistBox.implInterfaces(IPlugin.class.getSimpleName(), IPlugin.class);
+                                javaAssist.createMethod(code);
+                                Object instance = javaAssist.toInstance();
+                                ((IPlugin) instance).exec();
+                            } else {
+                                File file = new File(pluginConfig.getPath());
+                                if (!file.exists()) {
+                                    appendLine("执行命令：" + pluginConfig.getName() + ", 文件不存在: " + pluginConfig.getPath());
+                                    return;
+                                }
+                                GraalvmUtil.execLocalCommand(Boolean.TRUE.equals(pluginConfig.getAsync()), pluginConfig.getPath());
                             }
-                            GraalvmUtil.asyncExeLocalCommand(menuConfig.getPath());
+                        } catch (Exception e) {
+                            e.printStackTrace(System.err);
+                            GraalvmUtil.appendFile(e.toString());
                         } finally {
                             try {
-                                if (menuConfig.isExit()) {
+                                if (Boolean.TRUE.equals(pluginConfig.getExit())) {
                                     Runtime.getRuntime().halt(0);
                                 }
                             } catch (Exception e) {
+                                e.printStackTrace(System.err);
                                 GraalvmUtil.appendFile(e.toString());
                             }
                         }

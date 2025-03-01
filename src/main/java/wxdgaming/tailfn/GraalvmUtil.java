@@ -1,6 +1,8 @@
 package wxdgaming.tailfn;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,6 +20,17 @@ public class GraalvmUtil {
     static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     static SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
 
+    public static byte[] readInputStream(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        int nRead;
+        byte[] data = new byte[16384];
+        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+        buffer.flush();
+        return buffer.toByteArray();
+    }
+
     public static void writeFile(Path path, String content) {
         try {
             Files.writeString(
@@ -33,7 +46,7 @@ public class GraalvmUtil {
 
     public static void appendFile(String content) {
         try {
-            Path path = Paths.get("target/logs/tail-%s.log".formatted(formatter.format(new Date())));
+            Path path = Paths.get("target/logs/%s-%s.log".formatted(ViewConfig.viewPath.getFileName(), formatter.format(new Date())));
             try {
                 path.toAbsolutePath().toFile().getParentFile().mkdirs();
             } catch (Exception ignored) {}
@@ -107,10 +120,21 @@ public class GraalvmUtil {
 
     }
 
-    public static void asyncExeLocalCommand(String batFile) {
+    /***
+     * 执行本地命令
+     * @param batFile 本地bat文件路径
+     * @author: wxd-gaming(無心道, 15388152619)
+     * @version: 2025-03-01 11:05
+     */
+    public static void execLocalCommand(boolean async, String batFile) {
         try {
             // 构建包含 start 命令的命令数组
-            String[] command = {"cmd.exe", "/c", "start", "cmd.exe", "/c", batFile};
+            String[] command;
+            if (async) {
+                command = new String[]{"cmd.exe", "/c", "start", "cmd.exe", "/c", batFile};
+            } else {
+                command = new String[]{"cmd.exe", "/c", batFile};
+            }
             ProcessBuilder pb = new ProcessBuilder(command);
             // 设置属性子进程的I/O源或目标将与当前进程的相同,两者相互独立
             pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
@@ -121,6 +145,7 @@ public class GraalvmUtil {
             start.waitFor();
             start.destroy();
         } catch (Exception e) {
+            e.printStackTrace(System.err);
             appendFile(e.toString());
         }
     }

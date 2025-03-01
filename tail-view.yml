@@ -3,14 +3,18 @@ bgColor: body_light
 filePath: G:\712-work\engine712-server-wuxin\target\logs\game.log
 fontSize: 13
 lastN: 150
-menuConfigs:
+pluginList:
 - exit: false
   name: 热更
   path: reload-game.bat
-- exit: false
-  name: ——
-  path: null
+- name: ——
+- name: 测试
+  path: test1.code
+  code: true
+- name: ——
 - exit: true
   name: 关闭服务
   path: stop-game.bat
+  async: false
 showMaxLine: 1500
+
