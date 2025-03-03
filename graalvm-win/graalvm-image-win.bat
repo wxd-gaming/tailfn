@@ -50,6 +50,8 @@ call "D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build
 
 MD target\winfm
 
+cd target
+
 echo %option%
 @REM C:\java\graalvm-jdk-21.0.6+8.1\\bin\\native-image.cmd %option% -H:ConfigurationFileDirectories=graalvm-win/config -jar target/tail-jar-with-dependencies.jar target/winfm/tail
-C:\java\graalvm-community-openjdk-23.0.2+7.1\bin\native-image.cmd %option% -jar target/tail-jar-with-dependencies.jar target/winfm/tail
+C:\java\graalvm-community-openjdk-23.0.2+7.1\bin\native-image.cmd %option% -jar tail.jar winfm\tail

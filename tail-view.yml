@@ -9,7 +9,8 @@ pluginList:
   path: reload-game.bat
 - name: ——
 - name: 测试
-  path: test1.code
+  path: js1.js
+  code: true
 - name: ——
 - name: 关闭服务
   path: stop-game.bat

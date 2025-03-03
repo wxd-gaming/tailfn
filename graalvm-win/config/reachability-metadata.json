@@ -413,6 +413,10 @@
       "allDeclaredFields": true
     },
     {
+      "type": "java.lang.Exception",
+      "allDeclaredFields": true
+    },
+    {
       "type": "java.lang.Module"
     },
     {
@@ -426,6 +430,10 @@
       "type": "java.lang.ObjectCustomizer"
     },
     {
+      "type": "java.lang.RuntimeException",
+      "allDeclaredFields": true
+    },
+    {
       "type": "java.lang.Thread",
       "allDeclaredFields": true,
       "fields": [
@@ -433,6 +441,10 @@
           "name": "threadLocalRandomProbe"
         }
       ]
+    },
+    {
+      "type": "java.lang.Throwable",
+      "allDeclaredFields": true
     },
     {
       "type": "java.nio.ByteBuffer",
@@ -773,6 +785,25 @@
     {
       "type": "org.apache.commons.io.monitor.FileAlterationListenerAdaptor",
       "allDeclaredFields": true
+    },
+    {
+      "type": "org.graalvm.home.impl.DefaultHomeFinder"
+    },
+    {
+      "type": "org.graalvm.polyglot.io.IOHelper",
+      "fields": [
+        {
+          "name": "ACCESS"
+        }
+      ]
+    },
+    {
+      "type": "org.graalvm.polyglot.management.Management",
+      "fields": [
+        {
+          "name": "ACCESS"
+        }
+      ]
     },
     {
       "type": "sun.awt.Symbol",
@@ -1249,6 +1280,10 @@
       "allDeclaredFields": true
     },
     {
+      "type": "wxdgaming.tailfn.JScript",
+      "allDeclaredFields": true
+    },
+    {
       "type": "wxdgaming.tailfn.JavaAssistBox",
       "allDeclaredFields": true
     },
@@ -1274,6 +1309,10 @@
     },
     {
       "type": "wxdgaming.tailfn.TailFN$1",
+      "allDeclaredFields": true
+    },
+    {
+      "type": "wxdgaming.tailfn.Throw",
       "allDeclaredFields": true
     },
     {
@@ -1337,6 +1376,12 @@
           "parameterTypes": []
         },
         {
+          "name": "setCode",
+          "parameterTypes": [
+            "boolean"
+          ]
+        },
+        {
           "name": "setExit",
           "parameterTypes": [
             "boolean"
@@ -1367,6 +1412,10 @@
     },
     {
       "type": "wxdgaming.tailfn.ViewConfigCustomizer"
+    },
+    {
+      "type": "wxdgaming.tailfn.js.JLog",
+      "allDeclaredFields": true
     }
   ],
   "resources": [
@@ -1384,6 +1433,21 @@
     },
     {
       "glob": "META-INF/NOTICE.txt"
+    },
+    {
+      "glob": "META-INF/graalvm/"
+    },
+    {
+      "glob": "META-INF/graalvm/com.oracle.truffle.enterprise/version"
+    },
+    {
+      "glob": "META-INF/graalvm/org.graalvm.polyglot/"
+    },
+    {
+      "glob": "META-INF/graalvm/org.graalvm.polyglot/version"
+    },
+    {
+      "glob": "META-INF/graalvm/org.graalvm.truffle/version"
     },
     {
       "glob": "META-INF/maven/"
@@ -1470,6 +1534,93 @@
       "glob": "META-INF/maven/wxdgaming.tailfn/wxdgaming.tailfn/pom.xml"
     },
     {
+      "glob": "META-INF/native-image/"
+    },
+    {
+      "glob": "META-INF/native-image/org.graalvm.collections/"
+    },
+    {
+      "glob": "META-INF/native-image/org.graalvm.collections/native-image.properties"
+    },
+    {
+      "glob": "META-INF/native-image/org.graalvm.home/"
+    },
+    {
+      "glob": "META-INF/native-image/org.graalvm.home/native-image.properties"
+    },
+    {
+      "glob": "META-INF/native-image/org.graalvm.nativeimage/"
+    },
+    {
+      "glob": "META-INF/native-image/org.graalvm.nativeimage/native-image.properties"
+    },
+    {
+      "glob": "META-INF/native-image/org.graalvm.polyglot/"
+    },
+    {
+      "glob": "META-INF/native-image/org.graalvm.polyglot/native-image.properties"
+    },
+    {
+      "glob": "META-INF/native-image/org.graalvm.word/"
+    },
+    {
+      "glob": "META-INF/native-image/org.graalvm.word/native-image.properties"
+    },
+    {
+      "glob": "META-INF/resources/engine/libtruffleattach/windows/amd64/sha256"
+    },
+    {
+      "glob": "META-INF/services/"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.api.TruffleLanguage$Provider"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.api.TruffleRuntimeAccess"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.api.impl.TruffleLocator"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.api.instrumentation.TruffleInstrument$Provider"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.api.instrumentation.provider.TruffleInstrumentProvider"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.api.library.DefaultExportProvider"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.api.library.provider.DefaultExportProvider"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.api.object.LayoutFactory"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.api.provider.InternalResourceProvider"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.api.provider.TruffleLanguageProvider"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.js.runtime.Evaluator"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.runtime.EngineCacheSupport"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.runtime.FloodControlHandler"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.runtime.LoopNodeFactory"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.runtime.TruffleTypes"
+    },
+    {
+      "glob": "META-INF/services/com.oracle.truffle.runtime.jfr.EventFactory$Provider"
+    },
+    {
       "glob": "META-INF/services/java.awt.im.spi.InputMethodDescriptor"
     },
     {
@@ -1506,7 +1657,19 @@
       "glob": "META-INF/services/javax.imageio.spi.ImageWriterSpi"
     },
     {
+      "glob": "META-INF/services/javax.script.ScriptEngineFactory"
+    },
+    {
       "glob": "META-INF/services/javax.xml.stream.XMLInputFactory"
+    },
+    {
+      "glob": "META-INF/services/org.graalvm.home.HomeFinder"
+    },
+    {
+      "glob": "META-INF/services/org.graalvm.nativeimage.Platform"
+    },
+    {
+      "glob": "META-INF/services/org.graalvm.polyglot.impl.AbstractPolyglotImpl"
     },
     {
       "glob": "META-INF/substrate/"
@@ -1573,6 +1736,12 @@
     },
     {
       "glob": "META-INF/substrate/config/resourcebundles-x86_64-windows"
+    },
+    {
+      "glob": "META-INF/upgrade/"
+    },
+    {
+      "glob": "META-INF/upgrade/StackValueGetClass.hint"
     },
     {
       "glob": "META-INF/versions/"
@@ -1726,6 +1895,123 @@
     },
     {
       "glob": "com/"
+    },
+    {
+      "glob": "com/oracle/"
+    },
+    {
+      "glob": "com/oracle/svm/"
+    },
+    {
+      "glob": "com/oracle/svm/core/"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/Alias.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/AnnotateOriginal.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/AutomaticFeature.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/Delete.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/Inject.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/InjectAccessors.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/KeepOriginal.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/RecomputeFieldValue$Kind.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/RecomputeFieldValue.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/Substitute.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/TargetClass$AlwaysIncluded.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/TargetClass$NoClassNameProvider.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/TargetClass.class"
+    },
+    {
+      "glob": "com/oracle/svm/core/annotate/TargetElement.class"
+    },
+    {
+      "glob": "com/oracle/truffle/"
+    },
+    {
+      "glob": "com/oracle/truffle/js/"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSBindings$1.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSBindings.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSEngineFactory.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$1.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$10.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$11.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$2.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$3.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$4.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$5.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$6.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$7.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$8.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$9.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingInputStream.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.class"
+    },
+    {
+      "glob": "com/oracle/truffle/js/scriptengine/GraalJSScriptEngine.class"
     },
     {
       "glob": "com/sun/"
@@ -29109,6 +29395,1185 @@
       "glob": "org/apache/commons/text/translate/package-info.class"
     },
     {
+      "glob": "org/graalvm/"
+    },
+    {
+      "glob": "org/graalvm/collections/"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMap.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMapImpl$1$1.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMapImpl$1.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMapImpl$2.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMapImpl$3.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMapImpl$CollisionLink.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMapImpl$SparseMapIterator.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMapImpl.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMapUtil$1.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMapUtil.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMapWrap$1.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicMapWrap.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EconomicSet.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EmptyMap$1.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EmptyMap$2.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EmptyMap$3.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EmptyMap$4.class"
+    },
+    {
+      "glob": "org/graalvm/collections/EmptyMap.class"
+    },
+    {
+      "glob": "org/graalvm/collections/Equivalence$1.class"
+    },
+    {
+      "glob": "org/graalvm/collections/Equivalence$2.class"
+    },
+    {
+      "glob": "org/graalvm/collections/Equivalence$3.class"
+    },
+    {
+      "glob": "org/graalvm/collections/Equivalence.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePool$Node.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePool.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePrefixTree$Allocator.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePrefixTree$FailedAllocationException.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePrefixTree$HeapAllocator.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePrefixTree$Node$FrozenNode.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePrefixTree$Node$HashChildren.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePrefixTree$Node$LinearChildren.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePrefixTree$Node.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePrefixTree$ObjectPoolingAllocator$HousekeepingThread.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePrefixTree$ObjectPoolingAllocator.class"
+    },
+    {
+      "glob": "org/graalvm/collections/LockFreePrefixTree.class"
+    },
+    {
+      "glob": "org/graalvm/collections/MapCursor.class"
+    },
+    {
+      "glob": "org/graalvm/collections/Pair.class"
+    },
+    {
+      "glob": "org/graalvm/collections/SeqLockPrefixTree$Node.class"
+    },
+    {
+      "glob": "org/graalvm/collections/SeqLockPrefixTree$Visitor.class"
+    },
+    {
+      "glob": "org/graalvm/collections/SeqLockPrefixTree.class"
+    },
+    {
+      "glob": "org/graalvm/collections/SuppressFBWarnings.class"
+    },
+    {
+      "glob": "org/graalvm/collections/UnmodifiableEconomicMap.class"
+    },
+    {
+      "glob": "org/graalvm/collections/UnmodifiableEconomicSet.class"
+    },
+    {
+      "glob": "org/graalvm/collections/UnmodifiableMapCursor.class"
+    },
+    {
+      "glob": "org/graalvm/home/"
+    },
+    {
+      "glob": "org/graalvm/home/HomeFinder.class"
+    },
+    {
+      "glob": "org/graalvm/home/HomeFinderFeature.class"
+    },
+    {
+      "glob": "org/graalvm/home/Version.class"
+    },
+    {
+      "glob": "org/graalvm/home/impl/"
+    },
+    {
+      "glob": "org/graalvm/home/impl/DefaultHomeFinder.class"
+    },
+    {
+      "glob": "org/graalvm/home/impl/VmLocatorSymbol.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/AnnotationAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/CurrentIsolate.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/ImageInfo.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/ImageSingletons.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Isolate.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/IsolateThread.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Isolates$CreateIsolateParameters$Builder.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Isolates$CreateIsolateParameters.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Isolates$IsolateException.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Isolates$ProtectionDomain$1.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Isolates$ProtectionDomain$2.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Isolates$ProtectionDomain.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Isolates.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/LogHandler.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/MissingJNIRegistrationError.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/MissingReflectionRegistrationError.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/ObjectHandle.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/ObjectHandles.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/PinnedObject.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$AARCH64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$AMD64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$ANDROID.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$ANDROID_AARCH64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$DARWIN.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$DARWIN_AARCH64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$DARWIN_AMD64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$HOSTED_ONLY.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$IOS.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$IOS_AARCH64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$IOS_AMD64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$LINUX.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$LINUX_AARCH64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$LINUX_AARCH64_BASE.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$LINUX_AMD64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$LINUX_AMD64_BASE.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$LINUX_RISCV64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$MACOS.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$MACOS_AARCH64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$MACOS_AMD64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$RISCV64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$WINDOWS.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$WINDOWS_AARCH64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform$WINDOWS_AMD64.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platform.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Platforms.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/ProcessProperties.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/RuntimeOptions$Descriptor.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/RuntimeOptions.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/StackValue.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Threading$RecurringCallback.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Threading$RecurringCallbackAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/Threading.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/UnmanagedMemory.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/VMRuntime.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/CContext$Directives.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/CContext.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/CHeader$Header.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/CHeader.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/constant/"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/constant/CConstant$ValueAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/constant/CConstant.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/constant/CEnum.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/constant/CEnumConstant.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/constant/CEnumLookup.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/constant/CEnumValue.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$AlwaysIncluded.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$Builtin.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$ExceptionHandler.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$FatalExceptionHandler.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$IsolateContext.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$IsolateThreadContext.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$NotIncludedAutomatically.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$Publish.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPointLiteral.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CFunction$Transition.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CFunction.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CFunctionPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CLibrary.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CMacroInfo.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/CodePointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/InvokeCFunctionPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/function/RelocatedPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/AllowNarrowingCast.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/AllowWideningCast.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/CBitfield.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/CField.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/CFieldAddress.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/CFieldOffset.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/CPointerTo.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/CStruct.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/CTypedefOfInfo.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/RawField.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/RawFieldAddress.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/RawFieldOffset.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/RawPointerTo.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/RawStructure.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/SizeOf.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/struct/UniqueLocationIdentity.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CCharPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CCharPointerPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CConst.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CDoublePointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CFloatPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CIntPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CIntPointerPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CLongPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CShortPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CTypeConversion$CCharPointerHolder.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CTypeConversion$CCharPointerPointerHolder.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CTypeConversion.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CTypedef.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/CUnsigned.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/VoidPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/c/type/WordPointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$AfterAnalysisAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$AfterCompilationAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$AfterHeapLayoutAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$AfterImageWriteAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$AfterRegistrationAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$BeforeAnalysisAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$BeforeCompilationAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$BeforeHeapLayoutAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$BeforeImageWriteAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$BeforeUniverseBuildingAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$CompilationAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$DuringAnalysisAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$DuringSetupAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$FeatureAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$IsInConfigurationAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$OnAnalysisExitAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature$QueryReachabilityAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/Feature.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/FieldValueTransformer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeClassInitialization.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeForeignAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeJNIAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeProxyCreation.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeReflection.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeResourceAccess.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeSerialization.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeSystemProperties.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/AnnotationExtractor.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/CConstantValueSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/CEntryPointLiteralCodePointer.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/CTypeConversionSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/ConfigurationCondition.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/HeapDumpSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/ImageSingletonsSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/InternalPlatform$NATIVE_ONLY.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/InternalPlatform$PLATFORM_JNI.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/InternalPlatform.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/IsolateSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/ObjectHandlesSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/PinnedObjectSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/ProcessPropertiesSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/ReflectionRegistry.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/RuntimeClassInitializationSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/RuntimeForeignAccessSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/RuntimeJNIAccessSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/RuntimeOptionsSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/RuntimeProxyCreationSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/RuntimeReflectionSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/RuntimeResourceSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/RuntimeSerializationSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/RuntimeSystemPropertiesSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/SizeOfSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/ThreadingSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/UnmanagedMemorySupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/UnresolvedConfigurationCondition.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/UnsafeMemorySupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/VMRuntimeSupport.class"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/clinit/"
+    },
+    {
+      "glob": "org/graalvm/nativeimage/impl/clinit/ClassInitializationTracking.class"
+    },
+    {
+      "glob": "org/graalvm/options/"
+    },
+    {
+      "glob": "org/graalvm/options/OptionCategory.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionDescriptor$Builder.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionDescriptor.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionDescriptors$1.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionDescriptors.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionDescriptorsMap.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionKey.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionMap.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionStability.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$1.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$10.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$11.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$12.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$2.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$3.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$4.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$5.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$6.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$7.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$8.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$9.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType$Converter.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionType.class"
+    },
+    {
+      "glob": "org/graalvm/options/OptionValues.class"
+    },
+    {
+      "glob": "org/graalvm/options/UnionOptionDescriptors$1.class"
+    },
+    {
+      "glob": "org/graalvm/options/UnionOptionDescriptors.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/"
+    },
+    {
+      "glob": "org/graalvm/polyglot/AbstractValue.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Context$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Context$2.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Context$3.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Context$4.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Context$Builder.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Context.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Engine$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Engine$2.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Engine$APIAccessImpl$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Engine$APIAccessImpl.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Engine$Builder.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Engine$EngineShutDownHook.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Engine$ImplHolder.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Engine$PolyglotInvalid.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Engine.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/EnvironmentAccess.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/HostAccess$Builder.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/HostAccess$DisableMethodScoping.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/HostAccess$Export.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/HostAccess$Implementable.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/HostAccess$MutableTargetMapping.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/HostAccess.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Instrument.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Language.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/PolyglotAccess$Builder.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/PolyglotAccess.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/PolyglotException$StackFrame.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/PolyglotException.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/ResourceLimitEvent.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/ResourceLimits$Builder.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/ResourceLimits.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/SandboxPolicy.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Source$Builder.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Source.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/SourceSection.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/TypeLiteral.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/Value.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$APIAccess.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractContextDispatch.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractDispatchClass.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractEngineDispatch.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractExceptionDispatch.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractExecutionEventDispatch.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractExecutionListenerDispatch.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractHostAccess.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractHostLanguageService.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractInstrumentDispatch.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractLanguageDispatch.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractPolyglotHostService.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractSourceDispatch.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractSourceSectionDispatch.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractStackFrameImpl.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$AbstractValueDispatch.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$IOAccessor.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$LogHandler.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$ManagementAccess.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl$ThreadScope.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/impl/AbstractPolyglotImpl.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/ByteArraySequence.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/ByteSequence$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/ByteSequence$1ByteIterator.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/ByteSequence.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/FileSystem.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/IOAccess$Builder.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/IOAccess.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/IOHelper$IOAccessorImpl.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/IOHelper$ImplHolder.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/IOHelper.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/MessageEndpoint.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/MessageTransport$VetoException.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/MessageTransport.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/ProcessHandler$ProcessCommand.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/ProcessHandler$Redirect$Type.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/ProcessHandler$Redirect.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/io/ProcessHandler.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/management/"
+    },
+    {
+      "glob": "org/graalvm/polyglot/management/ExecutionEvent.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/management/ExecutionListener$Builder.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/management/ExecutionListener.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/management/Management$ImplHolder.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/management/Management$ManagementAccessImpl.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/management/Management.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/DefaultProxyArrayIterator.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/DefaultProxyIterator.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/Proxy.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyArray$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyArray$2.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyArray.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyDate$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyDate.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyDuration$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyDuration.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyExecutable.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyHashMap.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyHashMapImpl$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyHashMapImpl$ProxyEntryImpl.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyHashMapImpl.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyInstant$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyInstant.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyInstantConstants.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyInstantiable.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyIterable$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyIterable.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyIterator.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyNativeObject.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyObject$1$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyObject$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyObject.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyTime$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyTime.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyTimeZone$1.class"
+    },
+    {
+      "glob": "org/graalvm/polyglot/proxy/ProxyTimeZone.class"
+    },
+    {
+      "glob": "org/graalvm/word/"
+    },
+    {
+      "glob": "org/graalvm/word/ComparableWord.class"
+    },
+    {
+      "glob": "org/graalvm/word/LocationIdentity$AnyLocationIdentity.class"
+    },
+    {
+      "glob": "org/graalvm/word/LocationIdentity$InitLocationIdentity.class"
+    },
+    {
+      "glob": "org/graalvm/word/LocationIdentity.class"
+    },
+    {
+      "glob": "org/graalvm/word/Pointer.class"
+    },
+    {
+      "glob": "org/graalvm/word/PointerBase.class"
+    },
+    {
+      "glob": "org/graalvm/word/SignedWord.class"
+    },
+    {
+      "glob": "org/graalvm/word/UnsignedWord.class"
+    },
+    {
+      "glob": "org/graalvm/word/WordBase.class"
+    },
+    {
+      "glob": "org/graalvm/word/WordFactory.class"
+    },
+    {
+      "glob": "org/graalvm/word/impl/"
+    },
+    {
+      "glob": "org/graalvm/word/impl/WordBoxFactory.class"
+    },
+    {
+      "glob": "org/graalvm/word/impl/WordFactoryOpcode.class"
+    },
+    {
+      "glob": "org/graalvm/word/impl/WordFactoryOperation.class"
+    },
+    {
       "glob": "org/kordamp/"
     },
     {
@@ -29970,6 +31435,9 @@
       "glob": "wxdgaming/tailfn/GraalvmUtil.class"
     },
     {
+      "glob": "wxdgaming/tailfn/JScript.class"
+    },
+    {
       "glob": "wxdgaming/tailfn/JavaAssistBox$Call.class"
     },
     {
@@ -29991,6 +31459,9 @@
       "glob": "wxdgaming/tailfn/TailFN.class"
     },
     {
+      "glob": "wxdgaming/tailfn/Throw.class"
+    },
+    {
       "glob": "wxdgaming/tailfn/ViewConfig$PluginConfig.class"
     },
     {
@@ -29998,6 +31469,12 @@
     },
     {
       "glob": "wxdgaming/tailfn/console.fxml"
+    },
+    {
+      "glob": "wxdgaming/tailfn/js/"
+    },
+    {
+      "glob": "wxdgaming/tailfn/js/JLog.class"
     },
     {
       "module": "java.base",
@@ -30042,6 +31519,978 @@
     {
       "module": "java.xml",
       "glob": "jdk/xml/internal/jdkcatalog/JDKCatalog.xml"
+    },
+    {
+      "module": "jdk.jfr",
+      "glob": "jdk/jfr/internal/types/metadata.bin"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMap.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMapImpl$1$1.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMapImpl$1.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMapImpl$2.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMapImpl$3.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMapImpl$CollisionLink.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMapImpl$SparseMapIterator.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMapImpl.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMapUtil$1.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMapUtil.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMapWrap$1.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicMapWrap.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EconomicSet.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EmptyMap$1.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EmptyMap$2.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EmptyMap$3.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EmptyMap$4.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/EmptyMap.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/Equivalence$1.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/Equivalence$2.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/Equivalence$3.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/Equivalence.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePool$Node.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePool.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePrefixTree$Allocator.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePrefixTree$FailedAllocationException.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePrefixTree$HeapAllocator.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePrefixTree$Node$FrozenNode.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePrefixTree$Node$HashChildren.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePrefixTree$Node$LinearChildren.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePrefixTree$Node.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePrefixTree$ObjectPoolingAllocator$HousekeepingThread.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePrefixTree$ObjectPoolingAllocator.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/LockFreePrefixTree.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/MapCursor.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/Pair.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/SeqLockPrefixTree$Node.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/SeqLockPrefixTree$Visitor.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/SeqLockPrefixTree.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/SuppressFBWarnings.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/UnmodifiableEconomicMap.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/UnmodifiableEconomicSet.class"
+    },
+    {
+      "module": "org.graalvm.collections",
+      "glob": "org/graalvm/collections/UnmodifiableMapCursor.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/Alias.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/AnnotateOriginal.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/AutomaticFeature.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/Delete.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/Inject.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/InjectAccessors.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/KeepOriginal.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/RecomputeFieldValue$Kind.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/RecomputeFieldValue.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/Substitute.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/TargetClass$AlwaysIncluded.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/TargetClass$NoClassNameProvider.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/TargetClass.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "com/oracle/svm/core/annotate/TargetElement.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/AnnotationAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/CurrentIsolate.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/ImageInfo.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/ImageSingletons.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Isolate.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/IsolateThread.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Isolates$CreateIsolateParameters$Builder.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Isolates$CreateIsolateParameters.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Isolates$IsolateException.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Isolates$ProtectionDomain$1.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Isolates$ProtectionDomain$2.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Isolates$ProtectionDomain.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Isolates.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/LogHandler.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/MissingJNIRegistrationError.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/MissingReflectionRegistrationError.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/ObjectHandle.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/ObjectHandles.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/PinnedObject.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$AARCH64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$AMD64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$ANDROID.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$ANDROID_AARCH64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$DARWIN.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$DARWIN_AARCH64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$DARWIN_AMD64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$HOSTED_ONLY.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$IOS.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$IOS_AARCH64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$IOS_AMD64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$LINUX.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$LINUX_AARCH64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$LINUX_AARCH64_BASE.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$LINUX_AMD64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$LINUX_AMD64_BASE.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$LINUX_RISCV64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$MACOS.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$MACOS_AARCH64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$MACOS_AMD64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$RISCV64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$WINDOWS.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$WINDOWS_AARCH64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform$WINDOWS_AMD64.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platform.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Platforms.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/ProcessProperties.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/RuntimeOptions$Descriptor.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/RuntimeOptions.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/StackValue.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Threading$RecurringCallback.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Threading$RecurringCallbackAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/Threading.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/UnmanagedMemory.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/VMRuntime.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/CContext$Directives.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/CContext.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/CHeader$Header.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/CHeader.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/constant/CConstant$ValueAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/constant/CConstant.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/constant/CEnum.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/constant/CEnumConstant.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/constant/CEnumLookup.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/constant/CEnumValue.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$AlwaysIncluded.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$Builtin.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$ExceptionHandler.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$FatalExceptionHandler.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$IsolateContext.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$IsolateThreadContext.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$NotIncludedAutomatically.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint$Publish.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPoint.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CEntryPointLiteral.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CFunction$Transition.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CFunction.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CFunctionPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CLibrary.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CMacroInfo.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/CodePointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/InvokeCFunctionPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/function/RelocatedPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/AllowNarrowingCast.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/AllowWideningCast.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/CBitfield.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/CField.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/CFieldAddress.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/CFieldOffset.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/CPointerTo.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/CStruct.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/CTypedefOfInfo.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/RawField.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/RawFieldAddress.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/RawFieldOffset.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/RawPointerTo.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/RawStructure.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/SizeOf.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/struct/UniqueLocationIdentity.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CCharPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CCharPointerPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CConst.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CDoublePointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CFloatPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CIntPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CIntPointerPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CLongPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CShortPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CTypeConversion$CCharPointerHolder.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CTypeConversion$CCharPointerPointerHolder.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CTypeConversion.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CTypedef.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/CUnsigned.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/VoidPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/c/type/WordPointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$AfterAnalysisAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$AfterCompilationAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$AfterHeapLayoutAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$AfterImageWriteAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$AfterRegistrationAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$BeforeAnalysisAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$BeforeCompilationAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$BeforeHeapLayoutAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$BeforeImageWriteAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$BeforeUniverseBuildingAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$CompilationAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$DuringAnalysisAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$DuringSetupAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$FeatureAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$IsInConfigurationAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$OnAnalysisExitAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature$QueryReachabilityAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/Feature.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/FieldValueTransformer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeClassInitialization.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeForeignAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeJNIAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeProxyCreation.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeReflection.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeResourceAccess.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeSerialization.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/hosted/RuntimeSystemProperties.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/AnnotationExtractor.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/CConstantValueSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/CEntryPointLiteralCodePointer.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/CTypeConversionSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/ConfigurationCondition.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/HeapDumpSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/ImageSingletonsSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/InternalPlatform$NATIVE_ONLY.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/InternalPlatform$PLATFORM_JNI.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/InternalPlatform.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/IsolateSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/ObjectHandlesSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/PinnedObjectSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/ProcessPropertiesSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/ReflectionRegistry.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/RuntimeClassInitializationSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/RuntimeForeignAccessSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/RuntimeJNIAccessSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/RuntimeOptionsSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/RuntimeProxyCreationSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/RuntimeReflectionSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/RuntimeResourceSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/RuntimeSerializationSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/RuntimeSystemPropertiesSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/SizeOfSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/ThreadingSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/UnmanagedMemorySupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/UnresolvedConfigurationCondition.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/UnsafeMemorySupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/VMRuntimeSupport.class"
+    },
+    {
+      "module": "org.graalvm.nativeimage",
+      "glob": "org/graalvm/nativeimage/impl/clinit/ClassInitializationTracking.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/ComparableWord.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/LocationIdentity$AnyLocationIdentity.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/LocationIdentity$InitLocationIdentity.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/LocationIdentity.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/Pointer.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/PointerBase.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/SignedWord.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/UnsignedWord.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/WordBase.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/WordFactory.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/impl/WordBoxFactory.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/impl/WordFactoryOpcode.class"
+    },
+    {
+      "module": "org.graalvm.word",
+      "glob": "org/graalvm/word/impl/WordFactoryOperation.class"
     }
   ],
   "bundles": [
@@ -33600,6 +36049,21 @@
             "boolean",
             "java.lang.ClassLoader"
           ]
+        },
+        {
+          "name": "getClassLoader",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "java.lang.ClassLoader",
+      "methods": [
+        {
+          "name": "loadClass",
+          "parameterTypes": [
+            "java.lang.String"
+          ]
         }
       ]
     },
@@ -33744,6 +36208,9 @@
           ]
         }
       ]
+    },
+    {
+      "type": "jdk.internal.loader.ClassLoaders$AppClassLoader"
     },
     {
       "type": "sun.awt.AWTAutoShutdown",

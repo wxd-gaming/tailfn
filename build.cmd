@@ -15,4 +15,6 @@ if %errorlevel% equ 0 (
     echo "graalvm-package-win.bat error level: %errorlevel%"
     exit
 )
+cd ..
 call graalvm-win\graalvm-image-win.bat
+cd ..
