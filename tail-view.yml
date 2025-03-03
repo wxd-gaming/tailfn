@@ -1,20 +1,16 @@
-autoWarp: false
-bgColor: body_light
 filePath: G:\712-work\engine712-server-wuxin\target\logs\game.log
-fontSize: 13
 lastN: 150
+showMaxLine: 1500
+fontSize: 13
+bgColor: body_light
+autoWarp: false
 pluginList:
-- exit: false
-  name: 热更
+- name: 热更
   path: reload-game.bat
 - name: ——
 - name: 测试
   path: test1.code
-  code: true
 - name: ——
-- exit: true
-  name: 关闭服务
+- name: 关闭服务
   path: stop-game.bat
-  async: false
-showMaxLine: 1500
-
+  exit: true

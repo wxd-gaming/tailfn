@@ -17,7 +17,6 @@ set option=%option% --allow-incomplete-classpath
 set option=%option% --initialize-at-build-time=wxdgaming.tailfn
 
 :: build-time
-
 set option=%option% --initialize-at-run-time=wxdgaming.tailfn
 
 
@@ -31,7 +30,6 @@ set option=%option% --trace-class-initialization=com.sun.beans.TypeResolver
 set option=%option% --trace-class-initialization=java.beans.Introspector
 set option=%option% --trace-class-initialization=java.beans.ThreadGroupContext
 set option=%option% --trace-class-initialization=wxdgaming.tailfn
-set option=%option% --trace-object-instantiation=java.util.jar.JarFile
 
 
 set option=%option% --add-exports=java.base/java.nio=ALL-UNNAMED
@@ -52,4 +50,5 @@ call "D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build
 MD target\winfm
 
 echo %option%
-C:\java\graalvm-jdk-21.0.6+8.1\\bin\\native-image.cmd %option% -H:ConfigurationFileDirectories=graalvm-win/config -jar target/tail-jar-with-dependencies.jar target/winfm/tail
+@REM C:\java\graalvm-jdk-21.0.6+8.1\\bin\\native-image.cmd %option% -H:ConfigurationFileDirectories=graalvm-win/config -jar target/tail-jar-with-dependencies.jar target/winfm/tail
+C:\java\graalvm-community-openjdk-23.0.2+7.1\bin\native-image.cmd %option% -H:ConfigurationFileDirectories=graalvm-win/config -jar target/tail-jar-with-dependencies.jar target/winfm/tail

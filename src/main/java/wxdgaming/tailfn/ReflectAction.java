@@ -1,8 +1,5 @@
 package wxdgaming.tailfn;
 
-import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
-
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,7 +29,6 @@ import java.util.zip.ZipInputStream;
  * @author: wxd-gaming(無心道, 15388152619)
  * @version: 2024-07-15 17:51
  **/
-@Getter
 public class ReflectAction {
 
     public static ReflectAction of() {
@@ -43,9 +39,9 @@ public class ReflectAction {
 
     private final Set<Class<?>> notConstructor0List = new HashSet<>();
 
-    public void action(Class<?> cls, boolean checkPackage) {
+    public void action(Class<?> cls) {
         if (cls == Object.class) return;
-        if (cls.getSuperclass() != null) action(cls.getSuperclass(), checkPackage);
+        if (cls.getSuperclass() != null) action(cls.getSuperclass());
 
         actionField(cls);
         actionMethod(cls);
@@ -68,7 +64,7 @@ public class ReflectAction {
                 }
                 try {
                     Object findMethod = cls.getDeclaredConstructor(declaredConstructor.getParameterTypes());
-                    GraalvmUtil.appendFile("reflectActionMethod: " + findMethod);
+                    System.out.println("reflectActionMethod: " + findMethod);
                 } catch (Throwable ignore) {}
             }
         }
@@ -80,7 +76,7 @@ public class ReflectAction {
                 }
                 try {
                     Method findMethod = cls.getDeclaredMethod(method.getName(), method.getParameterTypes());
-                    GraalvmUtil.appendFile("reflectActionMethod: " + findMethod);
+                    System.out.println("reflectActionMethod: " + findMethod);
                 } catch (Throwable ignore) {}
             }
         }
@@ -93,7 +89,7 @@ public class ReflectAction {
                 continue;
             }
             try {
-                GraalvmUtil.appendFile("reflectActionField: " + cls.getDeclaredField(field.getName()));
+                System.out.println("reflectActionField: " + cls.getDeclaredField(field.getName()));
             } catch (Throwable ignore) {}
         }
     }
@@ -122,7 +118,7 @@ public class ReflectAction {
             if (!fileExists) {/*当本地文件不存在才查找资源文件*/
                 URL resource = classLoader.getResource(path);
                 if (resource != null) {
-                    findPath = URLDecoder.decode(resource.getPath(), StandardCharsets.UTF_8.toString());
+                    findPath = URLDecoder.decode(resource.getPath(), StandardCharsets.UTF_8);
                     if (findPath.startsWith("/")) {
                         findPath = findPath.substring(1);
                     }

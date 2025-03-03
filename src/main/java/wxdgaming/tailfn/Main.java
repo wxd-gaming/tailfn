@@ -1,11 +1,14 @@
 package wxdgaming.tailfn;
 
 import javafx.application.Application;
+import javafx.scene.transform.Rotate;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.net.URL;
 import java.util.List;
+import java.util.jar.JarFile;
+import java.util.zip.ZipFile;
 
 public class Main {
 
@@ -31,7 +34,7 @@ public class Main {
                 }
             }
 
-            Application.launch(ConsoleApplication.class, args);
+            Application.launch(ConsoleApplication.class);
         } catch (Exception e) {
             GraalvmUtil.appendFile(e.toString());
         }
@@ -43,16 +46,17 @@ public class Main {
         List<String> strings = GraalvmUtil.jarResources();
         for (String string : strings) {
             URL resource = contextClassLoader.getResource(string);
-            GraalvmUtil.appendFile(String.format("%s - %s", string, resource));
+            if (resource != null) {
+                System.out.println(String.format("%s - %s", string, resource));
+            }
         }
-
-        reflectAction("com.sun.javafx");
-        reflectAction("javafx");
-        reflectAction("wxdgaming");
-    }
-
-    public static void reflectAction(String packageName) {
         ReflectAction reflectAction = ReflectAction.of();
-
+        List<Class<?>> classes = GraalvmUtil.jarClasses("wxdgaming");
+        for (Class<?> cls : classes) {
+            reflectAction.action(cls);
+        }
+        reflectAction.action(JarFile.class);
+        reflectAction.action(ZipFile.class);
+        reflectAction.action(Rotate.class);
     }
 }

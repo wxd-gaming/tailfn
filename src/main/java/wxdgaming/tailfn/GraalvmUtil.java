@@ -10,10 +10,10 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
+import java.util.function.Predicate;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 import java.util.stream.Stream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 public class GraalvmUtil {
 
@@ -65,13 +65,40 @@ public class GraalvmUtil {
         return System.getProperty("java.class.path");
     }
 
+    public static List<Class<?>> jarClasses(String... packageNames) throws Exception {
+        List<String> strings = jarResources();
+        List<Class<?>> classes = new ArrayList<>();
+        Predicate<String> predicate = string -> {
+            for (String packageName : packageNames) {
+                if (string.startsWith(packageName)) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        for (String string : strings) {
+            if (string.endsWith(".class")) {
+                String substring = string.substring(0, string.length() - 6);
+                String replace = substring.replace('/', '.');
+                replace = replace.replace('\\', '.');
+                try {
+                    if (predicate.test(replace)) {
+                        Class<?> aClass = GraalvmUtil.class.getClassLoader().loadClass(replace);
+                        classes.add(aClass);
+                    }
+                } catch (Throwable ignored) {}
+            }
+        }
+        return classes;
+    }
+
     public static List<String> jarResources() throws Exception {
         List<String> resourcesPath = new ArrayList<>();
         String x = javaClassPath();
         String[] split = x.split(File.pathSeparator);
-        List<String> collect = Arrays.stream(split).sorted().collect(Collectors.toList());
+        List<String> collect = Arrays.stream(split).sorted().toList();
         for (String string : collect) {
-
+            // System.out.println(string);
             Path start = Paths.get(string);
             if (!string.endsWith(".jar") && !string.endsWith(".war") && !string.endsWith(".zip")) {
                 if (string.endsWith("classes")) {
@@ -80,28 +107,22 @@ public class GraalvmUtil {
                         stream
                                 .map(Path::toString)
                                 .filter(s -> s.startsWith(target) && s.length() > target.length())
-                                .map(s -> {
-                                    String replace = s.replace(target + File.separator, "");
-                                    if (replace.endsWith(".class")) {
-                                        replace = replace.replace(".class", "").replace(File.separator, ".");
-                                    }
-                                    return replace;
-                                })
                                 .forEach(resourcesPath::add);
                     }
                     continue;
                 }
-                GraalvmUtil.appendFile(string);
                 continue;
             }
 
-            try (InputStream inputStream = Files.newInputStream(start);
-                 ZipInputStream zipInputStream = new ZipInputStream(inputStream)) {
-                ZipEntry nextEntry = null;
-                while ((nextEntry = zipInputStream.getNextEntry()) != null) {
-                    /* todo 读取的资源字节可以做解密操作 */
-                    resourcesPath.add(nextEntry.getName());
+            try (JarFile jarFile = new JarFile(string)) {
+                Enumeration<JarEntry> entries = jarFile.entries();
+                while (entries.hasMoreElements()) {
+                    JarEntry jarEntry = entries.nextElement();
+                    String entryName = jarEntry.getName();
+                    resourcesPath.add(entryName);
                 }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         Collections.sort(resourcesPath);

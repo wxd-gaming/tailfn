@@ -1,8 +1,6 @@
 package wxdgaming.tailfn;
 
-
-import lombok.Getter;
-import lombok.Setter;
+import org.apache.commons.lang3.StringUtils;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.representer.Representer;
@@ -21,8 +19,6 @@ import java.util.List;
  * @author: wxd-gaming(無心道, 15388152619)
  * @version: 2025-02-26 15:22
  **/
-@Getter
-@Setter
 public class ViewConfig {
 
     public static Path viewPath = null;
@@ -78,7 +74,8 @@ public class ViewConfig {
         for (PluginConfig pluginConfig : pluginList) {
             LinkedHashMap<String, Object> objectObjectLinkedHashMap1 = new LinkedHashMap<>();
             objectObjectLinkedHashMap1.put("name", pluginConfig.getName());
-            objectObjectLinkedHashMap1.put("path", pluginConfig.getPath());
+            if (StringUtils.isNotBlank(pluginConfig.getPath()))
+                objectObjectLinkedHashMap1.put("path", pluginConfig.getPath());
             if (pluginConfig.isCode())
                 objectObjectLinkedHashMap1.put("code", true);
             if (pluginConfig.isAsync())
@@ -94,9 +91,62 @@ public class ViewConfig {
         GraalvmUtil.writeFile(viewPath, string);
     }
 
+    public String getFilePath() {
+        return filePath;
+    }
 
-    @Setter
-    @Getter
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public int getLastN() {
+        return lastN;
+    }
+
+    public void setLastN(int lastN) {
+        this.lastN = lastN;
+    }
+
+    public int getShowMaxLine() {
+        return showMaxLine;
+    }
+
+    public void setShowMaxLine(int showMaxLine) {
+        this.showMaxLine = showMaxLine;
+    }
+
+    public int getFontSize() {
+        return fontSize;
+    }
+
+    public void setFontSize(int fontSize) {
+        this.fontSize = fontSize;
+    }
+
+    public String getBgColor() {
+        return bgColor;
+    }
+
+    public void setBgColor(String bgColor) {
+        this.bgColor = bgColor;
+    }
+
+    public boolean isAutoWarp() {
+        return autoWarp;
+    }
+
+    public void setAutoWarp(boolean autoWarp) {
+        this.autoWarp = autoWarp;
+    }
+
+    public List<PluginConfig> getPluginList() {
+        return pluginList;
+    }
+
+    public void setPluginList(List<PluginConfig> pluginList) {
+        this.pluginList = pluginList;
+    }
+
     public static class PluginConfig {
 
         private String name;
@@ -105,6 +155,45 @@ public class ViewConfig {
         private boolean async = false;
         private boolean exit = false;
 
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getPath() {
+            return path;
+        }
+
+        public void setPath(String path) {
+            this.path = path;
+        }
+
+        public boolean isCode() {
+            return code;
+        }
+
+        public void setCode(boolean code) {
+            this.code = code;
+        }
+
+        public boolean isAsync() {
+            return async;
+        }
+
+        public void setAsync(boolean async) {
+            this.async = async;
+        }
+
+        public boolean isExit() {
+            return exit;
+        }
+
+        public void setExit(boolean exit) {
+            this.exit = exit;
+        }
     }
 
 }
