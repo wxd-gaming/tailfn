@@ -8,7 +8,8 @@ import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.*;
+import java.io.File;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -93,28 +94,18 @@ public class ConsoleController {
                     menuItem.setUserData(pluginConfig.getPath());
                     menuItem.setOnAction(event -> {
                         try {
-                            if (Boolean.TRUE.equals(pluginConfig.getCode())) {
-                                FileInputStream fileInputStream = new FileInputStream(pluginConfig.getPath());
-                                byte[] bytes = GraalvmUtil.readInputStream(fileInputStream);
-                                String code = new String(bytes, StandardCharsets.UTF_8);
-                                JavaAssistBox.JavaAssist javaAssist = JavaAssistBox.DefaultJavaAssistBox.implInterfaces(IPlugin.class.getSimpleName(), IPlugin.class);
-                                javaAssist.createMethod(code);
-                                Object instance = javaAssist.toInstance();
-                                ((IPlugin) instance).exec();
-                            } else {
-                                File file = new File(pluginConfig.getPath());
-                                if (!file.exists()) {
-                                    appendLine("执行命令：" + pluginConfig.getName() + ", 文件不存在: " + pluginConfig.getPath());
-                                    return;
-                                }
-                                GraalvmUtil.execLocalCommand(Boolean.TRUE.equals(pluginConfig.getAsync()), pluginConfig.getPath());
+                            File file = new File(pluginConfig.getPath());
+                            if (!file.exists()) {
+                                appendLine("执行命令：" + pluginConfig.getName() + ", 文件不存在: " + pluginConfig.getPath());
+                                return;
                             }
+                            GraalvmUtil.execLocalCommand(pluginConfig.isAsync(), pluginConfig.getPath());
                         } catch (Exception e) {
                             e.printStackTrace(System.err);
                             GraalvmUtil.appendFile(e.toString());
                         } finally {
                             try {
-                                if (Boolean.TRUE.equals(pluginConfig.getExit())) {
+                                if (pluginConfig.isExit()) {
                                     Runtime.getRuntime().halt(0);
                                 }
                             } catch (Exception e) {

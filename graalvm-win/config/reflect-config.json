@@ -1826,7 +1826,7 @@
   "name":"wxdgaming.tailfn.ViewConfig",
   "allDeclaredFields":true,
   "queryAllPublicMethods":true,
-  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"getBgColor","parameterTypes":[] }, {"name":"getFilePath","parameterTypes":[] }, {"name":"getFontSize","parameterTypes":[] }, {"name":"getLastN","parameterTypes":[] }, {"name":"getMenuConfigs","parameterTypes":[] }, {"name":"getShowMaxLine","parameterTypes":[] }, {"name":"isAutoWarp","parameterTypes":[] }, {"name":"setAutoWarp","parameterTypes":["boolean"] }, {"name":"setBgColor","parameterTypes":["java.lang.String"] }, {"name":"setFilePath","parameterTypes":["java.lang.String"] }, {"name":"setFontSize","parameterTypes":["int"] }, {"name":"setLastN","parameterTypes":["int"] }, {"name":"setMenuConfigs","parameterTypes":["java.util.List"] }, {"name":"setShowMaxLine","parameterTypes":["int"] }]
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"getBgColor","parameterTypes":[] }, {"name":"getFilePath","parameterTypes":[] }, {"name":"getFontSize","parameterTypes":[] }, {"name":"getLastN","parameterTypes":[] }, {"name":"getMenuConfigs","parameterTypes":[] }, {"name":"getShowMaxLine","parameterTypes":[] }, {"name":"isAutoWarp","parameterTypes":[] }, {"name":"setAutoWarp","parameterTypes":["boolean"] }, {"name":"setBgColor","parameterTypes":["java.lang.String"] }, {"name":"setFilePath","parameterTypes":["java.lang.String"] }, {"name":"setFontSize","parameterTypes":["int"] }, {"name":"setLastN","parameterTypes":["int"] }, {"name":"setMenuConfigs","parameterTypes":["java.util.List"] }, {"name":"setPluginList","parameterTypes":["java.util.List"] }, {"name":"setShowMaxLine","parameterTypes":["int"] }]
 },
 {
   "name":"wxdgaming.tailfn.ViewConfig$MenuConfig",
@@ -1839,6 +1839,18 @@
 },
 {
   "name":"wxdgaming.tailfn.ViewConfig$MenuConfigCustomizer"
+},
+{
+  "name":"wxdgaming.tailfn.ViewConfig$PluginConfig",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"setAsync","parameterTypes":["boolean"] }, {"name":"setCode","parameterTypes":["boolean"] }, {"name":"setExit","parameterTypes":["boolean"] }, {"name":"setName","parameterTypes":["java.lang.String"] }, {"name":"setPath","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"wxdgaming.tailfn.ViewConfig$PluginConfigBeanInfo"
+},
+{
+  "name":"wxdgaming.tailfn.ViewConfig$PluginConfigCustomizer"
 },
 {
   "name":"wxdgaming.tailfn.ViewConfigBeanInfo"

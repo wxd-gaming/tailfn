@@ -2,7 +2,6 @@ package wxdgaming.tailfn;
 
 import javafx.application.Application;
 import org.apache.commons.lang3.StringUtils;
-import org.reflections.Reflections;
 
 import java.io.File;
 import java.net.URL;
@@ -12,7 +11,6 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            buildGraalvm();
 
             String configPath = "tail-view.yml";
             if (args.length > 0) {
@@ -22,6 +20,7 @@ public class Main {
 
             ViewConfig.loadYaml(configPath);
 
+            buildGraalvm();
             if (args.length > 1) {
                 File file = new File(args[1]);
                 if (file.isFile() && file.getParentFile().exists()) {
@@ -54,11 +53,6 @@ public class Main {
 
     public static void reflectAction(String packageName) {
         ReflectAction reflectAction = ReflectAction.of();
-        Reflections reflections = new Reflections(packageName);
-        reflections.getSubTypesOf(Object.class).stream().parallel().forEach(clazz -> {
-            try {
-                reflectAction.action(clazz, false);
-            } catch (Exception ignored) {}
-        });
+
     }
 }

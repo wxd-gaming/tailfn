@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -65,7 +66,31 @@ public class ViewConfig {
         Representer representer = new Representer(dumperOptions);
         representer.getPropertyUtils().setSkipMissingProperties(true);
         Yaml yaml = new Yaml(representer, dumperOptions);
-        String string = yaml.dumpAsMap(this);
+        LinkedHashMap<String, Object> objectObjectLinkedHashMap = new LinkedHashMap<>();
+        objectObjectLinkedHashMap.put("filePath", filePath);
+        objectObjectLinkedHashMap.put("lastN", lastN);
+        objectObjectLinkedHashMap.put("showMaxLine", showMaxLine);
+        objectObjectLinkedHashMap.put("fontSize", fontSize);
+        objectObjectLinkedHashMap.put("bgColor", bgColor);
+        objectObjectLinkedHashMap.put("autoWarp", autoWarp);
+        ArrayList<LinkedHashMap<String, Object>> arrayList = new ArrayList<>();
+
+        for (PluginConfig pluginConfig : pluginList) {
+            LinkedHashMap<String, Object> objectObjectLinkedHashMap1 = new LinkedHashMap<>();
+            objectObjectLinkedHashMap1.put("name", pluginConfig.getName());
+            objectObjectLinkedHashMap1.put("path", pluginConfig.getPath());
+            if (pluginConfig.isCode())
+                objectObjectLinkedHashMap1.put("code", true);
+            if (pluginConfig.isAsync())
+                objectObjectLinkedHashMap1.put("async", true);
+            if (pluginConfig.isExit())
+                objectObjectLinkedHashMap1.put("exit", true);
+            arrayList.add(objectObjectLinkedHashMap1);
+        }
+
+        objectObjectLinkedHashMap.put("pluginList", arrayList);
+
+        String string = yaml.dumpAsMap(objectObjectLinkedHashMap);
         GraalvmUtil.writeFile(viewPath, string);
     }
 
@@ -76,9 +101,9 @@ public class ViewConfig {
 
         private String name;
         private String path;
-        private Boolean code = null;
-        private Boolean async = null;
-        private Boolean exit = null;
+        private boolean code = false;
+        private boolean async = false;
+        private boolean exit = false;
 
     }
 

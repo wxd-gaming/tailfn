@@ -18899,6 +18899,8 @@
   }, {
     "pattern":"\\Qwxdgaming/tailfn/ViewConfig$MenuConfig.class\\E"
   }, {
+    "pattern":"\\Qwxdgaming/tailfn/ViewConfig$PluginConfig.class\\E"
+  }, {
     "pattern":"\\Qwxdgaming/tailfn/ViewConfig.class\\E"
   }, {
     "pattern":"\\Qwxdgaming/tailfn/\\E"

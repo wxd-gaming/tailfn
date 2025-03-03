@@ -1,3 +1,0 @@
-public void exec() {
-        System.out.println("TestPlugin");
-    }
