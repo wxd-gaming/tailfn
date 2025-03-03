@@ -409,6 +409,10 @@
       ]
     },
     {
+      "type": "java.lang.ClassLoader",
+      "allDeclaredFields": true
+    },
+    {
       "type": "java.lang.Module"
     },
     {
@@ -1245,6 +1249,18 @@
       "allDeclaredFields": true
     },
     {
+      "type": "wxdgaming.tailfn.JavaAssistBox",
+      "allDeclaredFields": true
+    },
+    {
+      "type": "wxdgaming.tailfn.JavaAssistBox$Call",
+      "allDeclaredFields": true
+    },
+    {
+      "type": "wxdgaming.tailfn.JavaAssistBox$JavaAssist",
+      "allDeclaredFields": true
+    },
+    {
       "type": "wxdgaming.tailfn.Main",
       "allDeclaredFields": true
     },
@@ -1404,6 +1420,18 @@
     },
     {
       "glob": "META-INF/maven/org.apache.commons/commons-text/pom.xml"
+    },
+    {
+      "glob": "META-INF/maven/org.javassist/"
+    },
+    {
+      "glob": "META-INF/maven/org.javassist/javassist/"
+    },
+    {
+      "glob": "META-INF/maven/org.javassist/javassist/pom.properties"
+    },
+    {
+      "glob": "META-INF/maven/org.javassist/javassist/pom.xml"
     },
     {
       "glob": "META-INF/maven/org.kordamp.bootstrapfx/"
@@ -24812,6 +24840,1335 @@
       "glob": "javafx_iio.dll"
     },
     {
+      "glob": "javassist/"
+    },
+    {
+      "glob": "javassist/ByteArrayClassPath$1.class"
+    },
+    {
+      "glob": "javassist/ByteArrayClassPath$BytecodeURLConnection.class"
+    },
+    {
+      "glob": "javassist/ByteArrayClassPath$BytecodeURLStreamHandler.class"
+    },
+    {
+      "glob": "javassist/ByteArrayClassPath.class"
+    },
+    {
+      "glob": "javassist/CannotCompileException.class"
+    },
+    {
+      "glob": "javassist/ClassClassPath.class"
+    },
+    {
+      "glob": "javassist/ClassMap.class"
+    },
+    {
+      "glob": "javassist/ClassPath.class"
+    },
+    {
+      "glob": "javassist/ClassPathList.class"
+    },
+    {
+      "glob": "javassist/ClassPool.class"
+    },
+    {
+      "glob": "javassist/ClassPoolTail.class"
+    },
+    {
+      "glob": "javassist/CodeConverter$ArrayAccessReplacementMethodNames.class"
+    },
+    {
+      "glob": "javassist/CodeConverter$DefaultArrayAccessReplacementMethodNames.class"
+    },
+    {
+      "glob": "javassist/CodeConverter.class"
+    },
+    {
+      "glob": "javassist/CtArray.class"
+    },
+    {
+      "glob": "javassist/CtBehavior.class"
+    },
+    {
+      "glob": "javassist/CtClass$1.class"
+    },
+    {
+      "glob": "javassist/CtClass$DelayedFileOutputStream.class"
+    },
+    {
+      "glob": "javassist/CtClass.class"
+    },
+    {
+      "glob": "javassist/CtClassType.class"
+    },
+    {
+      "glob": "javassist/CtConstructor.class"
+    },
+    {
+      "glob": "javassist/CtField$ArrayInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField$CodeInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField$CodeInitializer0.class"
+    },
+    {
+      "glob": "javassist/CtField$DoubleInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField$FloatInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField$Initializer.class"
+    },
+    {
+      "glob": "javassist/CtField$IntInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField$LongInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField$MethodInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField$MultiArrayInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField$NewInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField$ParamInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField$PtreeInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField$StringInitializer.class"
+    },
+    {
+      "glob": "javassist/CtField.class"
+    },
+    {
+      "glob": "javassist/CtMember$Cache.class"
+    },
+    {
+      "glob": "javassist/CtMember.class"
+    },
+    {
+      "glob": "javassist/CtMethod$ConstParameter.class"
+    },
+    {
+      "glob": "javassist/CtMethod$IntConstParameter.class"
+    },
+    {
+      "glob": "javassist/CtMethod$LongConstParameter.class"
+    },
+    {
+      "glob": "javassist/CtMethod$StringConstParameter.class"
+    },
+    {
+      "glob": "javassist/CtMethod.class"
+    },
+    {
+      "glob": "javassist/CtNewClass.class"
+    },
+    {
+      "glob": "javassist/CtNewConstructor.class"
+    },
+    {
+      "glob": "javassist/CtNewMethod.class"
+    },
+    {
+      "glob": "javassist/CtNewWrappedConstructor.class"
+    },
+    {
+      "glob": "javassist/CtNewWrappedMethod.class"
+    },
+    {
+      "glob": "javassist/CtPrimitiveType.class"
+    },
+    {
+      "glob": "javassist/DirClassPath.class"
+    },
+    {
+      "glob": "javassist/FieldInitLink.class"
+    },
+    {
+      "glob": "javassist/JarClassPath.class"
+    },
+    {
+      "glob": "javassist/JarDirClassPath$1.class"
+    },
+    {
+      "glob": "javassist/JarDirClassPath.class"
+    },
+    {
+      "glob": "javassist/Loader$Simple.class"
+    },
+    {
+      "glob": "javassist/Loader.class"
+    },
+    {
+      "glob": "javassist/LoaderClassPath.class"
+    },
+    {
+      "glob": "javassist/Modifier.class"
+    },
+    {
+      "glob": "javassist/NotFoundException.class"
+    },
+    {
+      "glob": "javassist/SerialVersionUID$1.class"
+    },
+    {
+      "glob": "javassist/SerialVersionUID$2.class"
+    },
+    {
+      "glob": "javassist/SerialVersionUID$3.class"
+    },
+    {
+      "glob": "javassist/SerialVersionUID.class"
+    },
+    {
+      "glob": "javassist/Translator.class"
+    },
+    {
+      "glob": "javassist/URLClassPath.class"
+    },
+    {
+      "glob": "javassist/bytecode/"
+    },
+    {
+      "glob": "javassist/bytecode/AccessFlag.class"
+    },
+    {
+      "glob": "javassist/bytecode/AnnotationDefaultAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/AnnotationsAttribute$Copier.class"
+    },
+    {
+      "glob": "javassist/bytecode/AnnotationsAttribute$Parser.class"
+    },
+    {
+      "glob": "javassist/bytecode/AnnotationsAttribute$Renamer.class"
+    },
+    {
+      "glob": "javassist/bytecode/AnnotationsAttribute$Walker.class"
+    },
+    {
+      "glob": "javassist/bytecode/AnnotationsAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/AttributeInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/BadBytecode.class"
+    },
+    {
+      "glob": "javassist/bytecode/BootstrapMethodsAttribute$BootstrapMethod.class"
+    },
+    {
+      "glob": "javassist/bytecode/BootstrapMethodsAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/ByteArray.class"
+    },
+    {
+      "glob": "javassist/bytecode/ByteStream.class"
+    },
+    {
+      "glob": "javassist/bytecode/ByteVector.class"
+    },
+    {
+      "glob": "javassist/bytecode/Bytecode.class"
+    },
+    {
+      "glob": "javassist/bytecode/ClassFile.class"
+    },
+    {
+      "glob": "javassist/bytecode/ClassFilePrinter.class"
+    },
+    {
+      "glob": "javassist/bytecode/ClassFileWriter$AttributeWriter.class"
+    },
+    {
+      "glob": "javassist/bytecode/ClassFileWriter$ConstPoolWriter.class"
+    },
+    {
+      "glob": "javassist/bytecode/ClassFileWriter$FieldWriter.class"
+    },
+    {
+      "glob": "javassist/bytecode/ClassFileWriter$MethodWriter.class"
+    },
+    {
+      "glob": "javassist/bytecode/ClassFileWriter.class"
+    },
+    {
+      "glob": "javassist/bytecode/ClassInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeAnalyzer.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeAttribute$LdcEntry.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeAttribute$RuntimeCopyException.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$AlignmentException.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$Branch.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$Branch16.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$Gap.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$If16.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$Jump16.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$Jump32.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$LdcW.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$Lookup.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$Pointers.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$Switcher.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator$Table.class"
+    },
+    {
+      "glob": "javassist/bytecode/CodeIterator.class"
+    },
+    {
+      "glob": "javassist/bytecode/ConstInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/ConstInfoPadding.class"
+    },
+    {
+      "glob": "javassist/bytecode/ConstPool.class"
+    },
+    {
+      "glob": "javassist/bytecode/ConstantAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/DeprecatedAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/Descriptor$Iterator.class"
+    },
+    {
+      "glob": "javassist/bytecode/Descriptor$PrettyPrinter.class"
+    },
+    {
+      "glob": "javassist/bytecode/Descriptor.class"
+    },
+    {
+      "glob": "javassist/bytecode/DoubleInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/DuplicateMemberException.class"
+    },
+    {
+      "glob": "javassist/bytecode/DynamicInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/EnclosingMethodAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/ExceptionTable.class"
+    },
+    {
+      "glob": "javassist/bytecode/ExceptionTableEntry.class"
+    },
+    {
+      "glob": "javassist/bytecode/ExceptionsAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/FieldInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/FieldrefInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/FloatInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/InnerClassesAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/InstructionPrinter.class"
+    },
+    {
+      "glob": "javassist/bytecode/IntegerInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/InterfaceMethodrefInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/InvokeDynamicInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/LineNumberAttribute$Pc.class"
+    },
+    {
+      "glob": "javassist/bytecode/LineNumberAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/LocalVariableAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/LocalVariableTypeAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/LongInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/LongVector.class"
+    },
+    {
+      "glob": "javassist/bytecode/MemberrefInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/MethodHandleInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/MethodInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/MethodParametersAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/MethodTypeInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/MethodrefInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/Mnemonic.class"
+    },
+    {
+      "glob": "javassist/bytecode/ModuleInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/NameAndTypeInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/NestHostAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/NestMembersAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/Opcode.class"
+    },
+    {
+      "glob": "javassist/bytecode/PackageInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/ParameterAnnotationsAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$1.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$ArrayType.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$BaseType.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$ClassSignature.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$ClassType.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$Cursor.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$MethodSignature.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$NestedClassType.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$ObjectType.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$Type.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$TypeArgument.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$TypeParameter.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute$TypeVariable.class"
+    },
+    {
+      "glob": "javassist/bytecode/SignatureAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/SourceFileAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMap$Copier.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMap$InsertLocal.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMap$NewRemover.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMap$Printer.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMap$Shifter.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMap$SimpleCopy.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMap$SwitchShifter.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMap$Walker.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMap$Writer.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMap.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable$Copier.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable$InsertLocal.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable$NewRemover.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable$OffsetShifter.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable$Printer.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable$RuntimeCopyException.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable$Shifter.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable$SimpleCopy.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable$SwitchShifter.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable$Walker.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable$Writer.class"
+    },
+    {
+      "glob": "javassist/bytecode/StackMapTable.class"
+    },
+    {
+      "glob": "javassist/bytecode/StringInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/SyntheticAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/TypeAnnotationsAttribute$Copier.class"
+    },
+    {
+      "glob": "javassist/bytecode/TypeAnnotationsAttribute$Renamer.class"
+    },
+    {
+      "glob": "javassist/bytecode/TypeAnnotationsAttribute$SubCopier.class"
+    },
+    {
+      "glob": "javassist/bytecode/TypeAnnotationsAttribute$SubWalker.class"
+    },
+    {
+      "glob": "javassist/bytecode/TypeAnnotationsAttribute$TAWalker.class"
+    },
+    {
+      "glob": "javassist/bytecode/TypeAnnotationsAttribute.class"
+    },
+    {
+      "glob": "javassist/bytecode/Utf8Info.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/Analyzer$1.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/Analyzer$ExceptionInfo.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/Analyzer.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/ControlFlow$1.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/ControlFlow$2.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/ControlFlow$3.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/ControlFlow$Access.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/ControlFlow$Block.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/ControlFlow$Catcher.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/ControlFlow$Node.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/ControlFlow.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/Executor.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/Frame.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/FramePrinter.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/IntQueue$1.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/IntQueue$Entry.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/IntQueue.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/MultiArrayType.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/MultiType.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/Subroutine.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/SubroutineScanner.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/Type.class"
+    },
+    {
+      "glob": "javassist/bytecode/analysis/Util.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/Annotation$Pair.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/Annotation.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/AnnotationImpl.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/AnnotationMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/AnnotationsWriter.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/ArrayMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/BooleanMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/ByteMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/CharMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/ClassMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/DoubleMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/EnumMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/FloatMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/IntegerMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/LongMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/MemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/MemberValueVisitor.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/NoSuchClassError.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/ShortMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/StringMemberValue.class"
+    },
+    {
+      "glob": "javassist/bytecode/annotation/TypeAnnotationsWriter.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/BasicBlock$Catch.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/BasicBlock$JsrBytecode.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/BasicBlock$Maker.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/BasicBlock$Mark.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/BasicBlock.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/MapMaker.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/Tracer.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeData$AbsTypeVar.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeData$ArrayElement.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeData$ArrayType.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeData$BasicType.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeData$ClassName.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeData$NullType.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeData$TypeVar.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeData$UninitData.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeData$UninitThis.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeData$UninitTypeVar.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeData.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypeTag.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypedBlock$Maker.class"
+    },
+    {
+      "glob": "javassist/bytecode/stackmap/TypedBlock.class"
+    },
+    {
+      "glob": "javassist/compiler/"
+    },
+    {
+      "glob": "javassist/compiler/AccessorMaker.class"
+    },
+    {
+      "glob": "javassist/compiler/CodeGen$1.class"
+    },
+    {
+      "glob": "javassist/compiler/CodeGen$ReturnHook.class"
+    },
+    {
+      "glob": "javassist/compiler/CodeGen.class"
+    },
+    {
+      "glob": "javassist/compiler/CompileError.class"
+    },
+    {
+      "glob": "javassist/compiler/Javac$1.class"
+    },
+    {
+      "glob": "javassist/compiler/Javac$2.class"
+    },
+    {
+      "glob": "javassist/compiler/Javac$3.class"
+    },
+    {
+      "glob": "javassist/compiler/Javac$CtFieldWithInit.class"
+    },
+    {
+      "glob": "javassist/compiler/Javac.class"
+    },
+    {
+      "glob": "javassist/compiler/JvstCodeGen.class"
+    },
+    {
+      "glob": "javassist/compiler/JvstTypeChecker.class"
+    },
+    {
+      "glob": "javassist/compiler/KeywordTable.class"
+    },
+    {
+      "glob": "javassist/compiler/Lex.class"
+    },
+    {
+      "glob": "javassist/compiler/MemberCodeGen$JsrHook.class"
+    },
+    {
+      "glob": "javassist/compiler/MemberCodeGen$JsrHook2.class"
+    },
+    {
+      "glob": "javassist/compiler/MemberCodeGen.class"
+    },
+    {
+      "glob": "javassist/compiler/MemberResolver$Method.class"
+    },
+    {
+      "glob": "javassist/compiler/MemberResolver.class"
+    },
+    {
+      "glob": "javassist/compiler/NoFieldException.class"
+    },
+    {
+      "glob": "javassist/compiler/Parser.class"
+    },
+    {
+      "glob": "javassist/compiler/ProceedHandler.class"
+    },
+    {
+      "glob": "javassist/compiler/SymbolTable.class"
+    },
+    {
+      "glob": "javassist/compiler/SyntaxError.class"
+    },
+    {
+      "glob": "javassist/compiler/Token.class"
+    },
+    {
+      "glob": "javassist/compiler/TokenId.class"
+    },
+    {
+      "glob": "javassist/compiler/TypeChecker.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/"
+    },
+    {
+      "glob": "javassist/compiler/ast/ASTList.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/ASTree.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/ArrayInit.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/AssignExpr.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/BinExpr.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/CallExpr.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/CastExpr.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/CondExpr.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/Declarator.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/DoubleConst.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/Expr.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/FieldDecl.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/InstanceOfExpr.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/IntConst.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/Keyword.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/Member.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/MethodDecl.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/NewExpr.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/Pair.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/Stmnt.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/StringL.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/Symbol.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/Variable.class"
+    },
+    {
+      "glob": "javassist/compiler/ast/Visitor.class"
+    },
+    {
+      "glob": "javassist/convert/"
+    },
+    {
+      "glob": "javassist/convert/TransformAccessArrayField.class"
+    },
+    {
+      "glob": "javassist/convert/TransformAfter.class"
+    },
+    {
+      "glob": "javassist/convert/TransformBefore.class"
+    },
+    {
+      "glob": "javassist/convert/TransformCall.class"
+    },
+    {
+      "glob": "javassist/convert/TransformCallToStatic.class"
+    },
+    {
+      "glob": "javassist/convert/TransformFieldAccess.class"
+    },
+    {
+      "glob": "javassist/convert/TransformNew.class"
+    },
+    {
+      "glob": "javassist/convert/TransformNewClass.class"
+    },
+    {
+      "glob": "javassist/convert/TransformReadField.class"
+    },
+    {
+      "glob": "javassist/convert/TransformWriteField.class"
+    },
+    {
+      "glob": "javassist/convert/Transformer.class"
+    },
+    {
+      "glob": "javassist/expr/"
+    },
+    {
+      "glob": "javassist/expr/Cast$ProceedForCast.class"
+    },
+    {
+      "glob": "javassist/expr/Cast.class"
+    },
+    {
+      "glob": "javassist/expr/ConstructorCall.class"
+    },
+    {
+      "glob": "javassist/expr/Expr.class"
+    },
+    {
+      "glob": "javassist/expr/ExprEditor$LoopContext.class"
+    },
+    {
+      "glob": "javassist/expr/ExprEditor$NewOp.class"
+    },
+    {
+      "glob": "javassist/expr/ExprEditor.class"
+    },
+    {
+      "glob": "javassist/expr/FieldAccess$ProceedForRead.class"
+    },
+    {
+      "glob": "javassist/expr/FieldAccess$ProceedForWrite.class"
+    },
+    {
+      "glob": "javassist/expr/FieldAccess.class"
+    },
+    {
+      "glob": "javassist/expr/Handler.class"
+    },
+    {
+      "glob": "javassist/expr/Instanceof$ProceedForInstanceof.class"
+    },
+    {
+      "glob": "javassist/expr/Instanceof.class"
+    },
+    {
+      "glob": "javassist/expr/MethodCall.class"
+    },
+    {
+      "glob": "javassist/expr/NewArray$ProceedForArray.class"
+    },
+    {
+      "glob": "javassist/expr/NewArray.class"
+    },
+    {
+      "glob": "javassist/expr/NewExpr$ProceedForNew.class"
+    },
+    {
+      "glob": "javassist/expr/NewExpr.class"
+    },
+    {
+      "glob": "javassist/runtime/"
+    },
+    {
+      "glob": "javassist/runtime/Cflow$Depth.class"
+    },
+    {
+      "glob": "javassist/runtime/Cflow.class"
+    },
+    {
+      "glob": "javassist/runtime/Desc$1.class"
+    },
+    {
+      "glob": "javassist/runtime/Desc.class"
+    },
+    {
+      "glob": "javassist/runtime/DotClass.class"
+    },
+    {
+      "glob": "javassist/runtime/Inner.class"
+    },
+    {
+      "glob": "javassist/scopedpool/"
+    },
+    {
+      "glob": "javassist/scopedpool/ScopedClassPool.class"
+    },
+    {
+      "glob": "javassist/scopedpool/ScopedClassPoolFactory.class"
+    },
+    {
+      "glob": "javassist/scopedpool/ScopedClassPoolFactoryImpl.class"
+    },
+    {
+      "glob": "javassist/scopedpool/ScopedClassPoolRepository.class"
+    },
+    {
+      "glob": "javassist/scopedpool/ScopedClassPoolRepositoryImpl.class"
+    },
+    {
+      "glob": "javassist/scopedpool/SoftValueHashMap$SoftValueRef.class"
+    },
+    {
+      "glob": "javassist/scopedpool/SoftValueHashMap.class"
+    },
+    {
+      "glob": "javassist/tools/"
+    },
+    {
+      "glob": "javassist/tools/Callback.class"
+    },
+    {
+      "glob": "javassist/tools/Dump.class"
+    },
+    {
+      "glob": "javassist/tools/framedump.class"
+    },
+    {
+      "glob": "javassist/tools/reflect/"
+    },
+    {
+      "glob": "javassist/tools/reflect/CannotCreateException.class"
+    },
+    {
+      "glob": "javassist/tools/reflect/CannotInvokeException.class"
+    },
+    {
+      "glob": "javassist/tools/reflect/CannotReflectException.class"
+    },
+    {
+      "glob": "javassist/tools/reflect/ClassMetaobject.class"
+    },
+    {
+      "glob": "javassist/tools/reflect/CompiledClass.class"
+    },
+    {
+      "glob": "javassist/tools/reflect/Compiler.class"
+    },
+    {
+      "glob": "javassist/tools/reflect/Loader.class"
+    },
+    {
+      "glob": "javassist/tools/reflect/Metalevel.class"
+    },
+    {
+      "glob": "javassist/tools/reflect/Metaobject.class"
+    },
+    {
+      "glob": "javassist/tools/reflect/Reflection.class"
+    },
+    {
+      "glob": "javassist/tools/reflect/Sample.class"
+    },
+    {
+      "glob": "javassist/tools/rmi/"
+    },
+    {
+      "glob": "javassist/tools/rmi/AppletServer.class"
+    },
+    {
+      "glob": "javassist/tools/rmi/ExportedObject.class"
+    },
+    {
+      "glob": "javassist/tools/rmi/ObjectImporter.class"
+    },
+    {
+      "glob": "javassist/tools/rmi/ObjectNotFoundException.class"
+    },
+    {
+      "glob": "javassist/tools/rmi/Proxy.class"
+    },
+    {
+      "glob": "javassist/tools/rmi/RemoteException.class"
+    },
+    {
+      "glob": "javassist/tools/rmi/RemoteRef.class"
+    },
+    {
+      "glob": "javassist/tools/rmi/Sample.class"
+    },
+    {
+      "glob": "javassist/tools/rmi/StubGenerator.class"
+    },
+    {
+      "glob": "javassist/tools/web/"
+    },
+    {
+      "glob": "javassist/tools/web/BadHttpRequest.class"
+    },
+    {
+      "glob": "javassist/tools/web/ServiceThread.class"
+    },
+    {
+      "glob": "javassist/tools/web/Viewer.class"
+    },
+    {
+      "glob": "javassist/tools/web/Webserver.class"
+    },
+    {
+      "glob": "javassist/util/"
+    },
+    {
+      "glob": "javassist/util/HotSwapAgent.class"
+    },
+    {
+      "glob": "javassist/util/HotSwapper$1.class"
+    },
+    {
+      "glob": "javassist/util/HotSwapper.class"
+    },
+    {
+      "glob": "javassist/util/Trigger.class"
+    },
+    {
+      "glob": "javassist/util/proxy/"
+    },
+    {
+      "glob": "javassist/util/proxy/DefineClassHelper$1.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefineClassHelper$Helper.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefineClassHelper$Java11.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefineClassHelper$Java7.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefineClassHelper$Java9$ReferencedUnsafe.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefineClassHelper$Java9.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefineClassHelper$JavaOther.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefineClassHelper.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefinePackageHelper$1.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefinePackageHelper$Helper.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefinePackageHelper$Java7.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefinePackageHelper$Java9.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefinePackageHelper$JavaOther.class"
+    },
+    {
+      "glob": "javassist/util/proxy/DefinePackageHelper.class"
+    },
+    {
+      "glob": "javassist/util/proxy/FactoryHelper.class"
+    },
+    {
+      "glob": "javassist/util/proxy/MethodFilter.class"
+    },
+    {
+      "glob": "javassist/util/proxy/MethodHandler.class"
+    },
+    {
+      "glob": "javassist/util/proxy/Proxy.class"
+    },
+    {
+      "glob": "javassist/util/proxy/ProxyFactory$1.class"
+    },
+    {
+      "glob": "javassist/util/proxy/ProxyFactory$2.class"
+    },
+    {
+      "glob": "javassist/util/proxy/ProxyFactory$3.class"
+    },
+    {
+      "glob": "javassist/util/proxy/ProxyFactory$ClassLoaderProvider.class"
+    },
+    {
+      "glob": "javassist/util/proxy/ProxyFactory$Find2MethodsArgs.class"
+    },
+    {
+      "glob": "javassist/util/proxy/ProxyFactory$ProxyDetails.class"
+    },
+    {
+      "glob": "javassist/util/proxy/ProxyFactory$UniqueName.class"
+    },
+    {
+      "glob": "javassist/util/proxy/ProxyFactory.class"
+    },
+    {
+      "glob": "javassist/util/proxy/ProxyObject.class"
+    },
+    {
+      "glob": "javassist/util/proxy/ProxyObjectInputStream.class"
+    },
+    {
+      "glob": "javassist/util/proxy/ProxyObjectOutputStream.class"
+    },
+    {
+      "glob": "javassist/util/proxy/RuntimeSupport$DefaultMethodHandler.class"
+    },
+    {
+      "glob": "javassist/util/proxy/RuntimeSupport.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SecurityActions$1.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SecurityActions$2.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SecurityActions$3.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SecurityActions$4.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SecurityActions$5.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SecurityActions$6.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SecurityActions$7.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SecurityActions$8.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SecurityActions$TheUnsafe.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SecurityActions.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SerializedProxy$1.class"
+    },
+    {
+      "glob": "javassist/util/proxy/SerializedProxy.class"
+    },
+    {
       "glob": "jfxmedia.dll"
     },
     {
@@ -28611,6 +29968,15 @@
     },
     {
       "glob": "wxdgaming/tailfn/GraalvmUtil.class"
+    },
+    {
+      "glob": "wxdgaming/tailfn/JavaAssistBox$Call.class"
+    },
+    {
+      "glob": "wxdgaming/tailfn/JavaAssistBox$JavaAssist.class"
+    },
+    {
+      "glob": "wxdgaming/tailfn/JavaAssistBox.class"
     },
     {
       "glob": "wxdgaming/tailfn/Main.class"
