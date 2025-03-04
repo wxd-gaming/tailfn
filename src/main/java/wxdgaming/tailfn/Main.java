@@ -70,6 +70,6 @@ public class Main {
         for (Class<?> cls : classes) {
             reflectAction.action(cls, cls.getPackageName());
         }
-        Thread.sleep(10000);
+        Thread.sleep(2000);
     }
 }

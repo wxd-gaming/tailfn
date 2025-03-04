@@ -139,10 +139,9 @@ public class ConsoleController {
                 menu_file.getItems().add(index, menuItem);
             }
         } else {
-            MenuItem menuItem = new MenuItem("退出");
-            menuItem.setOnAction(event -> {
-                System.exit(0);
-            });
+            MenuItem menuItem = new MenuItem("关闭控制台");
+            menuItem.setOnAction(this::exit);
+            menu_file.getItems().add(menuItem);
         }
 
         // webView.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
