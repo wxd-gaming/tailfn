@@ -1,9 +1,7 @@
 package wxdgaming.tailfn;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,6 +17,17 @@ public class GraalvmUtil {
 
     static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     static SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+
+    public static String readFile(String filePath) throws IOException {
+        File file = new File(filePath);
+        return readFile(file);
+    }
+
+    public static String readFile(File file) throws IOException {
+        FileInputStream fileInputStream = new FileInputStream(file);
+        byte[] bytes = readInputStream(fileInputStream);
+        return new String(bytes, StandardCharsets.UTF_8);
+    }
 
     public static byte[] readInputStream(InputStream inputStream) throws IOException {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
