@@ -71,8 +71,10 @@ public class ReflectAction {
             Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
             for (Constructor<?> declaredConstructor : declaredConstructors) {
                 try {
-                    Object findMethod = cls.getDeclaredConstructor(declaredConstructor.getParameterTypes());
+                    Constructor<?> findMethod = cls.getDeclaredConstructor(declaredConstructor.getParameterTypes());
                     System.out.println("reflectActionMethod: " + findMethod);
+                    findMethod.setAccessible(true);
+                    findMethod.newInstance();
                 } catch (Throwable ignore) {}
             }
         }
@@ -82,6 +84,7 @@ public class ReflectAction {
                 try {
                     Method findMethod = cls.getDeclaredMethod(method.getName(), method.getParameterTypes());
                     System.out.println("reflectActionMethod: " + findMethod);
+                    findMethod.setAccessible(true);
                     findMethod.invoke(null);
                 } catch (Throwable ignore) {}
             }
@@ -92,6 +95,7 @@ public class ReflectAction {
                 try {
                     Method findMethod = cls.getMethod(method.getName(), method.getParameterTypes());
                     System.out.println("reflectActionMethod: " + findMethod);
+                    findMethod.setAccessible(true);
                     findMethod.invoke(null);
                 } catch (Throwable ignore) {}
             }
@@ -104,6 +108,8 @@ public class ReflectAction {
             for (Field field : declaredFields) {
                 try {
                     System.out.println("reflectActionField: " + cls.getDeclaredField(field.getName()));
+                    field.setAccessible(true);
+                    field.set(null, null);
                 } catch (Throwable ignore) {}
             }
         }
@@ -111,7 +117,9 @@ public class ReflectAction {
             Field[] declaredFields = cls.getFields();
             for (Field field : declaredFields) {
                 try {
-                    System.out.println("reflectActionField: " + cls.getDeclaredField(field.getName()));
+                    System.out.println("reflectActionField: " + cls.getField(field.getName()));
+                    field.setAccessible(true);
+                    field.set(null, null);
                 } catch (Throwable ignore) {}
             }
         }
