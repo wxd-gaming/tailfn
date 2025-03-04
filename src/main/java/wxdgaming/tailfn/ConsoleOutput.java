@@ -14,12 +14,18 @@ import java.util.concurrent.LinkedBlockingQueue;
  **/
 public class ConsoleOutput extends Thread {
 
+    public static ConsoleOutput ins = null;
+
+    public static void build(WebView webView, int limit, int duration) {
+        ins = new ConsoleOutput(webView, limit, duration);
+    }
+
     private final WebView webView;
     private final int limit;
     private final int duration;
     private final LinkedBlockingQueue<String> es = new LinkedBlockingQueue<>();
 
-    public ConsoleOutput(WebView webView, int limit, int duration) {
+    private ConsoleOutput(WebView webView, int limit, int duration) {
         this.webView = webView;
         this.limit = limit;
         this.duration = duration;
@@ -47,7 +53,9 @@ public class ConsoleOutput extends Thread {
             } catch (InterruptedException e) {
                 break;
             } catch (Throwable throwable) {
-                GraalvmUtil.appendFile(throwable.toString());
+                String string = Throw.ofString(throwable);
+                System.err.println(string);
+                GraalvmUtil.appendFile(string);
             }
         }
     }

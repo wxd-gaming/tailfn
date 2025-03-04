@@ -26,7 +26,6 @@ public class ConsoleController {
 
     public WebView webView;
     public TailFN tailFN;
-    public ConsoleOutput consoleOutput = null;
     public Menu menu_file;
 
     public static String readHtml() {
@@ -69,12 +68,14 @@ public class ConsoleController {
                         webView.getEngine().executeScript("setSpanNonWarp();");
                     }
 
-                    consoleOutput = new ConsoleOutput(webView, 2, 1);
+                    ConsoleOutput.build(webView, 2, 1);
 
                     initTailFN();
 
                 } catch (Exception e) {
-                    GraalvmUtil.appendFile(e.toString());
+                    String string = Throw.ofString(e);
+                    System.err.println(string);
+                    GraalvmUtil.appendFile(string);
                 }
             }
         });
@@ -96,21 +97,24 @@ public class ConsoleController {
                         try {
                             File file = new File(pluginConfig.getPath());
                             if (!file.exists()) {
-                                appendLine("执行命令：" + pluginConfig.getName() + ", 文件不存在: " + pluginConfig.getPath());
+                                ConsoleOutput.ins.add("执行命令：" + pluginConfig.getName() + ", 文件不存在: " + pluginConfig.getPath());
                                 return;
                             }
                             GraalvmUtil.execLocalCommand(pluginConfig.isAsync(), pluginConfig.getPath());
-                        } catch (Exception e) {
-                            e.printStackTrace(System.err);
-                            GraalvmUtil.appendFile(e.toString());
+                        } catch (Throwable e) {
+                            String string = Throw.ofString(e);
+                            System.err.println(string);
+                            GraalvmUtil.appendFile(string);
+                            ConsoleOutput.ins.add(string);
                         } finally {
                             try {
                                 if (pluginConfig.isExit()) {
                                     Runtime.getRuntime().halt(0);
                                 }
                             } catch (Exception e) {
-                                e.printStackTrace(System.err);
-                                GraalvmUtil.appendFile(e.toString());
+                                String string = Throw.ofString(e);
+                                System.err.println(string);
+                                GraalvmUtil.appendFile(string);
                             }
                         }
                     });
@@ -155,20 +159,16 @@ public class ConsoleController {
     public void initTailFN() {
         if (tailFN != null) tailFN.stop();
         if (StringUtils.isBlank(ViewConfig.ins.getFilePath())) {
-            appendLine("尚未选择文件");
+            ConsoleOutput.ins.add("尚未选择文件");
             return;
         }
         Path filePath = Paths.get(ViewConfig.ins.getFilePath());
         if (!Files.exists(filePath.toAbsolutePath().getParent())) {
-            appendLine("需要监听的文件夹: " + filePath.toAbsolutePath() + " 异常");
+            ConsoleOutput.ins.add("需要监听的文件夹: " + filePath.toAbsolutePath() + " 异常");
             return;
         }
-        tailFN = new TailFN(filePath, ViewConfig.ins.getLastN(), this::appendLine);
+        tailFN = new TailFN(filePath, ViewConfig.ins.getLastN(), ConsoleOutput.ins::add);
         ConsoleApplication.__primaryStage.setTitle("日志阅读器 " + ViewConfig.ins.getFilePath());
-    }
-
-    public void appendLine(String line) {
-        this.consoleOutput.add(line);
     }
 
     public void selectFile(ActionEvent event) {
@@ -189,7 +189,7 @@ public class ConsoleController {
         );
         File selectedFile = fileChooser.showOpenDialog(webView.getScene().getWindow());
         if (selectedFile != null) {
-            appendLine("选择的文件路径: " + selectedFile.getAbsolutePath());
+            ConsoleOutput.ins.add("选择的文件路径: " + selectedFile.getAbsolutePath());
             ViewConfig.ins.setFilePath(selectedFile.getAbsolutePath());
             ViewConfig.ins.save();
             initTailFN();
