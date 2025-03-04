@@ -45,7 +45,7 @@ public class Main {
     }
 
     public static void buildGraalvm() throws Exception {
-        if ("true".equalsIgnoreCase(System.getProperty("build.graalvm"))) return;
+        if (!"true".equalsIgnoreCase(System.getProperty("build.graalvm"))) return;
         System.setProperty("build.graalvm", "");
         ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
         List<String> strings = GraalvmUtil.jarResources();

@@ -36,10 +36,6 @@ public class ViewConfig {
                 ins = yaml.loadAs(Files.newInputStream(viewPath), ViewConfig.class);
             } else {
                 ins = new ViewConfig();
-                PluginConfig pluginConfig = new PluginConfig();
-                pluginConfig.setName("测试插件");
-                pluginConfig.setPath("reload-game.bat");
-                ins.getPluginList().add(pluginConfig);
                 ins.save();
             }
         } catch (IOException e) {

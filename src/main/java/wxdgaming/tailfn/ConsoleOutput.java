@@ -54,6 +54,7 @@ public class ConsoleOutput extends Thread {
                 PlatformImpl.runAndWait(() -> {
                     try {
                         String escapedLine = StringEscapeUtils.escapeEcmaScript(line);
+                        escapedLine = StringEscapeUtils.escapeHtml4(escapedLine);
                         webView.getEngine().executeScript("append(\"" + escapedLine + "\");");
                     } catch (Exception e) {
                         System.err.println(line);

@@ -3,6 +3,7 @@ package wxdgaming.tailfn;
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Value;
 import wxdgaming.tailfn.plugin.JCmd;
+import wxdgaming.tailfn.plugin.JHttp;
 import wxdgaming.tailfn.plugin.JLog;
 import wxdgaming.tailfn.plugin.JRuntime;
 
@@ -32,6 +33,7 @@ public class JSContext implements AutoCloseable {
         put(new JLog());
         put(new JCmd());
         put(new JRuntime());
+        put(new JHttp());
 
     }
 
