@@ -5,13 +5,15 @@ fontSize: 13
 bgColor: body_light
 autoWarp: false
 pluginList:
-- name: 热更
-  path: reload-game.bat
-- name: ——
-- name: 测试
-  path: js1.js
-  code: true
-- name: ——
-- name: 关闭服务
-  path: stop-game.bat
-  exit: true
+  - name: 热更
+    path: reload-game.bat
+  - name: ——
+  - name: 测试
+    path: plugin/js1.js
+    code: true
+  - name: ——
+  - name: 关闭服务
+    path: plugin/stop-game.js
+  - name: ——
+  - name: 退出程序
+    path: plugin/exit.js

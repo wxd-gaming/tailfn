@@ -2,7 +2,7 @@
   <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="wxdgaming.tailfn.Main" />
     <module name="wxdgaming.tailfn" />
-    <option name="VM_PARAMETERS" value="-Dbuild.graalvm=true" />
+    <option name="VM_PARAMETERS" value="-Dbuild.graalvm" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="wxdgaming.tailfn.*" />

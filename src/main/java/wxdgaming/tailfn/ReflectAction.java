@@ -1,5 +1,7 @@
 package wxdgaming.tailfn;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,7 +9,6 @@ import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
@@ -39,12 +40,22 @@ public class ReflectAction {
 
     private final Set<Class<?>> notConstructor0List = new HashSet<>();
 
-    public void action(Class<?> cls) {
+    public void action(Class<?> cls, String packageName) {
         if (cls == Object.class) return;
-        if (cls.getSuperclass() != null) action(cls.getSuperclass());
-
-        actionField(cls);
-        actionMethod(cls);
+        if (cls.getSuperclass() != null) action(cls.getSuperclass(), packageName);
+        if (StringUtils.isNotBlank(packageName) && !cls.getPackageName().startsWith(packageName)) return;
+        try {
+            actionField(cls);
+        } catch (Throwable throwable) {
+            String content = Throw.ofString(throwable);
+            System.out.println(content);
+        }
+        try {
+            actionMethod(cls);
+        } catch (Throwable throwable) {
+            String content = Throw.ofString(throwable);
+            System.out.println(content);
+        }
     }
 
     public void actionMethod(Class<?> cls) {
@@ -59,9 +70,6 @@ public class ReflectAction {
             }
             Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
             for (Constructor<?> declaredConstructor : declaredConstructors) {
-                if (Modifier.isStatic(declaredConstructor.getModifiers())) {
-                    continue;
-                }
                 try {
                     Object findMethod = cls.getDeclaredConstructor(declaredConstructor.getParameterTypes());
                     System.out.println("reflectActionMethod: " + findMethod);
@@ -71,26 +79,41 @@ public class ReflectAction {
         {
             Method[] declaredMethods = cls.getDeclaredMethods();
             for (Method method : declaredMethods) {
-                if (Modifier.isStatic(method.getModifiers())) {
-                    continue;
-                }
                 try {
                     Method findMethod = cls.getDeclaredMethod(method.getName(), method.getParameterTypes());
                     System.out.println("reflectActionMethod: " + findMethod);
+                    findMethod.invoke(null);
+                } catch (Throwable ignore) {}
+            }
+        }
+        {
+            Method[] declaredMethods = cls.getMethods();
+            for (Method method : declaredMethods) {
+                try {
+                    Method findMethod = cls.getMethod(method.getName(), method.getParameterTypes());
+                    System.out.println("reflectActionMethod: " + findMethod);
+                    findMethod.invoke(null);
                 } catch (Throwable ignore) {}
             }
         }
     }
 
     public void actionField(Class<?> cls) {
-        Field[] declaredFields = cls.getDeclaredFields();
-        for (Field field : declaredFields) {
-            if (Modifier.isStatic(field.getModifiers())) {
-                continue;
+        {
+            Field[] declaredFields = cls.getDeclaredFields();
+            for (Field field : declaredFields) {
+                try {
+                    System.out.println("reflectActionField: " + cls.getDeclaredField(field.getName()));
+                } catch (Throwable ignore) {}
             }
-            try {
-                System.out.println("reflectActionField: " + cls.getDeclaredField(field.getName()));
-            } catch (Throwable ignore) {}
+        }
+        {
+            Field[] declaredFields = cls.getFields();
+            for (Field field : declaredFields) {
+                try {
+                    System.out.println("reflectActionField: " + cls.getDeclaredField(field.getName()));
+                } catch (Throwable ignore) {}
+            }
         }
     }
 

@@ -1,13 +1,6 @@
 @echo off
 
 set option=-H:+UnlockExperimentalVMOptions
-set option=%option% -H:+ReportExceptionStackTraces
-set option=%option% -H:-ParseRuntimeOptions
-set option=%option% -H:+AddAllCharsets
-set option=%option% -H:+TraceNativeToolUsage
-set option=%option% -H:-CheckToolchain
-set option=%option% --enable-http
-set option=%option% --enable-https
 set option=%option% --no-fallback
 set option=%option% --report-unsupported-elements-at-runtime
 set option=%option% --allow-incomplete-classpath
@@ -34,16 +27,19 @@ set option=%option% --trace-class-initialization=wxdgaming.tailfn
 
 set option=%option% --add-exports=java.base/java.nio=ALL-UNNAMED
 set option=%option% --add-opens java.base/java.nio=ALL-UNNAMED
-set option=%option% -Dlogback.configurationFile=logback.xml
 set option=%option% -Dfile.encoding=UTF-8
-set option=%option% -Dio.netty.tryReflectionSetAccessible=true
+set option=%option% -H:+ReportExceptionStackTraces
+set option=%option% -H:-ParseRuntimeOptions
+set option=%option% -H:+AddAllCharsets
+set option=%option% -H:+TraceNativeToolUsage
+set option=%option% -H:-CheckToolchain
 set option=%option% -H:NativeLinkerOption=prefs.lib
 :: 关闭控制台窗口
 set option=%option% -H:NativeLinkerOption=/SUBSYSTEM:WINDOWS
 :: 关闭控制台窗口
 set option=%option% -H:NativeLinkerOption=/ENTRY:mainCRTStartup
 
-set option=%option% -H:ConfigurationFileDirectories=graalvm-win/config
+set option=%option% -H:ConfigurationFileDirectories=../graalvm-win/config
 
 call "D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
 @REM call "d:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsamd64_x86.bat"
@@ -53,5 +49,5 @@ MD target\winfm
 cd target
 
 echo %option%
-@REM C:\java\graalvm-jdk-21.0.6+8.1\\bin\\native-image.cmd %option% -H:ConfigurationFileDirectories=graalvm-win/config -jar target/tail-jar-with-dependencies.jar target/winfm/tail
+@REM C:\java\graalvm-community-openjdk-23.0.2+7.1\\bin\\native-image.cmd %option% -H:ConfigurationFileDirectories=graalvm-win/config -jar target/tail-jar-with-dependencies.jar target/winfm/tail
 C:\java\graalvm-community-openjdk-23.0.2+7.1\bin\native-image.cmd %option% -jar tail.jar winfm\tail

@@ -116,6 +116,7 @@ public class GraalvmUtil {
                         stream
                                 .map(Path::toString)
                                 .filter(s -> s.startsWith(target) && s.length() > target.length())
+                                .map(s -> s.substring(target.length() + 1))
                                 .forEach(resourcesPath::add);
                     }
                     continue;

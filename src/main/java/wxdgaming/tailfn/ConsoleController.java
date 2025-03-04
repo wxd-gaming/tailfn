@@ -91,38 +91,49 @@ public class ConsoleController {
                     menuItem = new SeparatorMenuItem();
                 } else {
                     menuItem = new MenuItem(pluginConfig.getName());
-                    menuItem.setText(pluginConfig.getName());
                     menuItem.setUserData(pluginConfig.getPath());
                     menuItem.setOnAction(event -> {
-                        try {
-                            File file = new File(pluginConfig.getPath());
-                            if (!file.exists()) {
-                                ConsoleOutput.ins.add("执行命令：" + pluginConfig.getName() + ", 文件不存在: " + pluginConfig.getPath());
-                                return;
-                            }
-                            GraalvmUtil.execLocalCommand(pluginConfig.isAsync(), pluginConfig.getPath());
-                        } catch (Throwable e) {
-                            String string = Throw.ofString(e);
-                            System.err.println(string);
-                            GraalvmUtil.appendFile(string);
-                            ConsoleOutput.ins.add(string);
-                        } finally {
+                        Thread.ofPlatform().start(() -> {
                             try {
-                                if (pluginConfig.isExit()) {
-                                    Runtime.getRuntime().halt(0);
+                                // if (pluginConfig.isCode()) {
+                                try (JSContext build = JSContext.build()) {
+                                    build.evalFile(pluginConfig.getPath());
                                 }
-                            } catch (Exception e) {
+                            /* } else {
+                                File file = new File(pluginConfig.getPath());
+                                if (!file.exists()) {
+                                    ConsoleOutput.ins.add("执行命令：" + pluginConfig.getName() + ", 文件不存在: " + pluginConfig.getPath());
+                                    return;
+                                }
+                                GraalvmUtil.execLocalCommand(pluginConfig.isAsync(), pluginConfig.getPath());
+                            } */
+                            } catch (Throwable e) {
                                 String string = Throw.ofString(e);
                                 System.err.println(string);
                                 GraalvmUtil.appendFile(string);
+                                ConsoleOutput.ins.add(string);
+                            } finally {
+                                try {
+                                    if (pluginConfig.isExit()) {
+                                        Runtime.getRuntime().halt(0);
+                                    }
+                                } catch (Exception e) {
+                                    String string = Throw.ofString(e);
+                                    System.err.println(string);
+                                    GraalvmUtil.appendFile(string);
+                                }
                             }
-                        }
+                        });
                     });
                 }
                 index++;
                 menu_file.getItems().add(index, menuItem);
             }
-
+        } else {
+            MenuItem menuItem = new MenuItem("退出");
+            menuItem.setOnAction(event -> {
+                System.exit(0);
+            });
         }
 
         // webView.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {

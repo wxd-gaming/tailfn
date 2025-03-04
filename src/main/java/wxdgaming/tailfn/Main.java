@@ -35,28 +35,39 @@ public class Main {
             }
 
             Application.launch(ConsoleApplication.class);
-        } catch (Exception e) {
-            GraalvmUtil.appendFile(e.toString());
+        } catch (Throwable e) {
+            String content = Throw.ofString(e);
+            System.out.println(content);
+            GraalvmUtil.appendFile(content);
         }
     }
 
     public static void buildGraalvm() throws Exception {
         if (StringUtils.isBlank(System.getProperty("build.graalvm"))) return;
+        System.setProperty("build.graalvm", "");
         ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
         List<String> strings = GraalvmUtil.jarResources();
         for (String string : strings) {
-            URL resource = contextClassLoader.getResource(string);
-            if (resource != null) {
-                System.out.println(String.format("%s - %s", string, resource));
+            try {
+                URL resource = contextClassLoader.getResource(string);
+                if (resource != null) {
+                    System.out.println(String.format("%s - %s", string, resource));
+                }
+            } catch (Throwable throwable) {
+                String content = Throw.ofString(throwable);
+                System.out.println(content);
             }
         }
         ReflectAction reflectAction = ReflectAction.of();
+
+        reflectAction.action(JarFile.class, JarFile.class.getPackageName());
+        reflectAction.action(ZipFile.class, ZipFile.class.getPackageName());
+        reflectAction.action(Rotate.class, Rotate.class.getPackageName());
+
         List<Class<?>> classes = GraalvmUtil.jarClasses("wxdgaming");
         for (Class<?> cls : classes) {
-            reflectAction.action(cls);
+            reflectAction.action(cls, cls.getPackageName());
         }
-        reflectAction.action(JarFile.class);
-        reflectAction.action(ZipFile.class);
-        reflectAction.action(Rotate.class);
+        Thread.sleep(10000);
     }
 }

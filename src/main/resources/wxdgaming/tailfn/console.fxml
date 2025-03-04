@@ -14,8 +14,6 @@
                 <Menu fx:id="menu_file" mnemonicParsing="false" text="开始">
                     <items>
                         <MenuItem text="选择" onAction="#selectFile"/>
-                        <SeparatorMenuItem/>
-                        <MenuItem mnemonicParsing="false" text="退出" onAction="#exit"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="视图">
@@ -33,11 +31,6 @@
                         <MenuItem mnemonicParsing="false" text="深色" onAction="#setDarkBgColor"/>
                         <SeparatorMenuItem/>
                         <MenuItem mnemonicParsing="false" text="浅色" onAction="#setLightBgColor"/>
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="About"/>
                     </items>
                 </Menu>
             </menus>
