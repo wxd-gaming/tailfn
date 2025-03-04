@@ -157,7 +157,7 @@ public class GraalvmUtil {
      * @author: wxd-gaming(無心道, 15388152619)
      * @version: 2025-03-01 11:05
      */
-    public static void execLocalCommand(boolean async, String batFile) {
+    public static void execLocalCommand(boolean async, File workDir, String batFile) {
         try {
             // 构建包含 start 命令的命令数组
             String[] command;
@@ -167,6 +167,7 @@ public class GraalvmUtil {
                 command = new String[]{"cmd.exe", "/c", batFile};
             }
             ProcessBuilder pb = new ProcessBuilder(command);
+            pb.directory(workDir);
             // 设置属性子进程的I/O源或目标将与当前进程的相同,两者相互独立
             pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
             pb.redirectError(ProcessBuilder.Redirect.INHERIT);

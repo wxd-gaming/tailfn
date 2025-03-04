@@ -1,5 +1,6 @@
 package wxdgaming.tailfn;
 
+import com.sun.javafx.application.PlatformImpl;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -54,29 +55,37 @@ public class ConsoleController {
         webView.getEngine().loadContent(readHtml());
         webView.getEngine().getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == javafx.concurrent.Worker.State.SUCCEEDED) {
-                try {
-                    webView.getEngine().executeScript("showMaxLine=%s".formatted(ViewConfig.ins.getShowMaxLine()));
-                    if (StringUtils.isNotBlank(ViewConfig.ins.getBgColor())) {
-                        webView.getEngine().executeScript("setBg('%s');".formatted(ViewConfig.ins.getBgColor()));
-                    }
-                    if (ViewConfig.ins.getFontSize() > 0) {
-                        webView.getEngine().executeScript("setFontSize(%s);".formatted(ViewConfig.ins.getFontSize()));
-                    }
-                    if (ViewConfig.ins.isAutoWarp()) {
-                        webView.getEngine().executeScript("setSpanWarp();");
-                    } else {
-                        webView.getEngine().executeScript("setSpanNonWarp();");
-                    }
+                Thread.ofPlatform().start(() -> {
+                    try {
+                        PlatformImpl.runAndWait(() -> {
+                            webView.getEngine().executeScript("showMaxLine=%s".formatted(ViewConfig.ins.getShowMaxLine()));
+                            if (StringUtils.isNotBlank(ViewConfig.ins.getBgColor())) {
+                                webView.getEngine().executeScript("setBg('%s');".formatted(ViewConfig.ins.getBgColor()));
+                            }
+                            if (ViewConfig.ins.getFontSize() > 0) {
+                                webView.getEngine().executeScript("setFontSize(%s);".formatted(ViewConfig.ins.getFontSize()));
+                            }
+                            if (ViewConfig.ins.isAutoWarp()) {
+                                webView.getEngine().executeScript("setSpanWarp();");
+                            } else {
+                                webView.getEngine().executeScript("setSpanNonWarp();");
+                            }
+                        });
 
-                    ConsoleOutput.build(webView, 2, 1);
+                        ConsoleOutput.build(webView);
 
-                    initTailFN();
-
-                } catch (Exception e) {
-                    String string = Throw.ofString(e);
-                    System.err.println(string);
-                    GraalvmUtil.appendFile(string);
-                }
+                        Thread.ofPlatform().start(() -> {
+                            try {
+                                Thread.sleep(2000);
+                            } catch (InterruptedException ignored) {}
+                            initTailFN();
+                        });
+                    } catch (Exception e) {
+                        String string = Throw.ofString(e);
+                        System.err.println(string);
+                        GraalvmUtil.appendFile(string);
+                    }
+                });
             }
         });
 
@@ -160,7 +169,6 @@ public class ConsoleController {
         //         }
         //     }
         // });
-
     }
 
     public void exit(ActionEvent event) {

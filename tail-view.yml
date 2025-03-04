@@ -1,5 +1,5 @@
-filePath: G:\712-work\engine712-server-wuxin\target\logs\game.log
-lastN: 150
+filePath: G:\712-work\712OutVersion\Inner\server\db\target\logs\db.log
+lastN: 200
 showMaxLine: 1500
 fontSize: 13
 bgColor: body_light

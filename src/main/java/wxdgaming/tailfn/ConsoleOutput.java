@@ -14,26 +14,36 @@ import java.util.concurrent.LinkedBlockingQueue;
  **/
 public class ConsoleOutput extends Thread {
 
+    public static final int limit = 20000;
+
     public static ConsoleOutput ins = null;
 
-    public static void build(WebView webView, int limit, int duration) {
-        ins = new ConsoleOutput(webView, limit, duration);
+    public static void build(WebView webView) {
+        ins = new ConsoleOutput(webView);
     }
 
     private final WebView webView;
-    private final int limit;
-    private final int duration;
+
     private final LinkedBlockingQueue<String> es = new LinkedBlockingQueue<>();
 
-    private ConsoleOutput(WebView webView, int limit, int duration) {
+    private ConsoleOutput(WebView webView) {
         this.webView = webView;
-        this.limit = limit;
-        this.duration = duration;
         this.setDaemon(true);
         this.start();
+        if ("true".equalsIgnoreCase(System.getProperty("build.graalvm"))) {
+            /*为了处理如果字符太长会导致exe进程崩掉*/
+            Thread.ofPlatform().start(() -> {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i <= limit; i++) {
+                    sb.append("a");
+                }
+                ConsoleOutput.ins.add(sb.toString());
+            });
+        }
     }
 
     public void add(String e) {
+        if (e.length() > limit) e = e.substring(0, limit);
         es.add(e);
     }
 

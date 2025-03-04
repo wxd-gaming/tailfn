@@ -2,7 +2,6 @@ package wxdgaming.tailfn;
 
 import javafx.application.Application;
 import javafx.scene.transform.Rotate;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.net.URL;
@@ -24,6 +23,9 @@ public class Main {
             ViewConfig.loadYaml(configPath);
 
             buildGraalvm();
+
+            ViewConfig.loadYaml(configPath);
+
             if (args.length > 1) {
                 File file = new File(args[1]);
                 if (file.isFile() && file.getParentFile().exists()) {
@@ -43,7 +45,7 @@ public class Main {
     }
 
     public static void buildGraalvm() throws Exception {
-        if (StringUtils.isBlank(System.getProperty("build.graalvm"))) return;
+        if ("true".equalsIgnoreCase(System.getProperty("build.graalvm"))) return;
         System.setProperty("build.graalvm", "");
         ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
         List<String> strings = GraalvmUtil.jarResources();

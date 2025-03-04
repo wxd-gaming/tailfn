@@ -3,6 +3,8 @@ package wxdgaming.tailfn.plugin;
 import wxdgaming.tailfn.GraalvmUtil;
 import wxdgaming.tailfn.IJSPlugin;
 
+import java.io.File;
+
 /**
  * java 调用 cmd
  *
@@ -15,8 +17,8 @@ public class JCmd implements IJSPlugin {
         return "JCmd";
     }
 
-    public void exec(boolean async, String batFile) {
-        GraalvmUtil.execLocalCommand(async, batFile);
+    public void exec(boolean async, String workDir, String batFile) {
+        GraalvmUtil.execLocalCommand(async, new File(workDir), batFile);
     }
 
 }

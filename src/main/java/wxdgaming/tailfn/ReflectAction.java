@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
@@ -85,7 +86,7 @@ public class ReflectAction {
                     Method findMethod = cls.getDeclaredMethod(method.getName(), method.getParameterTypes());
                     System.out.println("reflectActionMethod: " + findMethod);
                     findMethod.setAccessible(true);
-                    findMethod.invoke(null);
+                    findMethod.invoke(null, 1, 1, 1, 1, 1, 1, 1, 1);
                 } catch (Throwable ignore) {}
             }
         }
@@ -96,7 +97,7 @@ public class ReflectAction {
                     Method findMethod = cls.getMethod(method.getName(), method.getParameterTypes());
                     System.out.println("reflectActionMethod: " + findMethod);
                     findMethod.setAccessible(true);
-                    findMethod.invoke(null);
+                    findMethod.invoke(null, 1, 1, 1, 1, 1, 1, 1, 1);
                 } catch (Throwable ignore) {}
             }
         }
@@ -109,7 +110,8 @@ public class ReflectAction {
                 try {
                     System.out.println("reflectActionField: " + cls.getDeclaredField(field.getName()));
                     field.setAccessible(true);
-                    field.set(null, null);
+                    if (Modifier.isStatic(field.getModifiers())) continue;
+                    field.get(null);
                 } catch (Throwable ignore) {}
             }
         }
@@ -119,7 +121,8 @@ public class ReflectAction {
                 try {
                     System.out.println("reflectActionField: " + cls.getField(field.getName()));
                     field.setAccessible(true);
-                    field.set(null, null);
+                    if (Modifier.isStatic(field.getModifiers())) continue;
+                    field.get(null);
                 } catch (Throwable ignore) {}
             }
         }
