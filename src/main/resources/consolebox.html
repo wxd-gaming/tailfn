@@ -93,6 +93,29 @@
             alert(msg);
         }
 
+        /** 把文本换行换成 br */
+        function replaceLine(obj) {
+            if (obj == null) return "";
+
+            try {
+                obj = obj.replace(/\r\n/ig, '<br>');
+            } catch (e) {
+            }
+            try {
+                obj = obj.replace(/\n/ig, '<br>');
+            } catch (e) {
+            }
+            try {
+                obj = obj.replace("\n", '<br>');
+            } catch (e) {
+            }
+            try {
+                obj = obj.replace("\\n", '<br>');
+            } catch (e) {
+            }
+            return obj;
+        }
+
         let appendCount = 0;
 
         function append(msg) {
@@ -113,7 +136,7 @@
                     return;
                 }
             }
-
+            msg = replaceLine(msg);
             $("#div_console").append(`<span>${msg}&nbsp;</span>`);
             appendCount += 1;
             if (appendCount > showMaxLine) {
