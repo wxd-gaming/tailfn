@@ -4,6 +4,7 @@ import com.sun.javafx.application.PlatformImpl;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.web.WebView;
 import org.apache.commons.lang3.StringUtils;
 
@@ -109,6 +110,11 @@ public class ConsoleController {
 
     public void addMenuItem(int index, MenuItem item) {
         menu_file.getItems().add(index, item);
+    }
+
+    /** 插入分割符合 */
+    public void addSeparatorMenuItem(int index) {
+        menu_file.getItems().add(index, new SeparatorMenuItem());
     }
 
     /** 设置深色模式 */
