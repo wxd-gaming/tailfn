@@ -63,16 +63,19 @@ public class ConsoleApplication extends Application {
     /** 关闭事件选择 */
     public void closeSelect(Stage primaryStage) {
 
-        Alert alert = new Alert(Alert.AlertType.NONE);
+        Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("提示");
-        alert.setContentText("确定要退出进程吗？");
-        alert.getButtonTypes().add(new ButtonType("最小化", ButtonBar.ButtonData.CANCEL_CLOSE));
+        alert.setHeaderText("确定要退出进程吗？");
+        alert.setContentText("");
+        alert.getButtonTypes().clear();
+        alert.getButtonTypes().add(new ButtonType("最小化", ButtonBar.ButtonData.LEFT));
+        alert.getButtonTypes().add(new ButtonType("取消", ButtonBar.ButtonData.CANCEL_CLOSE));
         alert.getButtonTypes().add(new ButtonType("退出", ButtonBar.ButtonData.APPLY));
         alert.showAndWait().ifPresent(event -> {
             if (alert.getResult().getButtonData().equals(ButtonBar.ButtonData.APPLY)) {
                 /*走退出进程逻辑*/
                 System.exit(0);
-            } else {
+            } else if (alert.getResult().getButtonData().equals(ButtonBar.ButtonData.LEFT)) {
                 if (icon_checked.get()) {
                     Platform.runLater(primaryStage::hide);
                 } else {
