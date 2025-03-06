@@ -2,7 +2,7 @@ package wxdgaming.tailfn;
 
 import com.sun.javafx.application.PlatformImpl;
 import javafx.scene.web.WebView;
-import org.apache.commons.text.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -32,13 +32,17 @@ public class ConsoleOutput extends Thread {
         this.start();
         if ("true".equalsIgnoreCase(System.getProperty("build.graalvm"))) {
             /*为了处理如果字符太长会导致exe进程崩掉*/
-            Thread.ofPlatform().start(() -> {
+            new Thread(() -> {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ignored) {}
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i <= limit; i++) {
                     sb.append("a");
                 }
-                ConsoleOutput.ins.add(sb.toString());
-            });
+                String string = sb.toString();
+                ConsoleOutput.ins.add(string);
+            }).start();
         }
     }
 
@@ -56,7 +60,7 @@ public class ConsoleOutput extends Thread {
                         String escapedLine = StringEscapeUtils.escapeEcmaScript(line);
                         escapedLine = StringEscapeUtils.escapeHtml4(escapedLine);
                         webView.getEngine().executeScript("append(\"" + escapedLine + "\");");
-                    } catch (Exception e) {
+                    } catch (Throwable e) {
                         System.err.println(line);
                         e.printStackTrace(System.err);
                     }

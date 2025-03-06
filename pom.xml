@@ -9,11 +9,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javafx-version>23.0.2</javafx-version>
-        <js.source>24.1.2</js.source>
     </properties>
 
     <repositories>
@@ -79,49 +78,19 @@
             <version>0.4.0</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.17.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-text</artifactId>
-            <version>1.13.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>2.4</version>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.18.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.graalvm.js</groupId>
-            <artifactId>js-scriptengine</artifactId>
-            <version>${js.source}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.graalvm.polyglot</groupId>
-            <artifactId>polyglot</artifactId>
-            <version>${js.source}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.graalvm.js</groupId>
-            <artifactId>js-language</artifactId>
-            <version>${js.source}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.graalvm.sdk</groupId>
-            <artifactId>nativebridge</artifactId>
-            <version>${js.source}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.graalvm.sdk</groupId>
-            <artifactId>nativeimage</artifactId>
-            <version>${js.source}</version>
+            <version>2.11.0</version>
         </dependency>
     </dependencies>
 
@@ -144,61 +113,6 @@
                                 ${project.build.directory}/lib
                             </outputDirectory>
                             <includeScope>runtime</includeScope>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <useUniqueVersions>false</useUniqueVersions>
-                            <!-- 加载主要运行类 -->
-                            <mainClass>wxdgaming.tailfn.Main</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <copy todir="${project.build.directory}/" overwrite="true">
-                                    <fileset dir="${basedir}" erroronmissingdir="false">
-                                        <include name="*.yml"/>
-                                    </fileset>
-                                </copy>
-                                <copy todir="${project.build.directory}/plugin" overwrite="true">
-                                    <fileset dir="${basedir}/plugin" erroronmissingdir="false">
-                                        <include name="*.js"/>
-                                    </fileset>
-                                </copy>
-                                <copy todir="${project.build.directory}/winfm" overwrite="true">
-                                    <fileset dir="${basedir}" erroronmissingdir="false">
-                                        <include name="*.png"/>
-                                    </fileset>
-                                </copy>
-
-                                <copy todir="${project.build.directory}/winfm" overwrite="true">
-                                    <fileset dir="${basedir}" erroronmissingdir="false">
-                                        <include name="*.md"/>
-                                    </fileset>
-                                </copy>
-
-                            </target>
                         </configuration>
                     </execution>
                 </executions>

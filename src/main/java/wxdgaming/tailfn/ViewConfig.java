@@ -1,6 +1,5 @@
 package wxdgaming.tailfn;
 
-import org.apache.commons.lang3.StringUtils;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.representer.Representer;
@@ -9,9 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 /**
  * 插件配置
@@ -19,6 +16,7 @@ import java.util.List;
  * @author: wxd-gaming(無心道, 15388152619)
  * @version: 2025-02-26 15:22
  **/
+
 public class ViewConfig {
 
     public static Path viewPath = null;
@@ -43,14 +41,11 @@ public class ViewConfig {
         }
     }
 
-    private String filePath;
-    private int lastN = 150;
     private int showMaxLine = 1500;
     private int fontSize = 13;
     private String bgColor = "body_light";
     private boolean autoWarp = false;
-    private PluginConfig onExit = new PluginConfig();
-    private List<PluginConfig> pluginList = new ArrayList<>();
+    public String tailFNPath = null;
 
     public void save() {
         DumperOptions dumperOptions = new DumperOptions();
@@ -60,46 +55,12 @@ public class ViewConfig {
         representer.getPropertyUtils().setSkipMissingProperties(true);
         Yaml yaml = new Yaml(representer, dumperOptions);
         LinkedHashMap<String, Object> objectObjectLinkedHashMap = new LinkedHashMap<>();
-        objectObjectLinkedHashMap.put("filePath", filePath);
-        objectObjectLinkedHashMap.put("lastN", lastN);
         objectObjectLinkedHashMap.put("showMaxLine", showMaxLine);
         objectObjectLinkedHashMap.put("fontSize", fontSize);
         objectObjectLinkedHashMap.put("bgColor", bgColor);
         objectObjectLinkedHashMap.put("autoWarp", autoWarp);
-        objectObjectLinkedHashMap.put("onExit", onExit);
-
-        ArrayList<LinkedHashMap<String, Object>> arrayList = new ArrayList<>();
-
-        for (PluginConfig pluginConfig : pluginList) {
-            LinkedHashMap<String, Object> objectObjectLinkedHashMap1 = new LinkedHashMap<>();
-            objectObjectLinkedHashMap1.put("name", pluginConfig.getName());
-            if (StringUtils.isNotBlank(pluginConfig.getPath()))
-                objectObjectLinkedHashMap1.put("path", pluginConfig.getPath());
-            if (pluginConfig.isAsync())
-                objectObjectLinkedHashMap1.put("async", true);
-            arrayList.add(objectObjectLinkedHashMap1);
-        }
-
-        objectObjectLinkedHashMap.put("pluginList", arrayList);
-
         String string = yaml.dumpAsMap(objectObjectLinkedHashMap);
         GraalvmUtil.writeFile(viewPath, string);
-    }
-
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-
-    public int getLastN() {
-        return lastN;
-    }
-
-    public void setLastN(int lastN) {
-        this.lastN = lastN;
     }
 
     public int getShowMaxLine() {
@@ -133,69 +94,4 @@ public class ViewConfig {
     public void setAutoWarp(boolean autoWarp) {
         this.autoWarp = autoWarp;
     }
-
-    public PluginConfig getOnExit() {
-        return onExit;
-    }
-
-    public void setOnExit(PluginConfig onExit) {
-        this.onExit = onExit;
-    }
-
-    public List<PluginConfig> getPluginList() {
-        return pluginList;
-    }
-
-    public void setPluginList(List<PluginConfig> pluginList) {
-        this.pluginList = pluginList;
-    }
-
-    public static class PluginConfig {
-
-        private String name;
-        private String path;
-        private boolean async = false;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getPath() {
-            return path;
-        }
-
-        public void setPath(String path) {
-            this.path = path;
-        }
-
-
-        public boolean isAsync() {
-            return async;
-        }
-
-        public void setAsync(boolean async) {
-            this.async = async;
-        }
-
-        public void exec() {
-            Thread.ofPlatform().start(() -> {
-                try {
-                    try (JSContext build = JSContext.build()) {
-                        build.evalFile(getPath());
-                    }
-                } catch (Throwable e) {
-                    String string = Throw.ofString(e);
-                    System.err.println(string);
-                    GraalvmUtil.appendFile(string);
-                    ConsoleOutput.ins.add(string);
-                }
-            });
-        }
-
-    }
-
 }

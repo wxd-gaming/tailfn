@@ -13,7 +13,6 @@
             <menus>
                 <Menu fx:id="menu_file" mnemonicParsing="false" text="开始">
                     <items>
-                        <MenuItem text="选择" onAction="#selectFile"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="视图">

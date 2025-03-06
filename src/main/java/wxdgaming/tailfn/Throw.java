@@ -1,5 +1,7 @@
 package wxdgaming.tailfn;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 
@@ -19,7 +21,7 @@ public class Throw extends RuntimeException implements Serializable {
 
         String message = null;
 
-        if (msg != null && !msg.isBlank()) {
+        if (StringUtils.isNotBlank(msg)) {
             message = msg;
         }
 
@@ -30,7 +32,7 @@ public class Throw extends RuntimeException implements Serializable {
             throwableMessage = throwable.toString();
         }
 
-        if (throwableMessage != null && !throwableMessage.isBlank()) {
+        if (StringUtils.isNotBlank(throwableMessage)) {
             if (message != null) message = message + ", " + throwableMessage;
             else message = throwableMessage;
         }
@@ -156,7 +158,7 @@ public class Throw extends RuntimeException implements Serializable {
         } else {
             throwableName = throwable.getClass().getName() + ", " + throwable.getMessage();
         }
-        if (!(msg == null || msg.isBlank())) {
+        if (StringUtils.isNotBlank(msg)) {
             throwableName += ", " + msg;
         }
         return throwableName;

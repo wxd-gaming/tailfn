@@ -1,9 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="wxdgaming.tailfn.Main" />
+  <configuration default="false" name="TestMain" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="wxdgaming.tailfn.TestMain" />
     <module name="wxdgaming.tailfn" />
-    <option name="PROGRAM_PARAMETERS" value="xx.yml" />
-    <option name="VM_PARAMETERS" value="-Dbuild.graalvm=true" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="wxdgaming.tailfn.*" />

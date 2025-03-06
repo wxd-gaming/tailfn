@@ -28,9 +28,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class ConsoleApplication extends Application {
 
     public static String __iconName = "logo.png";
-    static AtomicBoolean icon_checked = new AtomicBoolean();
+    public static String __Title = "日志";
+    public static AtomicBoolean icon_checked = new AtomicBoolean();
 
     public static Stage __primaryStage;
+    public static ConsoleController __ConsoleController;
 
     @Override public void start(Stage primaryStage) throws Exception {
 
@@ -41,17 +43,19 @@ public class ConsoleApplication extends Application {
         URL resource = helloApplicationClass.getResource("console.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(resource);
         Parent loaded = fxmlLoader.load();
-        ConsoleController controller = fxmlLoader.getController();
-        controller.init();
+        __ConsoleController = fxmlLoader.getController();
+        __ConsoleController.init();
         Scene scene = new Scene(loaded, 1000, 600, false, SceneAntialiasing.BALANCED);
-        primaryStage.setTitle("日志阅读器");
+        primaryStage.setTitle(__Title);
         primaryStage.getIcons().add(image_logo);
         primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest(event -> {
             event.consume();
             closeSelect(primaryStage);
         });
-        primaryStage.show();
+        primaryStage.setAlwaysOnTop(true);
+        // primaryStage.show();
+        primaryStage.setAlwaysOnTop(false);
         setIcon(primaryStage);
         __primaryStage = primaryStage;
     }
@@ -67,9 +71,6 @@ public class ConsoleApplication extends Application {
         alert.showAndWait().ifPresent(event -> {
             if (alert.getResult().getButtonData().equals(ButtonBar.ButtonData.APPLY)) {
                 /*走退出进程逻辑*/
-                if (ViewConfig.ins.getOnExit() != null) {
-                    ViewConfig.ins.getOnExit().exec();
-                }
                 System.exit(0);
             } else {
                 if (icon_checked.get()) {
@@ -90,18 +91,10 @@ public class ConsoleApplication extends Application {
                 /*TODO 系统托盘图标*/
                 SystemTray tray = SystemTray.getSystemTray();
                 BufferedImage bufferedImage = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream(__iconName));
-                TrayIcon trayIcon = new TrayIcon(bufferedImage, "日志阅读器");
+                TrayIcon trayIcon = new TrayIcon(bufferedImage, __Title);
                 trayIcon.setImageAutoSize(true);
                 /*TODO 图标双击事件 */
                 trayIcon.addActionListener(e -> PlatformImpl.runLater(primaryStage::show));
-                // PopupMenu popupMenu = new PopupMenu();
-                // {
-                //     MenuItem mi_exit = new MenuItem("退出");
-                //     // 指定支持中文的字体
-                //     mi_exit.setFont(new Font("宋体", Font.PLAIN, 12));
-                //     popupMenu.add(mi_exit);
-                // }
-                // trayIcon.setPopupMenu(popupMenu);
                 tray.add(trayIcon);
                 icon_checked.set(true);
                 GraalvmUtil.appendFile("创建托盘图标");

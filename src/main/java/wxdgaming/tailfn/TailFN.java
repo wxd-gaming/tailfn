@@ -40,7 +40,7 @@ public class TailFN {
             skipped();
             readLastLine();
             long pollingInterval = 1000; // Poll every second
-            FileAlterationObserver fileAlterationObserver = FileAlterationObserver.builder().setFile(this.filePath.toFile().getParentFile()).get();
+            FileAlterationObserver fileAlterationObserver = new FileAlterationObserver(this.filePath.toFile().getParentFile());
             monitor = new FileAlterationMonitor(pollingInterval);
             FileAlterationListenerAdaptor listener = new FileAlterationListenerAdaptor() {
                 @Override
