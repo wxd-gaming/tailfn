@@ -102,37 +102,7 @@ public class ConsoleController {
                     menuItem = new MenuItem(pluginConfig.getName());
                     menuItem.setUserData(pluginConfig.getPath());
                     menuItem.setOnAction(event -> {
-                        Thread.ofPlatform().start(() -> {
-                            try {
-                                // if (pluginConfig.isCode()) {
-                                try (JSContext build = JSContext.build()) {
-                                    build.evalFile(pluginConfig.getPath());
-                                }
-                            /* } else {
-                                File file = new File(pluginConfig.getPath());
-                                if (!file.exists()) {
-                                    ConsoleOutput.ins.add("执行命令：" + pluginConfig.getName() + ", 文件不存在: " + pluginConfig.getPath());
-                                    return;
-                                }
-                                GraalvmUtil.execLocalCommand(pluginConfig.isAsync(), pluginConfig.getPath());
-                            } */
-                            } catch (Throwable e) {
-                                String string = Throw.ofString(e);
-                                System.err.println(string);
-                                GraalvmUtil.appendFile(string);
-                                ConsoleOutput.ins.add(string);
-                            } finally {
-                                try {
-                                    if (pluginConfig.isExit()) {
-                                        Runtime.getRuntime().halt(0);
-                                    }
-                                } catch (Exception e) {
-                                    String string = Throw.ofString(e);
-                                    System.err.println(string);
-                                    GraalvmUtil.appendFile(string);
-                                }
-                            }
-                        });
+                        pluginConfig.exec();
                     });
                 }
                 index++;

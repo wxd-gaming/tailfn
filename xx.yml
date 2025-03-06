@@ -4,4 +4,6 @@ showMaxLine: 1500
 fontSize: 13
 bgColor: body_light
 autoWarp: false
+onExit:
+  path: exit.js
 pluginList: []

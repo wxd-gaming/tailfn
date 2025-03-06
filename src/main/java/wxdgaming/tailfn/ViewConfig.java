@@ -49,6 +49,7 @@ public class ViewConfig {
     private int fontSize = 13;
     private String bgColor = "body_light";
     private boolean autoWarp = false;
+    private PluginConfig onExit = new PluginConfig();
     private List<PluginConfig> pluginList = new ArrayList<>();
 
     public void save() {
@@ -65,6 +66,8 @@ public class ViewConfig {
         objectObjectLinkedHashMap.put("fontSize", fontSize);
         objectObjectLinkedHashMap.put("bgColor", bgColor);
         objectObjectLinkedHashMap.put("autoWarp", autoWarp);
+        objectObjectLinkedHashMap.put("onExit", onExit);
+
         ArrayList<LinkedHashMap<String, Object>> arrayList = new ArrayList<>();
 
         for (PluginConfig pluginConfig : pluginList) {
@@ -72,12 +75,8 @@ public class ViewConfig {
             objectObjectLinkedHashMap1.put("name", pluginConfig.getName());
             if (StringUtils.isNotBlank(pluginConfig.getPath()))
                 objectObjectLinkedHashMap1.put("path", pluginConfig.getPath());
-            if (pluginConfig.isCode())
-                objectObjectLinkedHashMap1.put("code", true);
             if (pluginConfig.isAsync())
                 objectObjectLinkedHashMap1.put("async", true);
-            if (pluginConfig.isExit())
-                objectObjectLinkedHashMap1.put("exit", true);
             arrayList.add(objectObjectLinkedHashMap1);
         }
 
@@ -135,6 +134,14 @@ public class ViewConfig {
         this.autoWarp = autoWarp;
     }
 
+    public PluginConfig getOnExit() {
+        return onExit;
+    }
+
+    public void setOnExit(PluginConfig onExit) {
+        this.onExit = onExit;
+    }
+
     public List<PluginConfig> getPluginList() {
         return pluginList;
     }
@@ -147,9 +154,7 @@ public class ViewConfig {
 
         private String name;
         private String path;
-        private boolean code = false;
         private boolean async = false;
-        private boolean exit = false;
 
         public String getName() {
             return name;
@@ -167,13 +172,6 @@ public class ViewConfig {
             this.path = path;
         }
 
-        public boolean isCode() {
-            return code;
-        }
-
-        public void setCode(boolean code) {
-            this.code = code;
-        }
 
         public boolean isAsync() {
             return async;
@@ -183,13 +181,21 @@ public class ViewConfig {
             this.async = async;
         }
 
-        public boolean isExit() {
-            return exit;
+        public void exec() {
+            Thread.ofPlatform().start(() -> {
+                try {
+                    try (JSContext build = JSContext.build()) {
+                        build.evalFile(getPath());
+                    }
+                } catch (Throwable e) {
+                    String string = Throw.ofString(e);
+                    System.err.println(string);
+                    GraalvmUtil.appendFile(string);
+                    ConsoleOutput.ins.add(string);
+                }
+            });
         }
 
-        public void setExit(boolean exit) {
-            this.exit = exit;
-        }
     }
 
 }

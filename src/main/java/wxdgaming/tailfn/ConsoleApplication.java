@@ -7,6 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -55,12 +58,29 @@ public class ConsoleApplication extends Application {
 
     /** 关闭事件选择 */
     public void closeSelect(Stage primaryStage) {
-        if (icon_checked.get()) {
-            Platform.runLater(primaryStage::hide);
-        } else {
-            /*最小化*/
-            Platform.runLater(() -> primaryStage.setIconified(true));
-        }
+
+        Alert alert = new Alert(Alert.AlertType.NONE);
+        alert.setTitle("提示");
+        alert.setContentText("确定要退出进程吗？");
+        alert.getButtonTypes().add(new ButtonType("最小化", ButtonBar.ButtonData.CANCEL_CLOSE));
+        alert.getButtonTypes().add(new ButtonType("退出", ButtonBar.ButtonData.APPLY));
+        alert.showAndWait().ifPresent(event -> {
+            if (alert.getResult().getButtonData().equals(ButtonBar.ButtonData.APPLY)) {
+                /*走退出进程逻辑*/
+                if (ViewConfig.ins.getOnExit() != null) {
+                    ViewConfig.ins.getOnExit().exec();
+                }
+                System.exit(0);
+            } else {
+                if (icon_checked.get()) {
+                    Platform.runLater(primaryStage::hide);
+                } else {
+                    /*最小化*/
+                    Platform.runLater(() -> primaryStage.setIconified(true));
+                }
+            }
+        });
+
     }
 
     /** 开启系统托盘图标 */
