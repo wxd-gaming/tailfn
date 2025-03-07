@@ -66,4 +66,8 @@ public class GraalvmUtil {
         }
     }
 
+    public static String classPath() {
+        return System.getProperty("java.class.path");
+    }
+
 }

@@ -36,7 +36,7 @@ public class ViewConfig {
                 ins = new ViewConfig();
                 ins.save();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

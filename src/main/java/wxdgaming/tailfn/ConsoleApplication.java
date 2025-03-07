@@ -53,9 +53,13 @@ public class ConsoleApplication extends Application {
             event.consume();
             closeSelect(primaryStage);
         });
-        primaryStage.setAlwaysOnTop(true);
-        // primaryStage.show();
-        primaryStage.setAlwaysOnTop(false);
+
+        // if (!StringUtils.isBlank(GraalvmUtil.classPath())) {
+        //     primaryStage.setAlwaysOnTop(true);
+        // primaryStage.hide();
+        //     primaryStage.setAlwaysOnTop(false);
+        // }
+        // primaryStage.setIconified(true);
         setIcon(primaryStage);
         __primaryStage = primaryStage;
     }
@@ -68,14 +72,17 @@ public class ConsoleApplication extends Application {
         alert.setHeaderText("确定要退出进程吗？");
         alert.setContentText("");
         alert.getButtonTypes().clear();
-        alert.getButtonTypes().add(new ButtonType("最小化", ButtonBar.ButtonData.LEFT));
-        alert.getButtonTypes().add(new ButtonType("取消", ButtonBar.ButtonData.CANCEL_CLOSE));
-        alert.getButtonTypes().add(new ButtonType("退出", ButtonBar.ButtonData.APPLY));
+        ButtonType minButton = new ButtonType("最小化", ButtonBar.ButtonData.RIGHT);
+        ButtonType exitButton = new ButtonType("退出", ButtonBar.ButtonData.RIGHT);
+        ButtonType cancelButton = new ButtonType("取消", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().add(minButton);
+        alert.getButtonTypes().add(exitButton);
+        alert.getButtonTypes().add(cancelButton);
         alert.showAndWait().ifPresent(event -> {
-            if (alert.getResult().getButtonData().equals(ButtonBar.ButtonData.APPLY)) {
+            if (alert.getResult().equals(exitButton)) {
                 /*走退出进程逻辑*/
                 System.exit(0);
-            } else if (alert.getResult().getButtonData().equals(ButtonBar.ButtonData.LEFT)) {
+            } else if (alert.getResult().equals(minButton)) {
                 if (icon_checked.get()) {
                     Platform.runLater(primaryStage::hide);
                 } else {
@@ -97,7 +104,13 @@ public class ConsoleApplication extends Application {
                 TrayIcon trayIcon = new TrayIcon(bufferedImage, __Title);
                 trayIcon.setImageAutoSize(true);
                 /*TODO 图标双击事件 */
-                trayIcon.addActionListener(e -> PlatformImpl.runLater(primaryStage::show));
+                trayIcon.addActionListener(e -> {
+                    PlatformImpl.runLater(() -> {
+                        primaryStage.show();
+                        primaryStage.setAlwaysOnTop(true);
+                        primaryStage.setAlwaysOnTop(false);
+                    });
+                });
                 tray.add(trayIcon);
                 icon_checked.set(true);
                 GraalvmUtil.appendFile("创建托盘图标");
