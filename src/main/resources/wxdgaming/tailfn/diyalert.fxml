@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="wxdgaming.tailfn.DiyAlert"
+           prefHeight="400.0" prefWidth="600.0">
+    <Label fx:id="lab_title" prefHeight="32" maxWidth="Infinity" StackPane.alignment="TOP_CENTER" text="xxxx">
+    </Label>
+    <Button styleClass="btn_fun,btn_fun_close" prefHeight="24" prefWidth="24" StackPane.alignment="TOP_RIGHT"
+            onAction="#btn_exit">
+        <StackPane.margin>
+            <Insets top="4" right="6"/>
+        </StackPane.margin>
+    </Button>
+    <Label fx:id="lab_Content" StackPane.alignment="TOP_LEFT"
+           text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+        <StackPane.margin>
+            <Insets top="45"/>
+        </StackPane.margin>
+    </Label>
+</StackPane>

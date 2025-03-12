@@ -1,0 +1,49 @@
+.root {
+    -fx-background-color: #333333;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10;
+    -fx-text-fill: #f0f0f0;
+    -fx-border-width: 1;
+    -fx-border-color: rgb(198, 196, 196);
+}
+
+.btn_fun {
+    -fx-background-color: rgba(28, 28, 28, 0);
+    -fx-border-width: 0;
+    -fx-pref-width: 24;
+    -fx-pref-height: 24;
+    -fx-background-size: 24;
+}
+
+.btn_fun:hover {
+    -fx-background-color: rgb(85, 84, 84);
+}
+
+.btn_fun_close {-fx-background-image: url('/wxdgaming/tailfn/dark/close.png');}
+
+#lab_title {
+    -fx-font-size: 20px;
+    -fx-background-radius: 10 10 0 0;
+    -fx-border-radius: 10px 10px 0 0;
+    -fx-alignment: center;
+    -fx-background-color: #1c1c1c;
+    -fx-text-fill: #f0f0f0;
+}
+
+#lab_Content {
+    -fx-font-size: 15px;
+    -fx-wrap-text: true;
+    -fx-padding: 10 30 10 30;
+    -fx-text-fill: #f0f0f0;
+}
+
+.btn_diy {
+    -fx-background-color: #333333;
+    -fx-text-fill: #f0f0f0;
+    -fx-border-width: 1;
+    -fx-border-color: rgb(198, 196, 196);
+}
+
+.btn_diy:hover {
+    -fx-background-color: #0293cd;
+}

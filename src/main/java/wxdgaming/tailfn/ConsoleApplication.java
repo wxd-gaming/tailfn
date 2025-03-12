@@ -7,11 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Control;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.apache.commons.lang3.StringUtils;
@@ -59,9 +57,12 @@ public class ConsoleApplication extends Application {
         __ConsoleController.img_logo.setImage(image_logo);
 
         Scene scene = new Scene(root, 1000, 600, false, SceneAntialiasing.BALANCED);
+        // 设置场景的填充颜色为透明
+        scene.setFill(new Color(0, 0, 0, 0));
+
         primaryStage.setTitle(__Title);
         __ConsoleController.lab_title.setText(__Title);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.getIcons().add(image_logo);
         primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest(event -> {
@@ -78,6 +79,7 @@ public class ConsoleApplication extends Application {
         } else {
             primaryStage.setIconified(true);
         }
+
         __primaryStage = primaryStage;
         initDrag(__ConsoleController.lab_title);
         initDrag(__ConsoleController.mb);
@@ -102,27 +104,17 @@ public class ConsoleApplication extends Application {
 
     /** 关闭事件选择 */
     public static void closeSelect() {
-
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("提示");
-        alert.setHeaderText("确定要退出进程吗？");
-        alert.setContentText("");
-        alert.getButtonTypes().clear();
-        ButtonType minButton = new ButtonType("最小化", ButtonBar.ButtonData.RIGHT);
-        ButtonType exitButton = new ButtonType("退出", ButtonBar.ButtonData.RIGHT);
-        ButtonType cancelButton = new ButtonType("取消", ButtonBar.ButtonData.CANCEL_CLOSE);
-        alert.getButtonTypes().add(minButton);
-        alert.getButtonTypes().add(exitButton);
-        alert.getButtonTypes().add(cancelButton);
-        alert.showAndWait().ifPresent(event -> {
-            if (alert.getResult().equals(exitButton)) {
-                /*走退出进程逻辑*/
-                System.exit(0);
-            } else if (alert.getResult().equals(minButton)) {
-                window_min();
-            }
-        });
-
+        try {
+            DiyAlert diyAlert = DiyAlert.build();
+            diyAlert.lab_title.setText("提示");
+            diyAlert.lab_Content.setText("确定要退出进程吗？");
+            diyAlert.addButton("退出", () -> {System.exit(0);});
+            diyAlert.addButton("最小化", ConsoleApplication::window_min);
+            diyAlert.stage.showAndWait();
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+            GraalvmUtil.appendFile(Throw.ofString(e));
+        }
     }
 
     public static void window_max() {

@@ -1,43 +1,40 @@
 .root {
-    -fx-background-color: #333333;
+    -fx-background-color: rgba(239, 239, 239);
     -fx-border-radius: 10px;
     -fx-background-radius: 10;
 }
 
-
 /* 设置 MenuBar 的背景颜色和字体颜色 */
 .menu-bar {
-    -fx-background-color: #333333;
-    -fx-text-fill: #f0f0f0;
+    -fx-background-color: rgba(239, 239, 239);
+    -fx-text-fill: #1c1c1c;
     -fx-font-size: 15px;
 }
 
 /* 设置鼠标悬停时菜单项的背景颜色 */
 .menu:hover {
-    -fx-text-fill: white;
     -fx-background-color: #0293cd;
 }
 
 /* 设置菜单项的背景颜色和字体颜色 */
 .menu .label {
-    -fx-text-fill: #f0f0f0;
+    -fx-text-fill: #1c1c1c;
 }
 
 /* 设置鼠标悬停时菜单项的背景颜色 */
 .menu .label:hover {
-    -fx-text-fill: white;
     -fx-background-color: #0293cd;
 }
 
 /* 设置下拉菜单的背景颜色 */
 .context-menu {
     -fx-fill-width: 40px;
-    -fx-background-color: #333333;
+    -fx-background-color: rgba(239, 239, 239);
 }
 
 /* 设置下拉菜单项的背景颜色和字体颜色 */
 .menu-item .label {
-    -fx-text-fill: white;
+    -fx-text-fill: #333333;
 }
 
 /* 设置鼠标悬停时下拉菜单项的背景颜色 */
@@ -46,8 +43,8 @@
 }
 
 #lab_title {
-    -fx-font-size: 15px;
-    -fx-text-fill: #f0f0f0;
+    -fx-font-size: 20px;
+    -fx-text-fill: #1c1c1c;
 }
 
 .btn_fun {
@@ -55,14 +52,15 @@
     -fx-border-width: 0;
     -fx-pref-width: 24;
     -fx-pref-height: 24;
+    -fx-background-size: 24;
 }
 
 .btn_fun:hover {
-    -fx-background-color: rgba(28, 28, 28, 0.69);
+    -fx-background-color: rgb(198, 196, 196);
 }
 
-.btn_fun_min {-fx-background-image: url('/wxdgaming/tailfn/dark/min.png');}
+.btn_fun_min {-fx-background-image: url('/wxdgaming/tailfn/light/min.png');}
 
-.btn_fun_max {-fx-background-image: url('/wxdgaming/tailfn/dark/max.png');}
+.btn_fun_max {-fx-background-image: url('/wxdgaming/tailfn/light/max.png');}
 
-.btn_fun_close {-fx-background-image: url('/wxdgaming/tailfn/dark/close.png');}
+.btn_fun_close {-fx-background-image: url('/wxdgaming/tailfn/light/close.png');}

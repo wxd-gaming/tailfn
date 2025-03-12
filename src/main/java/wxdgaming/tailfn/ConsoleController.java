@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
 import org.apache.commons.lang3.StringUtils;
 
@@ -31,6 +32,7 @@ public class ConsoleController {
     public ImageView img_logo;
     public MenuBar mb;
     public Label lab_title;
+    public StackPane root;
 
     TailFN tailFN;
 
@@ -47,7 +49,6 @@ public class ConsoleController {
     }
 
     public void init() {
-
         // 设置全局异常处理器
         Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
             // 处理未捕获的异常
@@ -123,14 +124,14 @@ public class ConsoleController {
 
     /** 设置深色模式 */
     public void setDarkBgColor(ActionEvent event) {
-        ViewConfig.ins.setBgColor("body_dark");
+        ViewConfig.ins.setBgColor("dark");
         setBg();
         ViewConfig.ins.save();
     }
 
     /** 设置浅色模式 */
     public void setLightBgColor(ActionEvent event) {
-        ViewConfig.ins.setBgColor("body_light");
+        ViewConfig.ins.setBgColor("light");
         setBg();
         ViewConfig.ins.save();
     }
@@ -175,13 +176,13 @@ public class ConsoleController {
 
     public void setBg() {
         if (StringUtils.isBlank(ViewConfig.ins.getBgColor())) {
-            ViewConfig.ins.setBgColor("body_light");
+            ViewConfig.ins.setBgColor("light");
         }
         webView.getEngine().executeScript(String.format("setBg('%s');", ViewConfig.ins.getBgColor()));
         String replace = this.getClass().getPackage().getName().replace(".", "/");
         ObservableList<String> stylesheets = webView.getScene().getStylesheets();
         stylesheets.removeIf(v -> v.contains(replace));
-        String name = "/" + replace + "/" + ViewConfig.ins.getBgColor() + ".css";
+        String name = "/" + replace + "/" + ViewConfig.ins.getBgColor() + "/theme.css";
         URL cssResource = this.getClass().getResource(name);
         stylesheets.add(cssResource.toExternalForm());
     }
@@ -193,7 +194,7 @@ public class ConsoleController {
         webView.getEngine().executeScript(String.format("setFontSize(%s);", ViewConfig.ins.getFontSize()));
     }
 
-    public void btn_min(ActionEvent event) {
+    public void btn_min(ActionEvent event) throws Exception {
         ConsoleApplication.window_min();
     }
 
@@ -201,7 +202,7 @@ public class ConsoleController {
         ConsoleApplication.window_max();
     }
 
-    public void btn_exit(ActionEvent event) {
+    public void btn_exit(ActionEvent event) throws Exception {
         ConsoleApplication.closeSelect();
     }
 
