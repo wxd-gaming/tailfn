@@ -1,14 +1,15 @@
 package wxdgaming.tailfn;
 
 import com.sun.javafx.application.PlatformImpl;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.web.WebView;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.InputStream;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,6 +28,9 @@ public class ConsoleController {
 
     public WebView webView;
     public Menu menu_file;
+    public ImageView img_logo;
+    public MenuBar mb;
+    public Label lab_title;
 
     TailFN tailFN;
 
@@ -174,6 +178,12 @@ public class ConsoleController {
             ViewConfig.ins.setBgColor("body_light");
         }
         webView.getEngine().executeScript(String.format("setBg('%s');", ViewConfig.ins.getBgColor()));
+        String replace = this.getClass().getPackage().getName().replace(".", "/");
+        ObservableList<String> stylesheets = webView.getScene().getStylesheets();
+        stylesheets.removeIf(v -> v.contains(replace));
+        String name = "/" + replace + "/" + ViewConfig.ins.getBgColor() + ".css";
+        URL cssResource = this.getClass().getResource(name);
+        stylesheets.add(cssResource.toExternalForm());
     }
 
     public void setFontSize() {
@@ -182,4 +192,17 @@ public class ConsoleController {
         }
         webView.getEngine().executeScript(String.format("setFontSize(%s);", ViewConfig.ins.getFontSize()));
     }
+
+    public void btn_min(ActionEvent event) {
+        ConsoleApplication.window_min();
+    }
+
+    public void btn_max(ActionEvent event) {
+        ConsoleApplication.window_max();
+    }
+
+    public void btn_exit(ActionEvent event) {
+        ConsoleApplication.closeSelect();
+    }
+
 }

@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.web.WebView?>
 <StackPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22"
            fx:controller="wxdgaming.tailfn.ConsoleController"
            xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <MenuBar prefHeight="28.0" StackPane.alignment="TOP_RIGHT">
+        <ImageView fx:id="img_logo" fitWidth="24" fitHeight="24" StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+                <Insets top="4.0" left="5"/>
+            </StackPane.margin>
+        </ImageView>
+        <MenuBar fx:id="mb" prefHeight="34.0" prefWidth="140" StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+                <Insets left="38" right="80" top="2"/>
+            </StackPane.margin>
             <menus>
                 <Menu fx:id="menu_file" mnemonicParsing="false" text="开始">
                     <items>
@@ -34,9 +43,29 @@
                 </Menu>
             </menus>
         </MenuBar>
+        <Label fx:id="lab_title" prefHeight="32" StackPane.alignment="TOP_CENTER" text="xxxx">
+            <StackPane.margin>
+                <Insets top="4"/>
+            </StackPane.margin>
+        </Label>
+        <Button styleClass="btn_fun,btn_fun_min" StackPane.alignment="TOP_RIGHT" onAction="#btn_min">
+            <StackPane.margin>
+                <Insets top="4" right="62"/>
+            </StackPane.margin>
+        </Button>
+        <Button styleClass="btn_fun,btn_fun_max" StackPane.alignment="TOP_RIGHT" onAction="#btn_max">
+            <StackPane.margin>
+                <Insets top="4" right="34"/>
+            </StackPane.margin>
+        </Button>
+        <Button styleClass="btn_fun,btn_fun_close" StackPane.alignment="TOP_RIGHT" onAction="#btn_exit">
+            <StackPane.margin>
+                <Insets top="4" right="6"/>
+            </StackPane.margin>
+        </Button>
         <WebView fx:id="webView" StackPane.alignment="TOP_RIGHT">
             <StackPane.margin>
-                <Insets top="28.0"/>
+                <Insets top="36.0"/>
             </StackPane.margin>
         </WebView>
     </children>

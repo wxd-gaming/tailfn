@@ -10,8 +10,11 @@ import javafx.scene.SceneAntialiasing;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Control;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -27,12 +30,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class ConsoleApplication extends Application {
 
-    public static String __iconName = "logo.png";
+    public static String __iconName = "game-logo.png";
     public static String __Title = "日志";
     public static AtomicBoolean icon_checked = new AtomicBoolean();
 
     public static Stage __primaryStage;
     public static ConsoleController __ConsoleController;
+    public static Parent root = null;
+    private static double xOffSet = 0;
+    private static double yOffSet = 0;
+
+    public static String lastSelectStyle = null;
 
     @Override public void start(Stage primaryStage) throws Exception {
 
@@ -42,30 +50,58 @@ public class ConsoleApplication extends Application {
         Class<ConsoleApplication> helloApplicationClass = ConsoleApplication.class;
         URL resource = helloApplicationClass.getResource("console.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(resource);
-        Parent loaded = fxmlLoader.load();
+
+        root = fxmlLoader.load();
+
         __ConsoleController = fxmlLoader.getController();
         __ConsoleController.init();
-        Scene scene = new Scene(loaded, 1000, 600, false, SceneAntialiasing.BALANCED);
+
+        __ConsoleController.img_logo.setImage(image_logo);
+
+        Scene scene = new Scene(root, 1000, 600, false, SceneAntialiasing.BALANCED);
         primaryStage.setTitle(__Title);
+        __ConsoleController.lab_title.setText(__Title);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.getIcons().add(image_logo);
         primaryStage.setScene(scene);
         primaryStage.setOnCloseRequest(event -> {
             event.consume();
-            closeSelect(primaryStage);
+            closeSelect();
         });
 
-        // if (!StringUtils.isBlank(GraalvmUtil.classPath())) {
-        //     primaryStage.setAlwaysOnTop(true);
-        // primaryStage.hide();
-        //     primaryStage.setAlwaysOnTop(false);
-        // }
-        // primaryStage.setIconified(true);
         setIcon(primaryStage);
+
+        if (!StringUtils.isBlank(GraalvmUtil.classPath())) {
+            primaryStage.setAlwaysOnTop(true);
+            primaryStage.show();
+            primaryStage.setAlwaysOnTop(false);
+        } else {
+            primaryStage.setIconified(true);
+        }
         __primaryStage = primaryStage;
+        initDrag(__ConsoleController.lab_title);
+        initDrag(__ConsoleController.mb);
+    }
+
+    public static void initDrag(Control control) {
+        control.setOnMousePressed(event -> {
+            ConsoleApplication.xOffSet = event.getSceneX();
+            ConsoleApplication.yOffSet = event.getSceneY();
+        });
+
+        control.setOnMouseDragged(event -> {
+            if (__primaryStage.isMaximized()) {
+                __primaryStage.setMaximized(false);
+                ConsoleApplication.xOffSet = event.getSceneX();
+                ConsoleApplication.yOffSet = event.getSceneY();
+            }
+            __primaryStage.setX(event.getScreenX() - ConsoleApplication.xOffSet);
+            __primaryStage.setY(event.getScreenY() - ConsoleApplication.yOffSet);
+        });
     }
 
     /** 关闭事件选择 */
-    public void closeSelect(Stage primaryStage) {
+    public static void closeSelect() {
 
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("提示");
@@ -83,15 +119,24 @@ public class ConsoleApplication extends Application {
                 /*走退出进程逻辑*/
                 System.exit(0);
             } else if (alert.getResult().equals(minButton)) {
-                if (icon_checked.get()) {
-                    Platform.runLater(primaryStage::hide);
-                } else {
-                    /*最小化*/
-                    Platform.runLater(() -> primaryStage.setIconified(true));
-                }
+                window_min();
             }
         });
 
+    }
+
+    public static void window_max() {
+        __primaryStage.setMaximized(!__primaryStage.isMaximized());
+        __primaryStage.show();
+    }
+
+    public static void window_min() {
+        if (icon_checked.get()) {
+            Platform.runLater(__primaryStage::hide);
+        } else {
+            /*最小化*/
+            Platform.runLater(() -> __primaryStage.setIconified(true));
+        }
     }
 
     /** 开启系统托盘图标 */
@@ -106,6 +151,7 @@ public class ConsoleApplication extends Application {
                 /*TODO 图标双击事件 */
                 trayIcon.addActionListener(e -> {
                     PlatformImpl.runLater(() -> {
+                        primaryStage.setIconified(false);
                         primaryStage.show();
                         primaryStage.setAlwaysOnTop(true);
                         primaryStage.setAlwaysOnTop(false);
@@ -122,4 +168,5 @@ public class ConsoleApplication extends Application {
             GraalvmUtil.appendFile(e.toString());
         }
     }
+
 }
