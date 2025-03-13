@@ -9,14 +9,16 @@
 <StackPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22"
            fx:controller="wxdgaming.tailfn.ConsoleController"
            xmlns:fx="http://javafx.com/fxml/1">
+    <Label fx:id="lab_title" prefHeight="32" maxWidth="Infinity" StackPane.alignment="TOP_CENTER" text="xxxx">
+    </Label>
     <ImageView fx:id="img_logo" fitWidth="24" fitHeight="24" StackPane.alignment="TOP_LEFT">
         <StackPane.margin>
             <Insets top="4.0" left="8"/>
         </StackPane.margin>
     </ImageView>
-    <MenuBar fx:id="mb" prefHeight="34.0" prefWidth="140" StackPane.alignment="TOP_LEFT">
+    <MenuBar fx:id="mb" prefHeight="34.0" maxHeight="34" maxWidth="160" StackPane.alignment="TOP_LEFT">
         <StackPane.margin>
-            <Insets left="32" right="80" top="2"/>
+            <Insets left="32" top="2"/>
         </StackPane.margin>
         <Menu fx:id="menu_file" mnemonicParsing="false" text="开始">
         </Menu>
@@ -34,8 +36,6 @@
             <MenuItem mnemonicParsing="false" text="浅色" onAction="#setLightBgColor"/>
         </Menu>
     </MenuBar>
-    <Label fx:id="lab_title" prefHeight="32" StackPane.alignment="TOP_CENTER" text="xxxx">
-    </Label>
     <Button styleClass="btn_fun,btn_fun_min" StackPane.alignment="TOP_RIGHT" onAction="#btn_min">
         <StackPane.margin>
             <Insets top="4" right="62"/>

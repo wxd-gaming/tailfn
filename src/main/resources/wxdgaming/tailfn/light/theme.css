@@ -8,7 +8,10 @@
 .menu-bar {
     -fx-background-color: rgba(239, 239, 239);
     -fx-text-fill: #1c1c1c;
-    -fx-font-size: 15px;
+    -fx-font-size: 13px;
+    -fx-start-margin: 0;
+    -fx-end-margin: 0;
+    -fx-padding: 0;
 }
 
 /* 设置鼠标悬停时菜单项的背景颜色 */
@@ -35,6 +38,7 @@
 /* 设置下拉菜单项的背景颜色和字体颜色 */
 .menu-item .label {
     -fx-text-fill: #333333;
+    -fx-font-size: 12px;
 }
 
 /* 设置鼠标悬停时下拉菜单项的背景颜色 */
@@ -45,6 +49,7 @@
 #lab_title {
     -fx-font-size: 20px;
     -fx-text-fill: #1c1c1c;
+    -fx-alignment: center;
 }
 
 .btn_fun {

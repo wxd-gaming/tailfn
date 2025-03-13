@@ -82,10 +82,14 @@ public class ConsoleApplication extends Application {
 
         __primaryStage = primaryStage;
         initDrag(__ConsoleController.lab_title);
-        initDrag(__ConsoleController.mb);
     }
 
     public static void initDrag(Control control) {
+        control.setOnMouseClicked(event -> {
+            if (event.getClickCount() >= 2) {
+                window_max();
+            }
+        });
         control.setOnMousePressed(event -> {
             ConsoleApplication.xOffSet = event.getSceneX();
             ConsoleApplication.yOffSet = event.getSceneY();

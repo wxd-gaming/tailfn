@@ -43,7 +43,7 @@ public class ViewConfig {
 
     private int showMaxLine = 1500;
     private int fontSize = 13;
-    private String bgColor = "body_light";
+    private String bgColor = "light";
     private boolean autoWarp = false;
     public String tailFNPath = null;
 
